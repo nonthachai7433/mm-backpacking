@@ -137,10 +137,8 @@ a{color:var(--teal);}
 }
 .hamburger{background:var(--surface);border:1px solid var(--border);color:var(--text);border-radius:8px;padding:8px 12px;cursor:pointer;font-size:16px;}
 
-/* Hide old topnav & manifest if present */
 .topnav,.manifest{display:none !important;}
 
-/* Generic panel restyle for other views */
 .panel{
   background:var(--surface);
   border:1px solid var(--border);
@@ -176,7 +174,6 @@ a{color:var(--teal);}
 .btn-row{display:flex;gap:10px;flex-wrap:wrap;margin-top:8px;}
 .btn:disabled{opacity:0.4;cursor:not-allowed;box-shadow:none;}
 
-/* Forms */
 .login-field{margin-bottom:14px;}
 .login-field label,.form-grid label{
   display:block;font-family:var(--mono);font-size:11px;color:var(--muted);
@@ -195,13 +192,11 @@ input,textarea,select{
 .login-note,.empty-note,.shared-note{color:var(--muted);font-size:13px;line-height:1.6;}
 .shared-note{background:var(--surface-2);border-radius:8px;padding:10px;margin-top:12px;}
 
-/* Stats */
 .stat-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:10px;margin-bottom:8px;}
 .stat-box{background:var(--surface-2);border:1px solid var(--border);border-radius:10px;padding:14px 10px;text-align:center;}
 .stat-box .num{font-family:var(--mono);font-size:22px;font-weight:700;color:var(--accent);}
 .stat-box .lbl{font-size:11px;color:var(--muted);margin-top:3px;}
 
-/* Quiz */
 .progress-track{height:8px;background:var(--surface-2);border-radius:99px;overflow:hidden;margin-bottom:16px;border:1px solid var(--border);}
 .progress-fill{height:100%;background:linear-gradient(90deg,var(--accent),var(--blue));width:0%;transition:width .25s;}
 .progress-label{font-family:var(--mono);font-size:12px;color:var(--muted);display:flex;justify-content:space-between;margin-bottom:6px;}
@@ -220,7 +215,6 @@ input,textarea,select{
 .qbottom-bar{position:sticky;bottom:12px;display:flex;justify-content:center;margin-top:18px;}
 .unanswered-note{font-size:13px;color:var(--danger);text-align:center;margin-top:8px;font-weight:600;}
 
-/* Results */
 .result-wrap{text-align:center;padding:8px 0;}
 .score-big{font-family:var(--mono);font-size:clamp(48px,12vw,72px);font-weight:700;line-height:1;color:var(--accent);}
 .score-sub{font-family:var(--mono);color:var(--muted);font-size:12px;letter-spacing:1px;margin-bottom:10px;}
@@ -234,7 +228,6 @@ input,textarea,select{
 .answerkey-list{text-align:left;font-family:var(--mono);font-size:12px;display:grid;grid-template-columns:repeat(auto-fill,minmax(70px,1fr));gap:6px;margin-top:10px;}
 .answerkey-list div{background:var(--bg);border:1px solid var(--border);border-radius:6px;padding:5px;text-align:center;}
 
-/* Admin */
 .tabs{display:flex;gap:6px;margin-bottom:14px;flex-wrap:wrap;}
 .tab-btn{background:var(--surface-2);border:1.5px solid transparent;border-radius:8px;padding:9px 14px;font-family:var(--font);font-weight:700;font-size:13px;cursor:pointer;color:var(--muted);}
 .tab-btn.active{background:rgba(245,166,35,0.15);color:var(--accent);border-color:var(--accent);}
@@ -261,7 +254,6 @@ table.admin-table tr:nth-child(even){background:var(--surface-2);}
 .history-list{list-style:none;padding:0;margin:12px 0 0;font-family:var(--mono);font-size:12px;max-height:300px;overflow:auto;}
 .history-list li{display:flex;justify-content:space-between;gap:8px;padding:7px 4px;border-bottom:1px dashed var(--border);}
 
-/* Criteria / about / knowledge public */
 .criteria-list{list-style:none;padding:0;margin:0;}
 .criteria-list li{display:flex;gap:10px;padding:12px 0;border-bottom:1px dashed var(--border);}
 .criteria-num{font-family:var(--mono);background:var(--bg);color:var(--accent);font-size:12px;font-weight:700;border-radius:6px;padding:3px 8px;flex-shrink:0;}
@@ -287,7 +279,6 @@ table.eval-table tr:nth-child(even) td{background:var(--surface-2);}
 table.eval-table td.dim-cell,table.eval-table td.weight-cell{font-weight:700;background:var(--bg);font-family:var(--mono);}
 table.eval-table .cn{display:block;opacity:0.7;font-size:10.5px;margin-top:2px;}
 
-/* PDF modal */
 .pdf-viewer-modal{position:fixed;inset:0;z-index:200;background:rgba(0,0,0,0.75);display:flex;align-items:center;justify-content:center;padding:16px;}
 .pdf-viewer-box{background:var(--surface);border-radius:12px;overflow:hidden;width:100%;max-width:960px;height:90vh;display:flex;flex-direction:column;border:1px solid var(--border);}
 .pdf-viewer-bar{background:var(--bg);display:flex;align-items:center;justify-content:space-between;gap:10px;padding:10px 14px;flex-wrap:wrap;}
@@ -296,7 +287,6 @@ table.eval-table .cn{display:block;opacity:0.7;font-size:10.5px;margin-top:2px;}
 .pdf-viewer-close{background:transparent;border:1px solid var(--border);color:var(--text);font-family:var(--mono);font-size:12px;font-weight:700;padding:6px 10px;border-radius:6px;cursor:pointer;}
 .pdf-viewer-frame{flex:1;width:100%;border:none;background:#1a1a1a;}
 
-/* Certificate keep printable */
 .cert-wrap{background:#fdfbf3;border:2px solid #b8934a;padding:14px;max-width:820px;margin:0 auto;color:#16241d;}
 .cert-inner-border{border:1px solid #cbb37a;padding:44px 50px;position:relative;}
 .cert-corner{position:absolute;color:#b8934a;font-size:16px;}
@@ -323,7 +313,7 @@ table.eval-table .cn{display:block;opacity:0.7;font-size:10.5px;margin-top:2px;}
   .main{margin:0 !important;padding:0 !important;}
 }
 
-/* ===== NEXUS HOME DESIGN ===== */
+/* NEXUS HOME DESIGN */
 .nx-hero{
   background:var(--hero-grad);
   border:1px solid var(--border);border-radius:18px;padding:36px 32px;
@@ -406,7 +396,6 @@ table.eval-table .cn{display:block;opacity:0.7;font-size:10.5px;margin-top:2px;}
 
 footer.note{text-align:center;font-size:11px;color:var(--muted);margin-top:32px;font-family:var(--mono);}
 
-/* Multi/option admin leftovers */
 .opt-row,.opt-row3{display:grid;gap:8px;align-items:center;margin-bottom:6px;}
 .opt-row{grid-template-columns:34px 1fr;}
 .opt-row3{grid-template-columns:34px 1fr 34px;}
@@ -434,7 +423,6 @@ footer.note{text-align:center;font-size:11px;color:var(--muted);margin-top:32px;
   .app:has(.sidebar.open) .sidebar-backdrop{display:block;}
   .main{margin-left:0;padding:18px 14px 50px;}
   .top-mobile{display:flex;position:sticky;top:0;z-index:50;}
-  /* เมื่อเมนูเปิด ไม่ให้แถบบนทับ sidebar */
   .app:has(.sidebar.open) .top-mobile{opacity:0.35;pointer-events:none;}
   .nx-quick{grid-template-columns:1fr 1fr;}
   .nx-step-card{grid-template-columns:1fr;}
@@ -447,8 +435,6 @@ footer.note{text-align:center;font-size:11px;color:var(--muted);margin-top:32px;
   .nx-hero{padding:24px 18px;}
 }
 
-
-/* Theme toggle */
 .theme-toggle{
   display:flex;align-items:center;gap:8px;width:100%;
   background:var(--surface);border:1px solid var(--border);
@@ -472,8 +458,6 @@ footer.note{text-align:center;font-size:11px;color:var(--muted);margin-top:32px;
 [data-theme="light"] .nav-logout-btn{border-color:rgba(255,255,255,0.25);color:rgba(255,255,255,0.8);}
 [data-theme="light"] .side-brand small{color:rgba(255,255,255,0.5);}
 
-
-/* ===== Homepage style (liked TERAHOP layout) ===== */
 .th-hero{
   background: var(--hero-grad);
   background-image:
@@ -647,8 +631,6 @@ footer.note{text-align:center;font-size:11px;color:var(--muted);margin-top:32px;
   .th-card-media.dual{grid-template-columns:1fr;}
 }
 
-
-/* Sidebar collapse */
 .app.sidebar-collapsed .sidebar{
   transform:translateX(-100%);
 }
@@ -676,14 +658,12 @@ footer.note{text-align:center;font-size:11px;color:var(--muted);margin-top:32px;
   .app.sidebar-collapsed .sidebar{transform:translateX(-100%);}
 }
 
-/* Admin homepage editor */
 .hp-editor-block{background:var(--surface-2);border:1px solid var(--border);border-radius:10px;padding:14px;margin-bottom:12px;}
 .hp-editor-block h3{margin:0 0 10px;font-size:14px;color:var(--accent);}
 .hp-step-admin{border-left:3px solid var(--accent);padding-left:12px;margin-bottom:14px;}
 .hp-img-preview{max-width:100%;max-height:120px;border-radius:8px;margin-top:6px;border:1px solid var(--border);display:block;}
 .hp-img-row{display:flex;gap:10px;flex-wrap:wrap;align-items:flex-start;}
 .hp-img-col{flex:1;min-width:140px;}
-
 
 .th-moi-table td.moi-link{text-align:center;width:64px;vertical-align:middle;}
 .th-moi-table td.moi-link .th-eye-btn{margin:0 auto;}
@@ -701,12 +681,10 @@ footer.note{text-align:center;font-size:11px;color:var(--muted);margin-top:32px;
   .hp-moi-row .hp-link-full{grid-column:1/-1;}
 }
 
-
 .kb-item .th-eye-btn{
   width:auto;padding:0 12px;gap:6px;font-size:13px;font-weight:600;
   font-family:var(--font);height:32px;border-radius:999px;
 }
-
 
 .hp-img-wrap{position:relative;display:inline-block;margin-top:6px;}
 .hp-img-wrap .hp-img-preview{display:block;max-width:100%;max-height:120px;border-radius:8px;border:1px solid var(--border);}
@@ -731,11 +709,9 @@ footer.note{text-align:center;font-size:11px;color:var(--muted);margin-top:32px;
   background:var(--surface);
 }
 
-
 .tabs{display:flex;flex-wrap:wrap;gap:6px;}
 #admin-other-tabs .tab-btn.active,
 #admin-exam-tabs .tab-btn.active{background:var(--accent);color:#fff;}
-
 
 .ans-status-ok{color:var(--ok)!important;font-weight:700;}
 .ans-status-fail{color:var(--danger)!important;font-weight:700;}
@@ -755,13 +731,10 @@ footer.note{text-align:center;font-size:11px;color:var(--muted);margin-top:32px;
 .qadmin-card.review-ok{border-left:4px solid var(--ok)!important;}
 .qadmin-card.review-fail{border-left:4px solid var(--danger)!important;}
 
-
-/* ===== Overlap / stacking fixes ===== */
 .main{position:relative;z-index:1;isolation:isolate;}
 .sidebar{overflow-y:auto;overflow-x:hidden;-webkit-overflow-scrolling:touch;}
 .side-foot{flex-shrink:0;position:relative;z-index:2;background:transparent;}
 
-/* Admin tab bars: horizontal scroll, no messy overlap */
 #admin-full-tabs,
 #admin-exam-tabs{
   display:none;
@@ -800,7 +773,6 @@ footer.note{text-align:center;font-size:11px;color:var(--muted);margin-top:32px;
 #view-admin{position:relative;}
 #view-admin .panel{position:relative;z-index:1;}
 
-/* Mobile top bar stays below open sidebar */
 .top-mobile{
   backdrop-filter:blur(10px);
   background:color-mix(in srgb, var(--bg-2) 92%, transparent);
@@ -812,24 +784,15 @@ footer.note{text-align:center;font-size:11px;color:var(--muted);margin-top:32px;
   .main{padding-top:8px;}
 }
 
-/* Collapse: keep fab above content but under modals */
 .sidebar-toggle-fab{z-index:55;}
-
-/* Review toolbar spacing */
 .review-toolbar{position:relative;z-index:2;}
-
-/* Prevent card media from overflowing neighbors */
 .th-card{isolation:isolate;}
 .th-card-media img{max-width:100%;}
-
-/* Nav auth buttons stack cleanly */
 #nav-auth-area{position:relative;z-index:1;}
 .nav-auth-btn,.nav-admin-btn,.nav-logout-btn,.theme-toggle,.sidebar-collapse-btn{
   position:relative;z-index:1;
 }
 
-
-/* Admin edit bars - not stuck to content edge */
 #home-admin-bar,
 #knowledge-admin-bar,
 #criteria-admin-bar,
@@ -860,8 +823,6 @@ footer.note{text-align:center;font-size:11px;color:var(--muted);margin-top:32px;
   margin-bottom:14px;
 }
 
-
-/* User chip in sidebar */
 .nav-user-chip{
   display:flex;align-items:center;gap:10px;
   padding:10px 10px;margin-bottom:8px;
@@ -933,7 +894,6 @@ footer.note{text-align:center;font-size:11px;color:var(--muted);margin-top:32px;
   <button type="button" class="sidebar-backdrop" id="sidebar-backdrop" onclick="closeMobileSidebar()" aria-label="ปิดเมนู"></button>
 
   
-<!-- compatibility placeholders for legacy JS -->
 <div id="session-bar" style="display:none;"><span class="who" id="who-label"></span><span id="admin-badge-wrap"></span></div>
 <div id="corner-tag" style="display:none;"></div>
 <div id="barcode" style="display:none;"></div>
@@ -945,12 +905,10 @@ footer.note{text-align:center;font-size:11px;color:var(--muted);margin-top:32px;
       <button type="button" class="hamburger" onclick="toggleTheme()" id="theme-toggle-mobile" aria-label="สลับธีม">🌓</button>
     </div>
 
-<!-- PUBLIC HOME VIEW -->
   <div id="view-public-home" style="display:none;">
     <div id="home-dynamic-root"><p class="empty-note">กำลังโหลดหน้าหลัก...</p></div>
   </div>
 
-<!-- KNOWLEDGE BANK VIEW (requires login) -->
   <div id="view-knowledge" style="display:none;">
     <div id="knowledge-admin-bar" style="display:none;" class="btn-row">
       <button class="btn btn-purple btn-small" onclick="openAdminSection('knowledge')">✏️ จัดการคลังความรู้</button>
@@ -964,7 +922,6 @@ footer.note{text-align:center;font-size:11px;color:var(--muted);margin-top:32px;
     </div>
   </div>
 
-  <!-- EVALUATION CRITERIA VIEW (public) -->
   <div id="view-criteria" style="display:none;">
     <div id="criteria-admin-bar" style="display:none;" class="btn-row">
       <button class="btn btn-purple btn-small" onclick="openAdminSection('criteria')">✏️ แก้ไขหน้านี้</button>
@@ -1055,7 +1012,6 @@ footer.note{text-align:center;font-size:11px;color:var(--muted);margin-top:32px;
     </div>
   </div>
 
-  <!-- ABOUT US VIEW (public) -->
   <div id="view-about" style="display:none;">
     <div id="about-admin-bar" style="display:none;" class="btn-row">
       <button class="btn btn-purple btn-small" onclick="openAdminSection('about')">✏️ แก้ไขหน้านี้</button>
@@ -1065,8 +1021,6 @@ footer.note{text-align:center;font-size:11px;color:var(--muted);margin-top:32px;
     </div>
   </div>
 
-
-  <!-- LOGIN VIEW -->
   <div id="view-login" style="display:none;">
     <div class="panel">
       <h2>登录|เข้าสู่ระบบ</h2>
@@ -1090,7 +1044,6 @@ footer.note{text-align:center;font-size:11px;color:var(--muted);margin-top:32px;
     </div>
   </div>
 
-  <!-- CATEGORY SELECT VIEW -->
   <div id="view-categories" style="display:none;">
     <div class="panel">
       <h2>选择考试类别 | เลือกหมวดข้อสอบ</h2>
@@ -1099,7 +1052,6 @@ footer.note{text-align:center;font-size:11px;color:var(--muted);margin-top:32px;
     </div>
   </div>
 
-  <!-- HOME VIEW -->
   <div id="view-home" style="display:none;">
     <div class="panel">
       <div class="btn-row" style="margin-bottom:12px;">
@@ -1119,7 +1071,6 @@ footer.note{text-align:center;font-size:11px;color:var(--muted);margin-top:32px;
     </div>
   </div>
 
-  <!-- QUIZ VIEW -->
   <div id="view-quiz" style="display:none;">
     <div class="progress-label">
       <span id="progress-text">ตอบแล้ว 0 / 0</span>
@@ -1135,7 +1086,6 @@ footer.note{text-align:center;font-size:11px;color:var(--muted);margin-top:32px;
     </div>
   </div>
 
-  <!-- RESULT VIEW -->
   <div id="view-result" style="display:none;">
     <div class="panel result-wrap">
       <h2 style="justify-content:center;">ผลการทดสอบ</h2>
@@ -1152,7 +1102,6 @@ footer.note{text-align:center;font-size:11px;color:var(--muted);margin-top:32px;
     </div>
   </div>
 
-  <!-- CERTIFICATE VIEW -->
   <div id="view-certificate" style="display:none;">
     <div class="btn-row no-print" style="margin-bottom:14px;">
       <button class="btn btn-outline btn-small" onclick="closeCertificateView()">← BACK</button>
@@ -1187,7 +1136,6 @@ footer.note{text-align:center;font-size:11px;color:var(--muted);margin-top:32px;
     </div>
   </div>
 
-  <!-- ADMIN VIEW -->
   <div id="view-admin" style="display:none;">
     <div id="admin-single-bar" style="display:none;" class="btn-row">
       <button type="button" class="btn btn-outline btn-small" onclick="goToAdminPanel()">← แผงควบคุมทั้งหมด</button>
@@ -1311,13 +1259,10 @@ footer.note{text-align:center;font-size:11px;color:var(--muted);margin-top:32px;
     </div>
   </div>
 
-  
-
     <footer class="note">MM BACKPAKING · กระบวนการแพ็คหลัง &amp; แบบทดสอบความรู้บรรจุภัณฑ์</footer>
   </div>
 </div>
 
-<!-- PDF viewer kept for knowledge base -->
 <div class="pdf-viewer-modal" id="pdf-viewer-modal" style="display:none;">
   <div class="pdf-viewer-box">
     <div class="pdf-viewer-bar">
@@ -1333,2917 +1278,1073 @@ footer.note{text-align:center;font-size:11px;color:var(--muted);margin-top:32px;
 
 <script>
 // ============================================================
-// DEFAULT QUESTION BANK
+// DEFAULT DATA & QUESTIONS BANK
 // ============================================================
 const DEFAULT_QUESTIONS = [
-{id:"q1", t:"single", q:"ลูกค้า 688 รูปแบบ Customer,VMI สามารถจัดส่งเป็นกล่องเล็กได้หรือไม่", opts:{A:"ได้ทั้งสองแบบ",B:"ไม่ได้ทั้งสองแบบ",C:"ได้แค่ VMI",D:"ได้แค่ Customer"}, ans:"B"},
-{id:"q2", t:"single", q:"ลูกค้า 678 ต้องการลาเบลพาเลทตั้งแต่กี่กล่องขึ้นไป", opts:{A:"4",B:"12",C:"16",D:"40"}, ans:"A"},
-{id:"q3", t:"single", q:"NVDIA客户SN中间NS字符代表那个厂区（   ）。\nใน SN ของลูกค้า NVIDIA ตัวอักษร NS ตรงกลาง หมายถึงโรงงาน/นิคมใด?", opts:{A:"Suzhou",B:"Tongling",C:"Thailand",D:"Taiwan"}, ans:"A"},
-{id:"q4", t:"single", q:"NVDIA客户800G模块单颗定制包装一小箱装多少颗模块（   ）ลูกค้า NVIDIA รุ่น 800G แบบบรรจุภัณฑ์สั่งทำชนิด 1 ชิ้นต่อแพ็ค 1 กล่องเล็กบรรจุกี่ชิ้น?", opts:{A:"8",B:"10",C:"12",D:"25"}, ans:"B"},
-{id:"q5", t:"single", q:"以下哪家客户出货无需贴尾箱标签（    ）。\nลูกค้ารายใดต่อไปนี้ เมื่อต้องจัดส่งสินค้า ไม่จำเป็นต้องติดฉลากท้ายกล่อง", opts:{A:"GOOGLE",B:"zhongxing",C:"H3C",D:"Cisco"}, ans:"D"},
-{id:"q6", t:"single", q:"标准包装时外包装箱正面左下角需粘贴（    ）。\nในกรณีบรรจุภัณฑ์มาตรฐานมุมล่างซ้ายด้านหน้าของกล่องบรรจุภายนอก ต้องติดลาเบลอะไร?", opts:{A:"ลาเบลของ ROHS",B:"ลาเบลมาตรฐานความปลอดภัยของ UL",C:"ลาเบล BP",D:"ลาเบลป้องกันการปลอมแปลง"}, ans:"B"},
-{id:"q7", t:"single", q:"699客户箱号为以下哪种递增规则（   ）\nหมายเลขกล่องลูกค้า 699 ข้อใดต่อไปนี้เพิ่มตามกฎเกณฑ์ได้ถูกต้อง", opts:{A:"วัน",B:"สัปดาห์",C:"ปี",D:"ไม่จำกัด"}, ans:"D"},
-{id:"q8", t:"single", q:"以下哪家客户包装标签大小箱流水码是连号的（    ）。\nลูกค้ารายไหนที่เลขรหัสบนลาเบลกล่องใหญ่และกล่องเล็กเป็นเลขเรียงต่อกัน", opts:{A:"699",B:"Standard",C:"603",D:"600"}, ans:"A"},
-{id:"q9", t:"single", q:"以下哪家客户外箱标签有摩洛哥标签（    ）。\nลูกค้ารายใดต่อไปนี้ฉลากกล่องนอกมีฉลากโมร็อกโค", opts:{A:"699",B:"677",C:"822",D:"666"}, ans:"B"},
-{id:"q10", t:"single", q:"以下哪家客户外箱需粘贴交货单号标签（    ）。\nข้อใดต่อไปนี้กล่องภายนอกของลูกค้ารายใดจำเป็นต้องติดลาเบลหมายเลขใบส่งสินค้า", opts:{A:"699",B:"677",C:"666",D:"822"}, ans:"C"},
-{id:"q11", t:"single", q:"GOOGLE客户周期递增日期为（    ）。\nวันที่เพิ่มรอบลูกค้าของ GOOGLE คือ (วันรีเซ็ตหมายเลขกล่อง)", opts:{A:"วันศุกร์",B:"วันเสาร์",C:"วันอาทิตย์",D:"วันจันทร์"}, ans:"C"},
-{id:"q12", t:"single", q:"GOOGLE客户空箱标签粘贴在正面哪个位置（    ）。\nลูกค้า GOOGLE ฉลากกล่องเปล่าต้องติดที่ตำแหน่งใดด้านหน้ากล่อง?", opts:{A:"มุมบนขวา",B:"มุมบนซ้าย",C:"มุมล่างซ้าย",D:"มุมล่างขวา"}, ans:"A"},
-{id:"q13", t:"single", q:"以下标准品AOC线材问题允收的是（    ）。\nในบรรดาปัญหาสาย AOC ของสินค้ามาตรฐานต่อไปนี้ข้อใดสามารถยอมรับได้?", opts:{A:"รอยขุ่นเล็กน้อย",B:"รอยพับของสายไฟชัดเจนและมีชีวา",C:"สายไหมหลุด",D:"ปลอกหุ้มหลุด"}, ans:"A"},
-{id:"q14", t:"single", q:"针对标准品标签，下面哪种情况可以允收（    ）。\nสำหรับฉลากของสินค้ามาตรฐานกรณีใดต่อไปนี้สามารถยอมรับได้?", opts:{A:"ลาเบลชำรุดสแกนไม่ได้",B:"เนื้อหาเกินขอบเลเบล",C:"ตัวอักษรจางหาย แต่สามารถอ่านได้",D:"ลาเบลยับหรือเยิน"}, ans:"C"},
-{id:"q15", t:"single", q:"688客户VMI包装方式栈板需要打几层\nลูกค้า 688 แบบบรรจุภัณฑ์ VMI พาเลทต้องวางกี่ชั้น?", opts:{A:"4",B:"5",C:"3",D:"6"}, ans:"A"},
-{id:"q16", t:"single", q:"666客户满足多少箱需要打栈板标签（    ）\nลูกค้า 666 เมื่อครบกี่กล่อง จึงจะต้องติดลาเบลพาเลท?", opts:{A:"8",B:"16",C:"32",D:"40"}, ans:"B"},
-{id:"q17", t:"single", q:"以下哪个客户箱号按天递增（   ）\nลูกค้ารายใดต่อไปนี้หมายเลขกล่องเพิ่มตามวัน(วันรีเซ็ตหมายเลขกล่อง)", opts:{A:"688",B:"666",C:"699",D:"678"}, ans:"A"},
-{id:"q18", t:"single", q:"以下哪个地方可以查询包装使用的包材料号(   )\nข้อใดต่อไปนี้สามารถใช้ตรวจสอบ/ค้นหาหมายเลขวัสดุบรรจุภัณฑ์ที่ใช้ได้", opts:{A:"BOM",B:"CAS",C:"OA",D:"QMS"}, ans:"A"},
-{id:"q19", t:"single", q:"666客户 AOC包装使用哪种静电袋（   ）\nบรรจุภัณฑ์ของลูกค้า 666 งาน AOC ใช้ถุงป้องกันไฟฟ้าสถิตชนิดใด", opts:{A:"ถุงป้องกันความชื้นและไฟฟ้าสถิต 353-0013",B:"ถุงชิลด์ล็อค",C:"ถุงป้องกันไฟฟ้าสถิต 350-0154",D:"ถุกต่อทุกชนิด"}, ans:"A"},
-{id:"q20", t:"single", q:"MES出货站检测哪一项不需要检查\nสถานีการจัดส่งสินค้า (MES) รายการใดไม่จำเป็นต้องตรวจสอบ", opts:{A:"HOLD",B:"EPROM CHECK",C:"FW",D:"ข้อมูลการทดสอบ"}, ans:"D"},
-{id:"q21", t:"single", q:"666客户SSCC号码按什么递增\nหมายเลข SSCC ของลูกค้า 666 เพิ่มขึ้นตามอะไร", opts:{A:"สัปดาห์",B:"วัน",C:"เดือน",D:"ปี"}, ans:"A"},
-{id:"q22", t:"tf", q:"公司所有标准品SN都是12位。\nหมายเลข SN ของสินค้ามาตรฐานทั้งหมดของบริษัทมี 12 หลัก", ans:"A"},
-{id:"q23", t:"tf", q:"打印模块标签时系统报错,可以直接打开模板进行打。\nเมื่อพิมพ์ลาเบลโมดูล ระบบรายงานข้อผิดพลาด สามารถเปิดเทมเพลตโดยตรงเพื่อพิมพ์ได้", ans:"B"},
-{id:"q24", t:"tf", q:"出货前需要认真检查测试数据及外包装标签有无问题。\nก่อนจัดส่ง จำเป็นต้องตรวจสอบข้อมูลการทดสอบและลาเบลบรรจุภัณฑ์ภายนอกอย่างรอบคอบว่ามีปัญหาหรือไม่", ans:"A"},
-{id:"q25", t:"tf", q:"出货过程中发现其他作业手法简便，可以不按MOI 要求作业。\nกระบวนการจัดส่งพบว่าวิธีการปฏิบัติงานอื่นสะดวกกว่า สามารถไม่ปฏิบัติตามข้อกำหนดของ MOI ได้", ans:"B"},
-{id:"q26", t:"tf", q:"所有出货外箱都需贴安规标签。\nทุกกล่องสินค้าที่จัดส่งต้องติดลาเบลมาตรฐานความปลอดภัย (UL)", ans:"A"},
-{id:"q27", t:"tf", q:"出货定制客户的模块标签可以使用标准标签打印。\nลาเบลโมดูลของลูกค้าที่สั่งผลิตสำหรับการจัดส่งสามารถพิมพ์ด้วยลาเบลมาตรฐานได้", ans:"B"},
-{id:"q28", t:"tf", q:"出货国外非定制客户客户三个小箱需要装入一个大箱。\nเมื่อต้องจัดส่งสินค้าให้ลูกค้าต่างประเทศที่ไม่ใช่ลูกค้าแบบกำหนดเอง ต้องนำกล่องเล็ก 3 กล่อง บรรจุรวมลงในกล่องใหญ่ 1 กล่อง", ans:"B"},
-{id:"q29", t:"tf", q:"GOOGLE客户多模SSCC区间为0001-6000。\nช่วงหมายเลข SSCC สำหรับสินค้า Multimode ของลูกค้า Google อยู่ระหว่าง 0001 ถึง 6000", ans:"B"},
-{id:"q30", t:"tf", q:"562料号为定制料号包装方式就是定制包装\nหมายเลขวัสดุ 562 เป็นหมายเลขวัสดุที่สั่งทำ การบรรจุคือการบรรจุแบบสั่งทำ", ans:"A"},
-{id:"q31", t:"tf", q:"模块标签翘起，爬墙可正常流线。\nฉลากโมดูลมีการยกตัว แต่ไม่ส่งผลกระทบต่อการผลิต ยังคงสามารถผ่านไลน์การผลิตได้ตามปกติ", ans:"B"},
-{id:"q32", t:"tf", q:"CISCO客户所有机种外箱标签都有摩洛哥标识。\nลาเบลกล่องภายนอกของอุปกรณ์ CISCO ทุกประเภทมีสัญลักษณ์ของโมร็อกโค", ans:"B"},
-{id:"q33", t:"tf", q:"包装站替换模块需生产领班，制工，QC三方同时在场。\nการเปลี่ยนโมดูลที่สเตชั่นบรรจุต้องให้หัวหน้ากะ วิศวกร และ QC อยู่พร้อมกัน", ans:"A"},
-{id:"q34", t:"tf", q:"开班前无需设备点检\nก่อนเริ่มงานไม่จำเป็นต้องตรวจอุปกรณ์", ans:"B"},
-{id:"q35", t:"tf", q:"包装标签不良需要领班确认后补印\nลาเบลบรรจุภัณฑ์ที่มีปัญหา จำเป็นต้องให้หัวหน้ากะยืนยันก่อนพิมพ์ใหม่", ans:"A"},
-{id:"q36", t:"tf", q:"不良标签需要粘贴不良记录本\nลาเบล NG ต้องติดสมุดบันทึกงาน NG", ans:"A"},
-{id:"q37", t:"tf", q:"模块高温标签不允许有划痕。\nลาเบลอุณหภูมิสูงของโมดูลไม่อนุญาตให้มีรอยขีดข่วน", ans:"A"},
-{id:"q38", t:"tf", q:"GOOGLE客户正常订单40G以上模块16-40大箱需打托盘出货。\nลูกค้า GOOGLE คำสั่งซื้อปกติ โมดูลขนาด 40G ขึ้นไป จำนวน 16-40 กล่องใหญ่ ต้องจัดส่งบนพาเลท", ans:"A"},
-{id:"q39", t:"tf", q:"618客户出货使用Terahop纸箱\nการจัดส่งสินค้าให้ลูกค้า 618 ใช้กล่องกระดาษ Terahop", ans:"B"},
-{id:"q40", t:"tf", q:"699客户包装需要在ESD静电区域作业\nการบรรจุสินค้าของลูกค้า 699 ต้องทำงานในพื้นที่ป้องกันไฟฟ้าสถิต (ESD)", ans:"A"},
+  {id:"q1", t:"single", q:"ลูกค้า 688 รูปแบบ Customer,VMI สามารถจัดส่งเป็นกล่องเล็กได้หรือไม่", opts:{A:"ได้ทั้งสองแบบ",B:"ไม่ได้ทั้งสองแบบ",C:"ได้แค่ VMI",D:"ได้แค่ Customer"}, ans:"B"},
+  {id:"q2", t:"single", q:"ลูกค้า 678 ต้องการลาเบลพาเลทตั้งแต่กี่กล่องขึ้นไป", opts:{A:"4",B:"12",C:"16",D:"40"}, ans:"A"},
+  {id:"q3", t:"single", q:"NVDIA客户SN中间NS字符代表那个厂区（   ）。\nใน SN ของลูกค้า NVIDIA ตัวอักษร NS ตรงกลาง หมายถึงโรงงาน/นิคมใด?", opts:{A:"Suzhou",B:"Tongling",C:"Thailand",D:"Taiwan"}, ans:"A"},
+  {id:"q4", t:"single", q:"NVDIA客户800G模块单颗定制包装一小箱装多少颗模块（   ）\nลูกค้า NVIDIA รุ่น 800G แบบบรรจุภัณฑ์สั่งทำชนิด 1 ชิ้นต่อแพ็ค 1 กล่องเล็กบรรจุกี่ชิ้น?", opts:{A:"8",B:"10",C:"12",D:"25"}, ans:"B"},
+  {id:"q5", t:"single", q:"以下哪家客户出货无需贴尾箱标签（    ）。\nลูกค้ารายใดต่อไปนี้ เมื่อต้องจัดส่งสินค้า ไม่จำเป็นต้องติดฉลากท้ายกล่อง", opts:{A:"GOOGLE",B:"zhongxing",C:"H3C",D:"Cisco"}, ans:"D"},
+  {id:"q6", t:"single", q:"标准包装时外包装箱正面左下角需粘贴（    ）。\nในกรณีบรรจุภัณฑ์มาตรฐานมุมล่างซ้ายด้านหน้าของกล่องบรรจุภายนอก ต้องติดลาเบลอะไร?", opts:{A:"ลาเบลของ ROHS",B:"ลาเบลมาตรฐานความปลอดภัยของ UL",C:"ลาเบล BP",D:"ลาเบลป้องกันการปลอมแปลง"}, ans:"B"},
+  {id:"q7", t:"single", q:"699客户箱号为以下哪种递增规则（   ）\nหมายเลขกล่องลูกค้า 699 ข้อใดต่อไปนี้เพิ่มตามกฎเกณฑ์ได้ถูกต้อง", opts:{A:"วัน",B:"สัปดาห์",C:"ปี",D:"ไม่จำกัด"}, ans:"D"},
+  {id:"q8", t:"single", q:"以下哪家客户包装标签大小箱流水码是连号的（    ）。\nลูกค้ารายไหนที่เลขรหัสบนลาเบลกล่องใหญ่และกล่องเล็กเป็นเลขเรียงต่อกัน", opts:{A:"699",B:"Standard",C:"603",D:"600"}, ans:"A"},
+  {id:"q9", t:"single", q:"以下哪家客户外箱标签有摩洛哥标签（    ）。\nลูกค้ารายใดต่อไปนี้ฉลากกล่องนอกมีฉลากโมร็อกโค", opts:{A:"699",B:"677",C:"822",D:"666"}, ans:"B"},
+  {id:"q10", t:"single", q:"以下哪家客户外箱需粘贴交货单号标签（    ）。\nข้อใดต่อไปนี้กล่องภายนอกของลูกค้ารายใดจำเป็นต้องติดลาเบลหมายเลขใบส่งสินค้า", opts:{A:"699",B:"677",C:"666",D:"822"}, ans:"C"},
+  {id:"q11", t:"single", q:"GOOGLE客户周期递增日期为（    ）。\nวันที่เพิ่มรอบลูกค้าของ GOOGLE คือ (วันรีเซ็ตหมายเลขกล่อง)", opts:{A:"วันศุกร์",B:"วันเสาร์",C:"วันอาทิตย์",D:"วันจันทร์"}, ans:"C"},
+  {id:"q12", t:"single", q:"GOOGLE客户空箱标签粘贴在正面哪个位置（    ）。\nลูกค้า GOOGLE ฉลากกล่องเปล่าต้องติดที่ตำแหน่งใดด้านหน้ากล่อง?", opts:{A:"มุมบนขวา",B:"มุมบนซ้าย",C:"มุมล่างซ้าย",D:"มุมล่างขวา"}, ans:"A"},
+  {id:"q13", t:"single", q:"以下标准品AOC线材问题允收的是（    ）。\nในบรรดาปัญหาสาย AOC ของสินค้ามาตรฐานต่อไปนี้ข้อใดสามารถยอมรับได้?", opts:{A:"รอยขุ่นเล็กน้อย",B:"รอยพับของสายไฟชัดเจนและมีชีวา",C:"สายไหมหลุด",D:"ปลอกหุ้มหลุด"}, ans:"A"},
+  {id:"q14", t:"single", q:"针对标准品标签，下面哪种情况可以允收（    ）。\nสำหรับฉลากของสินค้ามาตรฐานกรณีใดต่อไปนี้สามารถยอมรับได้?", opts:{A:"ลาเบลชำรุดสแกนไม่ได้",B:"เนื้อหาเกินขอบเลเบล",C:"ตัวอักษรจางหาย แต่สามารถอ่านได้",D:"ลาเบลยับหรือเยิน"}, ans:"C"},
+  {id:"q15", t:"single", q:"688客户VMI包装方式栈板需要打几层\nลูกค้า 688 แบบบรรจุภัณฑ์ VMI พาเลทต้องวางกี่ชั้น?", opts:{A:"4",B:"5",C:"3",D:"6"}, ans:"A"},
+  {id:"q16", t:"single", q:"666客户满足多少箱需要打栈板标签（    ）\nลูกค้า 666 เมื่อครบกี่กล่อง จึงจะต้องติดลาเบลพาเลท?", opts:{A:"8",B:"16",C:"32",D:"40"}, ans:"B"},
+  {id:"q17", t:"single", q:"以下哪个客户箱号按天递增（   ）\nลูกค้ารายใดต่อไปนี้หมายเลขกล่องเพิ่มตามวัน(วันรีเซ็ตหมายเลขกล่อง)", opts:{A:"688",B:"666",C:"699",D:"678"}, ans:"A"},
+  {id:"q18", t:"single", q:"以下哪个地方可以查询包装 Standard SOP / MES SOP\nสถานที่ใดต่อไปนี้สามารถค้นหา Standard SOP / MES SOP บรรจุภัณฑ์ได้?", opts:{A:"ระบบ MES",B:"แฟ้ม SOP สถานีงาน",C:"คลังความรู้ระบบ",D:"ถูกทุกข้อ"}, ans:"D"}
 ];
 
-const ADMIN_USER = "C25HBD";
-const ADMIN_PASS = "C25HBD";
-const DEFAULT_UNLOCK_THRESHOLD = 10;
-const DEFAULT_PASSING_PERCENT = 100;
-const DEFAULT_CATEGORY_ID = "default";
-const DEFAULT_PASS_MESSAGE = "คอนเกตุเรตุออนยินดีด้วยได้เต็มสักที เก่งมากกล้ามากขอบใจขอบพระทัยแต้งกิ้ว";
-const DEFAULT_FAIL_MESSAGE = "ฮั่นแนร่หายไปตั้ง {missing} คะแนน ทำใหม่เลยเอาให้เต็ม!!";
-const LETTER_POOL = ['A','B','C','D','E','F','G','H'];
+const DEFAULT_CATEGORIES = [
+  {id: "general", name: "หมวดทั่วไป (General Backpacking)", desc: "แบบทดสอบความรู้ทั่วไปเกี่ยวกับกระบวนการแพ็คบรรจุภัณฑ์"}
+];
 
-let QUESTIONS = [];        
-let CATEGORIES = [];       
-let SETTINGS = { unlockThreshold: DEFAULT_UNLOCK_THRESHOLD, passMessage: DEFAULT_PASS_MESSAGE, failMessage: DEFAULT_FAIL_MESSAGE };
-let homeCertPass = null;   
-let certAreaId = 'certificate-btn-area'; 
-let certReturnView = 'view-result';      
-let answers = [];
+const DEFAULT_HOMEPAGE = {
+  heroTitle: "MM BACKPAKING SYSTEM",
+  heroSub: "ระบบการเรียนรู้และประเมินสมรรถนะกระบวนการแพ็คสินค้าและบรรจุภัณฑ์",
+  moiData: [
+    {code: "688", desc: "Customer / VMI packaging", moi: "MOI-PACK-688"},
+    {code: "678", desc: "Pallet label packaging", moi: "MOI-PACK-678"},
+    {code: "NVIDIA", desc: "800G module custom packaging", moi: "MOI-PACK-NV"},
+    {code: "GOOGLE", desc: "Standard empty box labeling", moi: "MOI-PACK-GGL"}
+  ],
+  steps: [
+    {title: "1. ตรวจสอบคำสั่งซื้อ & BOM", desc: "ตรวจสอบความถูกต้องของระบบ MES และรายการวัสดุบรรจุภัณฑ์ก่อนการแพ็ค", mediaType: "single", img1: "", img2: "", cap1: "ภาพการตรวจสอบ BOM", cap2: ""},
+    {title: "2. การติดฉลาก & บรรจุสินค้า", desc: "ติดฉลากภายนอกกล่อง และบรรจุสินค้าให้ตรงตาม SOP ของลูกค้ารายนั้นๆ", mediaType: "single", img1: "", img2: "", cap1: "ตำแหน่งการติดฉลาก", cap2: ""}
+  ]
+};
+
+const DEFAULT_CRITERIA = {
+  title: "เกณฑ์การประเมิน | 评估标准",
+  intro: "เกณฑ์การผ่านแบบทดสอบและเงื่อนไขต่าง ๆ ของระบบ",
+  items: [
+    {title: "เกณฑ์การผ่านการทดสอบ", desc: "ต้องทำคะแนนให้ได้ตั้งแต่ 80% ขึ้นไป จึงถือว่าผ่านการประเมิน"},
+    {title: "การออกใบรับรอง (Certificate)", desc: "ผู้ที่สอบได้คะแนนเต็ม 100% จะได้รับใบ Certificate รับรองสมรรถนะ"},
+    {title: "สิทธิ์การสอบซ้ำ", desc: "ผู้เรียนสามารถเข้าทดสอบซ้ำได้ไม่จำกัดจำนวนครั้งเพื่อพัฒนาทักษะ"}
+  ]
+};
+
+const DEFAULT_ABOUT = [
+  {title: "เกี่ยวกับระบบ MM BACKPAKING", body: "ระบบนี้พัฒนาขึ้นเพื่อสนับสนุนการเรียนรู้ ทบทวน และประเมินทักษะพนักงานในกระบวนการบรรจุภัณฑ์สินค้า ให้เป็นไปตามมาตรฐาน SOP ของลูกค้ารายต่างๆ"},
+  {title: "วัตถุประสงค์", body: "1. เพิ่มความแม่นยำในการปฏิบัติงานบรรจุภัณฑ์\n2. ลดข้อผิดพลาดในการติดฉลากและจัดส่งสินค้า\n3. ให้พนักงานสามารถประเมินและพัฒนาตนเองได้อย่างต่อเนื่อง"}
+];
+
+// ============================================================
+// APP STATE & STORAGE
+// ============================================================
 let currentUser = null;
-let isAdmin = false;
-let currentCategoryId = null;   
-let adminCurrentCategoryId = null; 
-let lastLoadedHistory = [];        
-let currentDetailEntry = null;     
-let showOnlyWrongAnswers = true;   
-let editingQuestionId = null;   
-let editingCategoryId = null;   
-let qfOptionLetters = [];       
-let qfOptionValues = {};        
-let KNOWLEDGE = [];
-let editingKnowledgeId = null;
-let kfImageData = null, kfImageName = null, kfImageType = null;
-let kfFileData = null, kfFileName = null, kfFileType = null;
-const KB_MAX_BYTES = 3 * 1024 * 1024; // 3MB per attachment guideline
+let currentCatId = "general";
+let questions = [];
+let categories = [];
+let userAnswers = {};
+let activeAdminTab = "stats";
 
-function getOptions(q){
-  if(q.t === "tf") return {A:"ถูก (正确)", B:"ผิด (错误)"};
-  if(q.opts) return q.opts;
-  return {A:"ตัวเลือก A", B:"ตัวเลือก B", C:"ตัวเลือก C", D:"ตัวเลือก D"};
-}
-function escapeHtml(str){
-  return String(str).replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;');
-}
-
-// Barcode decoration
-(function drawBarcode(){
-  const el = document.getElementById('barcode');
-  let html = "";
-  for(let i=0;i<46;i++){
-    const h = 40 - Math.abs((i*7)%40 - 20);
-    html += `<span style="height:${Math.max(14,h)}px;"></span>`;
-  }
-  el.innerHTML = html;
-})();
-
-// Storage adapter: use host window.storage if present, else localStorage fallback
-(function initStorageFallback(){
-  if (window.storage) return;
-  const mem = {};
-  window.storage = {
-    async get(key){
-      try {
-        const v = localStorage.getItem('mm_pack_' + key);
-        if (v === null) return { value: null };
-        return { value: v };
-      } catch(e) {
-        return { value: mem[key] || null };
-      }
-    },
-    async set(key, value){
-      try {
-        localStorage.setItem('mm_pack_' + key, value);
-      } catch(e) {
-        mem[key] = value;
-      }
-    },
-    async delete(key){
-      try {
-        localStorage.removeItem('mm_pack_' + key);
-      } catch(e) {
-        delete mem[key];
-      }
-    }
-  };
-  try { window.dispatchEvent(new Event('storage-ready')); } catch(e) {}
-})();
-
-function waitForStorage() {
-  return new Promise((resolve) => {
-    if (window.storage) return resolve();
-    window.addEventListener('storage-ready', resolve, { once: true });
-    // safety timeout so login never hangs forever
-    setTimeout(() => {
-      if (!window.storage) {
-        const mem = {};
-        window.storage = {
-          async get(key){ return { value: mem[key] || null }; },
-          async set(key, value){ mem[key] = value; },
-          async delete(key){ delete mem[key]; }
-        };
-      }
-      resolve();
-    }, 800);
-  });
-}
-
-// STORAGE LOGIC
-async function loadCategories(){
-  await waitForStorage();
-  try{
-    const res = await window.storage.get('quiz_categories');
-    if(res && res.value){
-      const cats = JSON.parse(res.value);
-      if(Array.isArray(cats) && cats.length) return cats;
-    }
-  }catch(e){ }
-  const seed = [{ id: DEFAULT_CATEGORY_ID, name: "แบบทดสอบความรู้บรรจุภัณฑ์", desc: "PACKAGING & SHIPPING LABEL COMPLIANCE TEST" }];
-  await window.storage.set('quiz_categories', JSON.stringify(seed));
-  return seed;
-}
-async function saveCategories(cats){
-  await waitForStorage();
-  CATEGORIES = cats;
-  try{ await window.storage.set('quiz_categories', JSON.stringify(cats)); }
-  catch(e){ console.error('save categories failed', e); }
-}
-
-async function loadQuestions(catId){
-  await waitForStorage();
-  const key = 'quiz_questions_bank__' + catId;
-  try{
-    const res = await window.storage.get(key);
-    if(res && res.value) return JSON.parse(res.value);
-  }catch(e){ }
-  const seedQs = (catId === DEFAULT_CATEGORY_ID) ? DEFAULT_QUESTIONS : [];
-  await window.storage.set(key, JSON.stringify(seedQs));
-  return JSON.parse(JSON.stringify(seedQs));
-}
-async function saveQuestions(catId, qs){
-  await waitForStorage();
-  if(catId === adminCurrentCategoryId || catId === currentCategoryId) QUESTIONS = qs;
-  try{ await window.storage.set('quiz_questions_bank__' + catId, JSON.stringify(qs)); }
-  catch(e){ console.error('save questions failed', e); }
-}
-
-async function loadSettings(){
-  await waitForStorage();
-  const defaults = { unlockThreshold: DEFAULT_UNLOCK_THRESHOLD, passMessage: DEFAULT_PASS_MESSAGE, failMessage: DEFAULT_FAIL_MESSAGE, passingPercent: DEFAULT_PASSING_PERCENT };
-  try{
-    const res = await window.storage.get('quiz_settings');
-    if(res && res.value){
-      const parsed = JSON.parse(res.value);
-      return { ...defaults, ...parsed };
-    }
-  }catch(e){ }
-  await window.storage.set('quiz_settings', JSON.stringify(defaults));
-  return defaults;
-}
-async function saveSettings(settings){
-  await waitForStorage();
-  SETTINGS = settings;
-  try{ await window.storage.set('quiz_settings', JSON.stringify(settings)); }
-  catch(e){ console.error('save settings failed', e); }
-}
-
-async function loadHistory(){
-  await waitForStorage();
-  try{
-    const res = await window.storage.get('quiz_attempts');
-    return res && res.value ? JSON.parse(res.value) : [];
-  }catch(e){ return []; }
-}
-async function saveHistory(history){
-  await waitForStorage();
-  try{ await window.storage.set('quiz_attempts', JSON.stringify(history)); }
-  catch(e){ console.error('save history failed', e); }
-}
-async function loadAccounts(){
-  await waitForStorage();
-  try{
-    const res = await window.storage.get('quiz_accounts');
-    return res && res.value ? JSON.parse(res.value) : {};
-  }catch(e){ return {}; }
-}
-async function saveAccounts(accounts){
-  await waitForStorage();
-  try{ await window.storage.set('quiz_accounts', JSON.stringify(accounts)); }
-  catch(e){ console.error('save accounts failed', e); }
-}
-
-async function loadKnowledgeBank(){
-  await waitForStorage();
-  try{
-    const res = await window.storage.get('quiz_knowledge');
-    if(res && res.value){
-      const items = JSON.parse(res.value);
-      if(Array.isArray(items)) return items;
-    }
-  }catch(e){ }
-  return [];
-}
-async function saveKnowledgeBank(items){
-  await waitForStorage();
-  KNOWLEDGE = items;
-  try{ await window.storage.set('quiz_knowledge', JSON.stringify(items)); }
-  catch(e){ console.error('save knowledge failed', e); alert('บันทึกไม่สำเร็จ อาจเป็นเพราะไฟล์แนบมีขนาดใหญ่เกินไป'); }
-}
-
-function computeConsecutiveFails(history, username, categoryId){
-  const own = history.filter(h => h.username === username && (h.categoryId || DEFAULT_CATEGORY_ID) === categoryId);
-  let n = 0;
-  for(let i = own.length - 1; i >= 0; i--){
-    if(own[i].passed) break;
-    n++;
-  }
-  return n;
-}
-
-// LOGIN
-async function handleLogin(){
-  const uEl = document.getElementById('login-username');
-  const pEl = document.getElementById('login-password');
-  const errEl = document.getElementById('login-error');
-  const username = uEl.value.trim();
-  const password = pEl.value;
-
-  errEl.style.display = 'none';
-
-  if(!username || !password){
-    errEl.textContent = 'กรุณากรอกทั้งชื่อผู้ใช้และรหัสผ่าน';
-    errEl.style.display = 'block';
-    return;
-  }
-
-  if(username === ADMIN_USER && password === ADMIN_PASS){
-    currentUser = username;
-    isAdmin = true;
-    saveSession();
-    updateNavAuth();
-    await enterAdmin('homepage', 'full');
-    return;
-  }
-
-  const accounts = await loadAccounts();
-  if(Object.prototype.hasOwnProperty.call(accounts, username)){
-    if(accounts[username] !== password){
-      errEl.textContent = 'รหัสผ่านไม่ถูกต้องสำหรับผู้ใช้นี้';
-      errEl.style.display = 'block';
-      return;
-    }
-  }else{
-    accounts[username] = password;
-    await saveAccounts(accounts);
-  }
-
-  currentUser = username;
-  isAdmin = false;
-  saveSession();
-  updateNavAuth();
-  if(pendingSection){
-    const target = pendingSection;
-    pendingSection = null;
-    navigateTo(target);
-  }else{
-    await goToCategories();
-  }
-}
-
-function logout(){
-  currentUser = null;
-  isAdmin = false;
-  currentCategoryId = null;
-  pendingSection = null;
-  clearSession();
-  try{
-    document.getElementById('login-username').value = '';
-    document.getElementById('login-password').value = '';
-    document.getElementById('login-error').style.display = 'none';
-    document.getElementById('session-bar').style.display = 'none';
-  }catch(e){}
-  updateNavAuth();
+function initApp() {
+  loadData();
+  checkAuth();
+  setupUI();
   navigateTo('home');
 }
 
-const SESSION_KEY = 'mm_pack_session';
-function saveSession(){
-  try{
-    localStorage.setItem(SESSION_KEY, JSON.stringify({
-      username: currentUser,
-      isAdmin: !!isAdmin,
-      ts: Date.now()
-    }));
-  }catch(e){}
+function loadData() {
+  const qData = localStorage.getItem('mm_questions');
+  questions = qData ? JSON.parse(qData) : DEFAULT_QUESTIONS;
+
+  const cData = localStorage.getItem('mm_categories');
+  categories = cData ? JSON.parse(cData) : DEFAULT_CATEGORIES;
+
+  if(!localStorage.getItem('mm_homepage')) localStorage.setItem('mm_homepage', JSON.stringify(DEFAULT_HOMEPAGE));
+  if(!localStorage.getItem('mm_criteria')) localStorage.setItem('mm_criteria', JSON.stringify(DEFAULT_CRITERIA));
+  if(!localStorage.getItem('mm_about')) localStorage.setItem('mm_about', JSON.stringify(DEFAULT_ABOUT));
 }
-function clearSession(){
-  try{ localStorage.removeItem(SESSION_KEY); }catch(e){}
-}
-function restoreSession(){
-  try{
-    const raw = localStorage.getItem(SESSION_KEY);
-    if(!raw) return false;
-    const s = JSON.parse(raw);
-    if(!s || !s.username) return false;
-    // optional: expire after 30 days
-    if(s.ts && (Date.now() - s.ts > 30*24*60*60*1000)){
-      clearSession();
-      return false;
-    }
-    currentUser = s.username;
-    isAdmin = !!s.isAdmin;
-    return true;
-  }catch(e){
-    return false;
+
+function checkAuth() {
+  const sess = localStorage.getItem('mm_session');
+  if(sess) {
+    currentUser = JSON.parse(sess);
+  } else {
+    currentUser = null;
   }
+  renderAuthArea();
 }
 
-function updateSessionBar(){
-  // keep legacy placeholders hidden; sidebar auth chip is the real UI
-  const bar = document.getElementById('session-bar');
-  if(bar) bar.style.display = 'none';
-  const who = document.getElementById('who-label');
-  if(who) who.textContent = currentUser || '';
-  const badgeWrap = document.getElementById('admin-badge-wrap');
-  if(badgeWrap) badgeWrap.innerHTML = isAdmin ? '<span class="admin-badge">ADMIN</span>' : '';
-  updateNavAuth();
-}
-
-// VIEW SWITCHING
-function showView(id){
-  ['view-public-home','view-knowledge','view-criteria','view-about','view-login','view-categories','view-home','view-quiz','view-result','view-certificate','view-admin'].forEach(v=>{
-    document.getElementById(v).style.display = (v===id) ? 'block' : 'none';
-  });
-}
-
-// ============================================================
-// TOP NAV
-// ============================================================
-const NAV_LOGIN_REQUIRED = ['knowledge','exambank'];
-let pendingSection = null;
-
-function updateNavAuth(){
+function renderAuthArea() {
   const area = document.getElementById('nav-auth-area');
   if(!area) return;
-  if(currentUser){
-    const initials = String(currentUser).replace(/[^a-zA-Z0-9]/g,'').slice(0,2).toUpperCase() || 'U';
-    const roleHtml = isAdmin
-      ? '<span class="nav-user-role admin">ADMIN</span>'
-      : '<span class="nav-user-role user">USER</span>';
-    area.innerHTML = `<div class="nav-user-chip">
-        <div class="nav-user-avatar" aria-hidden="true">${initials}</div>
+  if(currentUser) {
+    area.innerHTML = `
+      <div class="nav-user-chip">
+        <div class="nav-user-avatar">${currentUser.username.substring(0,2)}</div>
         <div class="nav-user-meta">
-          <div class="nav-user-name" title="${escapeHtml(currentUser)}">${escapeHtml(currentUser)}</div>
-          ${roleHtml}
+          <div class="nav-user-name">${currentUser.username}</div>
+          <span class="nav-user-role ${currentUser.isAdmin ? 'admin' : 'user'}">${currentUser.isAdmin ? 'ADMIN' : 'USER'}</span>
         </div>
       </div>
-      ${isAdmin ? `<button class="nav-admin-btn" id="nav-admin-btn" onclick="goToAdminPanel()">⚙ แผงควบคุม</button>` : ''}
-      <button class="nav-logout-btn" onclick="logout()">ออกจากระบบ</button>`;
-  }else{
-    area.innerHTML = `<button class="nav-auth-btn" onclick="openLoginDirect()">เข้าสู่ระบบ</button>`;
+      ${currentUser.isAdmin ? `<button class="nav-admin-btn" onclick="openAdminPanel()">⚙️ แผงควบคุม Admin</button>` : ''}
+      <button class="nav-logout-btn" onclick="logout()">ออกจากระบบ</button>
+    `;
+  } else {
+    area.innerHTML = `
+      <button class="nav-auth-btn" onclick="showLogin()">🔑 เข้าสู่ระบบ</button>
+    `;
   }
-}
-
-async function goToAdminPanel(){
-  if(!isAdmin) return;
-  await enterAdmin('homepage', 'full');
-}
-
-function updateNavActive(section){
-  ['home','knowledge','exambank','criteria','about'].forEach(s=>{
-    const el = document.getElementById('nav-'+s);
-    if(el) el.classList.toggle('active', s===section);
-  });
-}
-
-function openLoginDirect(){
-  pendingSection = null;
-  showView('view-login');
-  updateNavActive(null);
-  window.scrollTo({top:0, behavior:'smooth'});
-}
-
-function renderCriteriaList(){
-  const list = document.getElementById('criteria-list');
-  if(!list) return;
-  const passPct = SETTINGS.passingPercent != null ? SETTINGS.passingPercent : DEFAULT_PASSING_PERCENT;
-  const unlockN = SETTINGS.unlockThreshold != null ? SETTINGS.unlockThreshold : DEFAULT_UNLOCK_THRESHOLD;
-  list.innerHTML = `
-    <li>
-      <span class="criteria-num">01</span>
-      <div class="criteria-body"><strong>เกณฑ์ผ่าน (Passing Score)</strong>
-        <span>ต้องตอบถูกอย่างน้อย ${passPct}% ของจำนวนข้อสอบทั้งหมดในแต่ละหมวด จึงจะถือว่า "ผ่าน" การทดสอบ</span></div>
-    </li>
-    <li>
-      <span class="criteria-num">02</span>
-      <div class="criteria-body"><strong>การดูเฉลย (Answer Key Unlock)</strong>
-        <span>หากทำแบบทดสอบไม่ผ่านติดต่อกัน ${unlockN} ครั้งขึ้นไปในหมวดเดียวกัน ระบบจะปลดล็อกให้ดูเฉลยทั้งหมดของหมวดนั้น</span></div>
-    </li>
-    <li>
-      <span class="criteria-num">03</span>
-      <div class="criteria-body"><strong>การนับผลสอบ</strong>
-        <span>ระบบจะบันทึกทุกครั้งที่ทำแบบทดสอบ พร้อมวันที่และคะแนน เพื่อใช้ประกอบสถิติของผู้ใช้แต่ละคน</span></div>
-    </li>
-    <li>
-      <span class="criteria-num">04</span>
-      <div class="criteria-body"><strong>ใบประกาศเกียรติคุณ</strong>
-        <span>ผู้ที่ทำคะแนนเต็ม (100%) ในหมวดใดหมวดหนึ่ง จะสามารถออกใบประกาศเกียรติคุณของหมวดนั้นได้จากหน้าประวัติการสอบ</span></div>
-    </li>`;
 }
 
 // ============================================================
-// KNOWLEDGE BANK (public view + admin CRUD)
+// NAVIGATION & VIEWS
 // ============================================================
-function formatFileSize(bytes){
-  if(bytes == null) return '';
-  if(bytes < 1024) return bytes + ' B';
-  if(bytes < 1024*1024) return (bytes/1024).toFixed(1) + ' KB';
-  return (bytes/(1024*1024)).toFixed(2) + ' MB';
-}
-function base64Size(dataUrl){
-  if(!dataUrl) return 0;
-  const b64 = dataUrl.split(',')[1] || '';
-  return Math.floor(b64.length * 0.75);
-}
-function isPdfFile(item){
-  if(!item || !item.fileData) return false;
-  if(item.fileType === 'application/pdf') return true;
-  return !!(item.fileName && item.fileName.toLowerCase().endsWith('.pdf'));
-}
-function renderFileAttachmentHtml(item, cls){
-  if(!item.fileData) return '';
-  const label = escapeHtml(item.fileName || 'ไฟล์แนบ');
-  const size = formatFileSize(item.fileSize);
-  const viewBtn = isPdfFile(item)
-    ? `<button class="${cls}-view-btn" onclick="openPdfViewer('${item.id}', '${escapeHtml((item.title||'').replace(/'/g,"\\'"))}')">&#128065; ดู</button>`
-    : '';
-  return `<div class="${cls}-row">
-    <a class="${cls}" href="${item.fileData}" download="${label}">&#128206; ${label} (${size})</a>
-    ${viewBtn}
-  </div>`;
-}
-function openPdfViewer(itemId, title){
-  const item = KNOWLEDGE.find(k=>k.id===itemId);
-  if(!item || !item.fileData) return;
-  document.getElementById('pdf-viewer-title').textContent = title || item.fileName || 'เอกสาร PDF';
-  document.getElementById('pdf-viewer-frame').src = item.fileData;
-  document.getElementById('pdf-viewer-download').href = item.fileData;
-  document.getElementById('pdf-viewer-download').setAttribute('download', item.fileName || 'file.pdf');
-  document.getElementById('pdf-viewer-modal').style.display = 'flex';
-  document.body.style.overflow = 'hidden';
-}
-function closePdfViewer(){
-  document.getElementById('pdf-viewer-modal').style.display = 'none';
-  document.getElementById('pdf-viewer-frame').src = 'about:blank';
-  document.body.style.overflow = '';
-}
-
-async function renderKnowledgePublic(){
-  const area = document.getElementById('kb-public-list');
-  KNOWLEDGE = await loadKnowledgeBank();
-  if(KNOWLEDGE.length === 0){
-    area.innerHTML = `<p class="empty-note">ยังไม่มีบทความในคลังความรู้ กรุณาแจ้งผู้ดูแลระบบให้เพิ่มเนื้อหา</p>`;
-    return;
-  }
-  let html = '';
-  KNOWLEDGE.forEach(item=>{
-    const kbLink = (item.link||'').trim();
-    const eyeHtml = kbLink
-      ? `<a class="th-eye-btn" href="${escapeHtml(kbLink)}" target="_blank" rel="noopener noreferrer" title="เปิดลิงก์">👁 เปิดลิงก์</a>`
-      : '';
-    html += `<div class="kb-item">
-      <div class="kb-title" style="display:flex;align-items:center;justify-content:space-between;gap:10px;flex-wrap:wrap;">
-        <span>${escapeHtml(item.title)}</span>
-        ${eyeHtml}
-      </div>
-      ${item.imageData ? `<img class="kb-image" src="${item.imageData}" alt="${escapeHtml(item.title)}">` : ''}
-      ${item.desc ? `<div class="kb-desc">${escapeHtml(item.desc)}</div>` : ''}
-      ${item.fileData ? renderFileAttachmentHtml(item, 'kb-file-link') : ''}
-    </div>`;
+function hideAllViews() {
+  const views = ['public-home', 'knowledge', 'criteria', 'about', 'login', 'categories', 'home', 'quiz', 'result', 'certificate', 'admin'];
+  views.forEach(v => {
+    const el = document.getElementById('view-' + v);
+    if(el) el.style.display = 'none';
   });
-  area.innerHTML = html;
+  document.querySelectorAll('.side-nav .nav-item').forEach(b => b.classList.remove('active'));
 }
 
-// ---- ADMIN: knowledge CRUD ----
-async function renderAdminKnowledge(){
-  KNOWLEDGE = await loadKnowledgeBank();
-  document.getElementById('kb-count-label').textContent = KNOWLEDGE.length;
-  const area = document.getElementById('admin-knowledge-list');
-  if(KNOWLEDGE.length === 0){
-    area.innerHTML = `<p class="empty-note">ยังไม่มีบทความ กด "+ เพิ่มบทความใหม่" เพื่อเริ่มต้น</p>`;
-    return;
-  }
-  let html = '';
-  KNOWLEDGE.forEach(item=>{
-    html += renderKnowledgeCardView(item);
-  });
-  area.innerHTML = html;
-}
+function navigateTo(view) {
+  hideAllViews();
+  closeMobileSidebar();
 
-function renderKnowledgeCardView(item){
-  return `<div class="kb-admin-card" id="kb-admin-card-${item.id}">
-    <div class="kb-admin-title">${escapeHtml(item.title)}</div>
-    ${item.desc ? `<div class="kb-admin-desc">${escapeHtml(item.desc)}</div>` : ''}
-    ${item.imageData ? `<img class="kb-admin-thumb" src="${item.imageData}">` : ''}
-    <div class="kb-admin-meta">
-      ${item.imageData ? `<span>🖼 ${escapeHtml(item.imageName||'')} (${formatFileSize(item.imageSize)})</span>` : ''}
-      ${item.fileData ? `<span>📎 ${escapeHtml(item.fileName||'')} (${formatFileSize(item.fileSize)})</span>` : ''}
-      ${item.link ? `<span>🔗 <a href="${escapeHtml(item.link)}" target="_blank" rel="noopener noreferrer" style="color:var(--accent);">ลิงก์แนบ</a></span>` : ''}
-    </div>
-    ${item.fileData && isPdfFile(item) ? `<div class="btn-row" style="margin-top:6px;"><button class="btn btn-outline btn-small" onclick="openPdfViewer('${item.id}', '${escapeHtml((item.title||'').replace(/'/g,"\\'"))}')">&#128065; ดูไฟล์ PDF</button></div>` : ''}
-    <div class="btn-row" style="margin-top:10px;">
-      <button class="btn btn-outline btn-small" onclick="openKnowledgeForm('${item.id}')">แก้ไข</button>
-      <button class="btn btn-danger btn-small" onclick="confirmDeleteKnowledge('${item.id}')">ลบ</button>
-    </div>
-  </div>`;
-}
-
-function readFileAsDataUrl(file){
-  return new Promise((resolve, reject)=>{
-    const reader = new FileReader();
-    reader.onload = ()=>resolve(reader.result);
-    reader.onerror = reject;
-    reader.readAsDataURL(file);
-  });
-}
-
-async function handleKbImageSelect(input){
-  const file = input.files && input.files[0];
-  if(!file) return;
-  if(file.size > KB_MAX_BYTES){
-    alert(`ไฟล์รูปภาพมีขนาดใหญ่เกินไป (${formatFileSize(file.size)}) กรุณาเลือกไฟล์ไม่เกิน ${formatFileSize(KB_MAX_BYTES)}`);
-    input.value = '';
-    return;
-  }
-  try{
-    kfImageData = await readFileAsDataUrl(file);
-    kfImageName = file.name;
-    kfImageType = file.type;
-    renderKbImagePreview();
-  }catch(e){ alert('ไม่สามารถอ่านไฟล์รูปภาพได้'); }
-}
-function removeKbImage(){
-  kfImageData = null; kfImageName = null; kfImageType = null;
-  const input = document.getElementById('kf-image-input');
-  if(input) input.value = '';
-  renderKbImagePreview();
-}
-function renderKbImagePreview(){
-  const wrap = document.getElementById('kf-image-preview');
-  if(!wrap) return;
-  wrap.innerHTML = kfImageData
-    ? `<div class="file-preview-chip"><img src="${kfImageData}">${escapeHtml(kfImageName)}<span class="remove-x" onclick="removeKbImage()">&times;</span></div>`
-    : '';
-}
-
-async function handleKbFileSelect(input){
-  const file = input.files && input.files[0];
-  if(!file) return;
-  if(file.size > KB_MAX_BYTES){
-    alert(`ไฟล์แนบมีขนาดใหญ่เกินไป (${formatFileSize(file.size)}) กรุณาเลือกไฟล์ไม่เกิน ${formatFileSize(KB_MAX_BYTES)}`);
-    input.value = '';
-    return;
-  }
-  try{
-    kfFileData = await readFileAsDataUrl(file);
-    kfFileName = file.name;
-    kfFileType = file.type;
-    renderKbFilePreview();
-  }catch(e){ alert('ไม่สามารถอ่านไฟล์แนบได้'); }
-}
-function removeKbFile(){
-  kfFileData = null; kfFileName = null; kfFileType = null;
-  const input = document.getElementById('kf-file-input');
-  if(input) input.value = '';
-  renderKbFilePreview();
-}
-function renderKbFilePreview(){
-  const wrap = document.getElementById('kf-file-preview');
-  if(!wrap) return;
-  wrap.innerHTML = kfFileData
-    ? `<div class="file-preview-chip">📎 ${escapeHtml(kfFileName)}<span class="remove-x" onclick="removeKbFile()">&times;</span></div>`
-    : '';
-}
-
-function openKnowledgeForm(id){
-  editingKnowledgeId = id;
-  const existing = id ? KNOWLEDGE.find(k=>k.id===id) : null;
-  kfImageData = existing ? (existing.imageData || null) : null;
-  kfImageName = existing ? (existing.imageName || null) : null;
-  kfImageType = existing ? (existing.imageType || null) : null;
-  kfFileData = existing ? (existing.fileData || null) : null;
-  kfFileName = existing ? (existing.fileName || null) : null;
-  kfFileType = existing ? (existing.fileType || null) : null;
-
-  const area = document.getElementById('knowledge-form-area');
-  area.innerHTML = `<div class="panel" style="background:var(--paper-dark);margin-top:12px;">
-    <h2 class="purple">${existing ? 'แก้ไขบทความ' : 'เพิ่มบทความใหม่'}</h2>
-    <div class="form-grid">
-      <div>
-        <label>หัวข้อเรื่อง</label>
-        <input type="text" id="kf-title" value="${existing ? escapeHtml(existing.title) : ''}" placeholder="เช่น มาตรฐานการติดฉลากกล่องบรรจุภัณฑ์">
-      </div>
-      <div>
-        <label>เนื้อหา / รายละเอียด</label>
-        <textarea id="kf-desc" placeholder="รายละเอียดของบทความ...">${existing ? escapeHtml(existing.desc || '') : ''}</textarea>
-      </div>
-      <div>
-        <label>รูปภาพประกอบ (ถ้ามี)</label>
-        <div class="file-upload-row">
-          <input type="file" id="kf-image-input" accept="image/*" onchange="handleKbImageSelect(this)">
-        </div>
-        <div id="kf-image-preview" style="margin-top:8px;"></div>
-      </div>
-      <div>
-        <label>ไฟล์แนบ (ถ้ามี เช่น PDF, DOCX)</label>
-        <div class="file-upload-row">
-          <input type="file" id="kf-file-input" onchange="handleKbFileSelect(this)">
-        </div>
-        <div id="kf-file-preview" style="margin-top:8px;"></div>
-      </div>
-      <div>
-        <label>ลิงก์ภายนอก (ถ้ามี)</label>
-        <input type="url" id="kf-link" value="${existing && existing.link ? escapeHtml(existing.link) : ''}" placeholder="https://... เช่น Google Drive, เอกสารออนไลน์">
-        <p class="empty-note" style="margin-top:6px;">ถ้าใส่ลิงก์ ผู้ใช้จะเห็นไอคอน 👁 กดแล้วเปิดลิงก์นี้</p>
-      </div>
-    </div>
-    <div class="btn-row" style="margin-top:12px;">
-      <button class="btn btn-purple" onclick="saveKnowledgeForm()">บันทึก</button>
-      <button class="btn btn-outline" onclick="closeKnowledgeForm()">ยกเลิก</button>
-    </div>
-  </div>`;
-  renderKbImagePreview();
-  renderKbFilePreview();
-  area.scrollIntoView({behavior:'smooth', block:'center'});
-}
-
-function closeKnowledgeForm(){
-  editingKnowledgeId = null;
-  kfImageData = null; kfImageName = null; kfImageType = null;
-  kfFileData = null; kfFileName = null; kfFileType = null;
-  document.getElementById('knowledge-form-area').innerHTML = '';
-}
-
-async function saveKnowledgeForm(){
-  const title = document.getElementById('kf-title').value.trim();
-  const desc = document.getElementById('kf-desc').value.trim();
-  if(!title){
-    alert('กรุณากรอกหัวข้อเรื่อง');
-    return;
-  }
-  const items = await loadKnowledgeBank();
-  const link = (document.getElementById('kf-link')||{}).value.trim();
-  const payload = {
-    title, desc, link: link || '',
-    imageData: kfImageData, imageName: kfImageName, imageType: kfImageType,
-    imageSize: kfImageData ? base64Size(kfImageData) : null,
-    fileData: kfFileData, fileName: kfFileName, fileType: kfFileType,
-    fileSize: kfFileData ? base64Size(kfFileData) : null,
-  };
-  let savedId;
-  if(editingKnowledgeId){
-    savedId = editingKnowledgeId;
-    const idx = items.findIndex(x=>x.id===editingKnowledgeId);
-    if(idx !== -1) items[idx] = { id: editingKnowledgeId, ...payload };
-  }else{
-    savedId = 'kb' + Date.now();
-    items.push({ id: savedId, ...payload });
-  }
-  await saveKnowledgeBank(items);
-  closeKnowledgeForm();
-  renderAdminKnowledge();
-  const card = document.getElementById('kb-admin-card-'+savedId);
-  if(card) card.scrollIntoView({behavior:'smooth', block:'center'});
-}
-
-function confirmDeleteKnowledge(id){
-  const card = document.getElementById('kb-admin-card-'+id);
-  if(!card) return;
-  card.innerHTML = `<div class="confirm-box">
-    <strong>ยืนยันการลบบทความนี้?</strong> ไม่สามารถกู้คืนได้หลังจากลบ
-    <div class="btn-row">
-      <button class="btn btn-danger btn-small" onclick="deleteKnowledge('${id}')">ยืนยัน ลบบทความนี้</button>
-      <button class="btn btn-outline btn-small" onclick="renderAdminKnowledge()">ยกเลิก</button>
-    </div>
-  </div>`;
-}
-
-async function deleteKnowledge(id){
-  const items = await loadKnowledgeBank();
-  const filtered = items.filter(x=>x.id!==id);
-  await saveKnowledgeBank(filtered);
-  renderAdminKnowledge();
-}
-
-async function navigateTo(section){
-  if(NAV_LOGIN_REQUIRED.includes(section) && !currentUser){
-    pendingSection = section;
-    showView('view-login');
-    updateNavActive(null);
-    window.scrollTo({top:0, behavior:'smooth'});
-    return;
-  }
-  if(section === 'home'){
-    showView('view-public-home');
-    await renderPublicHomepage();
-    showHomeAdminBar(!!isAdmin);
-  }else if(section === 'knowledge'){
-    showView('view-knowledge');
-    await renderKnowledgePublic();
-    const kbBar = document.getElementById('knowledge-admin-bar');
-    if(kbBar) kbBar.style.display = isAdmin ? 'flex' : 'none';
-  }else if(section === 'criteria'){
-    SETTINGS = await loadSettings();
-    await renderCriteriaPage();
-    showView('view-criteria');
-    const bar = document.getElementById('criteria-admin-bar');
-    if(bar) bar.style.display = isAdmin ? 'flex' : 'none';
-  }else if(section === 'about'){
-    await renderAboutPage();
-    showView('view-about');
-    const bar = document.getElementById('about-admin-bar');
-    if(bar) bar.style.display = isAdmin ? 'flex' : 'none';
-  }else if(section === 'exambank'){
-    if(isAdmin){
-      await enterAdmin('stats', 'exam');
+  if(view === 'home') {
+    document.getElementById('nav-home').classList.add('active');
+    renderPublicHome();
+    document.getElementById('view-public-home').style.display = 'block';
+  } else if(view === 'knowledge') {
+    document.getElementById('nav-knowledge').classList.add('active');
+    renderKnowledgePage();
+    document.getElementById('view-knowledge').style.display = 'block';
+  } else if(view === 'exambank') {
+    document.getElementById('nav-exambank').classList.add('active');
+    if(!currentUser) {
+      showLogin();
     } else {
-      await goToCategories();
+      renderCategories();
+      document.getElementById('view-categories').style.display = 'block';
     }
+  } else if(view === 'criteria') {
+    document.getElementById('nav-criteria').classList.add('active');
+    renderCriteriaPage();
+    document.getElementById('view-criteria').style.display = 'block';
+  } else if(view === 'about') {
+    document.getElementById('nav-about').classList.add('active');
+    renderAboutPage();
+    document.getElementById('view-about').style.display = 'block';
   }
-  updateNavActive(section);
-  window.scrollTo({top:0, behavior:'smooth'});
 }
 
-function showHomeAdminBar(show){
-  let bar = document.getElementById('home-admin-bar');
-  if(!bar){
-    const root = document.getElementById('view-public-home');
-    if(!root) return;
-    bar = document.createElement('div');
-    bar.id = 'home-admin-bar';
-    bar.className = 'btn-row';
-    bar.style.marginBottom = '12px';
-    bar.innerHTML = "<button class=\"btn btn-purple btn-small\" onclick=\"openAdminSection('homepage')\">✏️ แก้ไขหน้าหลัก</button>";
-    root.insertBefore(bar, root.firstChild);
-  }
-  bar.style.display = show ? 'flex' : 'none';
+function showLogin() {
+  hideAllViews();
+  document.getElementById('login-error').style.display = 'none';
+  document.getElementById('view-login').style.display = 'block';
 }
 
-async function openAdminSection(section){
-  if(!isAdmin) return;
-  // แก้ไขเฉพาะหน้าเมนูนั้น
-  await enterAdmin(section || 'homepage', 'single');
-}
+function handleLogin() {
+  const u = document.getElementById('login-username').value.trim();
+  const p = document.getElementById('login-password').value.trim();
+  const err = document.getElementById('login-error');
 
-// CATEGORY SELECTION
-async function renderCategoryList(){
-  CATEGORIES = await loadCategories();
-  const area = document.getElementById('category-list');
-  if(CATEGORIES.length === 0){
-    area.innerHTML = `<p class="empty-note">ยังไม่มีหมวดข้อสอบ กรุณาแจ้งผู้ดูแลระบบให้เพิ่มหมวดข้อสอบก่อน</p>`;
+  if(!u || !p) {
+    err.innerText = "กรุณากรอกข้อมูลให้ครบถ้วน";
+    err.style.display = 'block';
     return;
   }
-  let html = "";
-  for(const cat of CATEGORIES){
-    const qs = await loadQuestions(cat.id);
-    html += `<div class="qcard cat-card" onclick="selectCategory('${cat.id}')">
-      <div class="qhead">
-        <div style="flex:1;">
-          <div class="cat-name">${escapeHtml(cat.name)}</div>
-          <div class="cat-desc">${escapeHtml(cat.desc || '')}</div>
-          <div class="cat-meta">${qs.length} ข้อ</div>
+
+  if(u === 'C25HBD' && p === 'C25HBD') {
+    currentUser = { username: 'C25HBD', isAdmin: true };
+  } else {
+    currentUser = { username: u, isAdmin: false };
+  }
+
+  localStorage.setItem('mm_session', JSON.stringify(currentUser));
+  renderAuthArea();
+  navigateTo('exambank');
+}
+
+function logout() {
+  currentUser = null;
+  localStorage.removeItem('mm_session');
+  renderAuthArea();
+  navigateTo('home');
+}
+
+// ============================================================
+// PUBLIC PAGES RENDERING
+// ============================================================
+function renderPublicHome() {
+  const root = document.getElementById('home-dynamic-root');
+  const hpData = JSON.parse(localStorage.getItem('mm_homepage') || JSON.stringify(DEFAULT_HOMEPAGE));
+  
+  let html = `
+    <div class="th-hero">
+      <div class="th-hero-inner">
+        <span class="th-badge">MM PACKAGING SYSTEM</span>
+        <h1>${hpData.heroTitle}</h1>
+        <p class="th-sub">${hpData.heroSub}</p>
+        <div class="th-hero-actions">
+          <button class="th-btn th-btn-primary" onclick="navigateTo('exambank')">📝 ทำแบบทดสอบ</button>
+          <button class="th-btn th-btn-outline" onclick="navigateTo('knowledge')">📚 คลังความรู้</button>
         </div>
       </div>
-      <div class="btn-row">
-        <button class="btn btn-primary btn-small" onclick="event.stopPropagation();selectCategory('${cat.id}')">进入此分类|เข้าสู่หมวดนี้</button>
+    </div>
+
+    <div class="th-section">
+      <div class="th-section-head">
+        <h2>ตารางดรรชนีเอกสารบรรจุภัณฑ์ (MOI)</h2>
+        <p>ข้อมูลจำเพาะการบรรจุตามข้อกำหนดลูกค้ารายต่างๆ</p>
       </div>
-    </div>`;
-  }
-  area.innerHTML = html;
-}
-
-async function goToCategories(){
-  await renderCategoryList();
-  showView('view-categories');
-  updateNavActive('exambank');
-  window.scrollTo({top:0, behavior:'smooth'});
-}
-
-async function selectCategory(catId){
-  currentCategoryId = catId;
-  SETTINGS = await loadSettings();
-  await enterHome();
-}
-
-async function enterHome(){
-  QUESTIONS = await loadQuestions(currentCategoryId);
-  updateSessionBar();
-  await goHome();
-}
-
-async function goHome(){
-  QUESTIONS = await loadQuestions(currentCategoryId);
-  const cat = CATEGORIES.find(c=>c.id===currentCategoryId);
-  const total = QUESTIONS.length;
-  document.getElementById('corner-tag').textContent = `QC · ${total} ITEMS`;
-  document.getElementById('home-cat-name').textContent = cat ? cat.name.toUpperCase() : '';
-  document.getElementById('home-desc').textContent =
-    total > 0
-      ? `ทั้งหมด ${total} ข้อ ตอบให้ครบทุกข้อก่อนกด "เสร็จสิ้น" ระบบจะไม่เฉลยระหว่างทำ — เฉลยและคะแนนจะแสดงหลังส่งคำตอบเท่านั้น`
-      : `ขณะนี้ยังไม่มีข้อสอบในหมวดนี้ กรุณาแจ้งผู้ดูแลระบบให้เพิ่มข้อสอบก่อน`;
-  document.getElementById('start-btn').disabled = total === 0;
-  await renderStats();
-  showView('view-home');
-  updateNavActive('exambank');
-}
-
-// HOME STATS
-async function renderStats(){
-  const history = await loadHistory();
-  const area = document.getElementById('stats-area');
-
-  const ownHistory = history.filter(h => h.username === currentUser && (h.categoryId || DEFAULT_CATEGORY_ID) === currentCategoryId);
-  const catHistory = history.filter(h => (h.categoryId || DEFAULT_CATEGORY_ID) === currentCategoryId);
-
-  const fullPassEntry = ownHistory.find(h => h.passed && h.score === h.total && h.total > 0);
-  homeCertPass = fullPassEntry ? { score: fullPassEntry.score, total: fullPassEntry.total } : null;
-  renderHomeCertificateBox();
-
-  if(catHistory.length === 0){
-    area.innerHTML = `<p class="empty-note">ยังไม่มีประวัติการสอบในหมวดนี้ — เริ่มทำแบบทดสอบครั้งแรกได้เลย</p>`;
-    return;
-  }
-
-  const totalAttempts = ownHistory.length;
-  const firstPassIdx = ownHistory.findIndex(h=>h.passed);
-  const passedOnAttempt = firstPassIdx === -1 ? '—' : (firstPassIdx+1);
-  const consecFails = computeConsecutiveFails(history, currentUser, currentCategoryId);
-
-  let html = `<div class="stat-grid">
-      <div class="stat-box"><div class="num">${totalAttempts}</div><div class="lbl">您考试的次数|ครั้งที่คุณสอบ</div></div>
-      <div class="stat-box"><div class="num">${passedOnAttempt}</div><div class="lbl">次考试中通过|ผ่านตอนครั้งที่</div></div>
-      <div class="stat-box"><div class="num">${consecFails}</div><div class="lbl">连续未通过|ไม่ผ่านติดต่อกัน</div></div>
-    </div>
-    <ul class="history-list">`;
-  catHistory.slice().reverse().slice(0,15).forEach(h=>{
-    const canView = h.username === currentUser && h.detail && h.detail.length > 0;
-    html += `<li><span><span class="who">${escapeHtml(h.username)}</span> — ${h.date}</span>
-      <span style="display:flex;align-items:center;gap:8px;">
-        <span class="${h.passed?'tag-pass':'tag-fail'}">${h.score}/${h.total} ${h.passed?'ผ่าน':'ไม่ผ่าน'}</span>
-        ${canView ? `<button class="btn btn-outline" style="padding:4px 10px;font-size:12px;" onclick="viewHistoryDetail('${h.id}')">查看答题记录|ดูประวัติการตอบ</button>` : ''}
-      </span></li>`;
-  });
-  html += `</ul><div class="shared-note">ประวัติด้านบนแสดงการสอบของผู้ใช้ทุกคนที่บันทึกผ่านระบบ Firebase</div>
-    <div id="history-detail-area"></div>`;
-
-  if(consecFails >= SETTINGS.unlockThreshold){
-    html += `<div class="answerkey-unlock">
-      <strong>好吧 给你看答案|โอ้ยย ไม่ผ่านสักทีเฉลยให้ก็ได้จำด้วยล่ะ</strong>
-      <div class="btn-row"><button class="btn btn-outline" onclick="renderAnswerKey('user-answerkey-stats')">查看完整答案 | ดูเฉลยทั้งหมด</button></div>
-    </div>
-    <div id="user-answerkey-stats"></div>`;
-  }
-  area.innerHTML = html;
-  statsHistoryCache = history;
-}
-
-let statsHistoryCache = [];
-let historyDetailEntryId = null;
-let historyDetailShowOnlyWrong = false;
-
-function viewHistoryDetail(entryId){
-  historyDetailEntryId = entryId;
-  historyDetailShowOnlyWrong = false;
-  renderHistoryDetailPanel();
-}
-
-function toggleHistoryDetailFilter(){
-  const el = document.getElementById('history-detail-filter-wrong');
-  historyDetailShowOnlyWrong = el ? el.checked : false;
-  renderHistoryDetailPanel();
-}
-
-function renderHistoryDetailPanel(){
-  const entry = statsHistoryCache.find(h => h.id === historyDetailEntryId);
-  const area = document.getElementById('history-detail-area');
-  if(!area) return;
-  if(!entry || !entry.detail){
-    area.innerHTML = `<p class="empty-note">ไม่พบข้อมูลรายละเอียดของการสอบครั้งนี้</p>`;
-    return;
-  }
-
-  const wrongCount = entry.detail.filter(d=>!d.correct).length;
-  let html = `<div class="answerkey-unlock">
-    <strong>答题记录|ประวัติการตอบคำถาม &middot; ${entry.date}</strong>
-    <div class="qadmin-meta" style="margin:6px 0 10px;">คะแนน ${entry.score}/${entry.total} &middot; ตอบผิด ${wrongCount} ข้อ &middot; ไม่แสดงเฉลยที่ถูกต้อง</div>
-    <div class="review-toolbar">
-      <label class="filter-check">
-        <input type="checkbox" id="history-detail-filter-wrong" onchange="toggleHistoryDetailFilter()" ${historyDetailShowOnlyWrong?'checked':''}>
-        <span>只看错题 | แสดงเฉพาะข้อที่ตอบผิด</span>
-      </label>
-      <button class="btn btn-outline btn-small" onclick="document.getElementById('history-detail-area').innerHTML='';">ปิด</button>
-    </div>
-  </div>`;
-
-  const list = historyDetailShowOnlyWrong ? entry.detail.filter(d=>!d.correct) : entry.detail;
-  if(list.length === 0){
-    html += `<p class="empty-note">ตอบถูกทุกข้อ ไม่มีข้อที่ตอบผิด 🎉</p>`;
-  }else{
-    list.forEach(d=>{
-      const userAnsLabel = formatAnsLabel(d.userAns, d.opts);
-      html += `<div class="qadmin-card ${d.correct?'review-ok':'review-fail'}">
-        <div class="qadmin-meta">ข้อ ${d.i+1} &middot; <span class="${d.correct?'ans-status-ok':'ans-status-fail'}">${d.correct ? '✓ ตอบถูก' : '✗ ตอบผิด'}</span></div>
-        <div class="qadmin-text">${escapeHtml(d.q)}</div>
-        <div class="qadmin-meta">คำตอบของคุณ: <strong class="${d.correct?'ans-status-ok':'ans-status-fail'}">${escapeHtml(userAnsLabel || '(ไม่ได้ตอบ)')}</strong></div>
-      </div>`;
-    });
-  }
-
-  area.innerHTML = html;
-  area.scrollIntoView({behavior:'smooth', block:'nearest'});
-}
-
-let userAnswerKeyEntry = null;
-let userAnswerKeyShowOnlyWrong = true;
-let userAnswerKeyTargetId = null;
-
-async function renderAnswerKey(targetId){
-  userAnswerKeyTargetId = targetId;
-  const history = await loadHistory();
-  const ownHistory = history.filter(h => h.username === currentUser && (h.categoryId || DEFAULT_CATEGORY_ID) === currentCategoryId);
-  userAnswerKeyEntry = ownHistory.length ? ownHistory[ownHistory.length - 1] : null;
-  userAnswerKeyShowOnlyWrong = true;
-  renderUserAnswerKeyPanel();
-}
-
-function toggleUserAnswerKeyFilter(){
-  const el = document.getElementById('user-detail-filter-wrong');
-  userAnswerKeyShowOnlyWrong = el ? el.checked : true;
-  renderUserAnswerKeyPanel();
-}
-
-function renderUserAnswerKeyPanel(){
-  const target = document.getElementById(userAnswerKeyTargetId);
-  if(!target) return;
-  const entry = userAnswerKeyEntry;
-
-  if(entry && entry.detail){
-    const wrongCount = entry.detail.filter(d=>!d.correct).length;
-    let html = `<div class="answerkey-unlock">
-      <strong>答案解析|เฉลยคำตอบ &middot; 基于您最近一次的考试记录|อ้างอิงจากการทำข้อสอบครั้งล่าสุดของคุณ</strong>
-      <div class="qadmin-meta" style="margin:6px 0 10px;">${entry.date} &middot; คะแนน ${entry.score}/${entry.total} &middot; ตอบผิด ${wrongCount} ข้อ</div>
-      <div class="review-toolbar">
-        <label class="filter-check">
-          <input type="checkbox" id="user-detail-filter-wrong" onchange="toggleUserAnswerKeyFilter()" ${userAnswerKeyShowOnlyWrong?'checked':''}>
-          <span>只看错题 | แสดงเฉพาะข้อที่ตอบผิด</span>
-        </label>
+      <div class="th-table-wrap">
+        <table class="th-moi-table">
+          <thead>
+            <tr>
+              <th>รหัสลูกค้า</th>
+              <th>รายละเอียดบรรจุภัณฑ์</th>
+              <th>เอกสาร MOI</th>
+            </tr>
+          </thead>
+          <tbody>
+            ${hpData.moiData.map(m => `
+              <tr>
+                <td class="code">${m.code}</td>
+                <td>${m.desc}</td>
+                <td class="moi">${m.moi}</td>
+              </tr>
+            `).join('')}
+          </tbody>
+        </table>
       </div>
-    </div>`;
+    </div>
 
-    const list = userAnswerKeyShowOnlyWrong ? entry.detail.filter(d=>!d.correct) : entry.detail;
-    if(list.length === 0){
-      html += `<p class="empty-note">太棒了！全答对了！ตอบถูกทุกข้อ ไม่มีข้อที่ตอบผิด 🎉</p>`;
-    }else{
-      list.forEach(d=>{
-        const userAnsLabel = formatAnsLabel(d.userAns, d.opts);
-        const correctAnsLabel = formatAnsLabel(d.correctAns, d.opts);
-        html += `<div class="qadmin-card ${d.correct?'review-ok':'review-fail'}">
-          <div class="qadmin-meta">ข้อ ${d.i+1} &middot; <span class="${d.correct?'ans-status-ok':'ans-status-fail'}">${d.correct ? '✓ ตอบถูก' : '✗ ตอบผิด'}</span></div>
-          <div class="qadmin-text">${escapeHtml(d.q)}</div>
-          <div class="qadmin-meta">คำตอบของคุณ: <strong class="${d.correct?'ans-status-ok':'ans-status-fail'}">${escapeHtml(userAnsLabel || '(ไม่ได้ตอบ)')}</strong></div>
-          ${!d.correct ? `<div class="qadmin-ans">เฉลยที่ถูกต้อง: ${escapeHtml(correctAnsLabel)}</div>` : ''}
-        </div>`;
-      });
-    }
-    html += `<div class="btn-row" style="justify-content:center;margin-top:14px;"><button class="btn btn-primary" onclick="startQuiz()">ทำแบบทดสอบใหม่</button></div>`;
-    target.innerHTML = html;
-  }else{
-    let html = `<div class="answerkey-unlock"><strong>เฉลยคำตอบที่ถูกต้อง (${QUESTIONS.length} ข้อ)</strong><div class="answerkey-list">`;
-    QUESTIONS.forEach((q,i)=>{
-      html += `<div>ข้อ ${i+1}: ${q.ans.split(',').join(', ')}</div>`;
-    });
-    html += `</div><div class="btn-row" style="justify-content:center;margin-top:10px;"><button class="btn btn-primary" onclick="startQuiz()">ทำแบบทดสอบใหม่</button></div></div>`;
-    target.innerHTML = html;
-  }
+    <div class="th-section">
+      <div class="th-section-head">
+        <h2>ขั้นตอนกระบวนการแพ็คสินค้า</h2>
+      </div>
+      <div class="th-flow">
+        ${hpData.steps.map((s, idx) => `
+          <div class="th-card ${idx % 2 === 1 ? 'reverse' : ''}">
+            <div class="th-card-body">
+              <span class="th-num">${idx + 1}</span>
+              <h3>${s.title}</h3>
+              <p>${s.desc}</p>
+            </div>
+            <div class="th-card-media">
+              ${s.img1 ? `<img src="${s.img1}" alt="Step image">` : '<div style="display:flex;align-items:center;justify-content:center;height:100%;color:var(--muted);font-size:13px;">ไม่มีรูปภาพประกอบ</div>'}
+              ${s.cap1 ? `<div class="th-cap">${s.cap1}</div>` : ''}
+            </div>
+          </div>
+        `).join('')}
+      </div>
+    </div>
+  `;
+  root.innerHTML = html;
 }
 
-// QUIZ
-async function startQuiz(){
-  QUESTIONS = await loadQuestions(currentCategoryId);
-  if(QUESTIONS.length === 0){
-    await goHome();
+function renderKnowledgePage() {
+  const root = document.getElementById('kb-public-list');
+  const kbData = JSON.parse(localStorage.getItem('mm_knowledge') || '[]');
+  const adminBar = document.getElementById('knowledge-admin-bar');
+  if(currentUser && currentUser.isAdmin) adminBar.style.display = 'flex';
+  else adminBar.style.display = 'none';
+
+  if(kbData.length === 0) {
+    root.innerHTML = `<p class="empty-note">ยังไม่มีข้อมูลในคลังความรู้</p>`;
     return;
   }
-  answers = new Array(QUESTIONS.length).fill(null);
-  renderQuestions();
-  updateProgress();
-  showView('view-quiz');
-  updateNavActive('exambank');
-  window.scrollTo({top:0, behavior:'smooth'});
+
+  root.innerHTML = kbData.map(item => `
+    <div class="kb-item">
+      <div class="kb-title">${item.title}</div>
+      <div class="kb-desc">${item.desc}</div>
+      ${item.img ? `<img src="${item.img}" class="kb-image" alt="KB Image">` : ''}
+      ${item.file ? `<br><a href="${item.file}" target="_blank" class="kb-file-link">📎 เปิดไฟล์แนบ/เอกสารประกอบ</a>` : ''}
+    </div>
+  `).join('');
 }
 
-function renderQuestions(){
-  const list = document.getElementById('question-list');
-  let html = "";
-  QUESTIONS.forEach((q,i)=>{
-    const opts = getOptions(q);
-    const isMulti = q.t === 'multi';
-    html += `<div class="qcard" id="qcard-${i}">
+function renderCriteriaPage() {
+  const data = JSON.parse(localStorage.getItem('mm_criteria') || JSON.stringify(DEFAULT_CRITERIA));
+  document.getElementById('criteria-page-title').innerText = data.title;
+  document.getElementById('criteria-page-intro').innerText = data.intro;
+  const root = document.getElementById('criteria-list');
+  root.innerHTML = data.items.map((item, i) => `
+    <li>
+      <span class="criteria-num">${i+1}</span>
+      <div class="criteria-body">
+        <strong>${item.title}</strong>
+        <span>${item.desc}</span>
+      </div>
+    </li>
+  `).join('');
+  
+  const adminBar = document.getElementById('criteria-admin-bar');
+  if(currentUser && currentUser.isAdmin) adminBar.style.display = 'flex';
+  else adminBar.style.display = 'none';
+}
+
+function renderAboutPage() {
+  const data = JSON.parse(localStorage.getItem('mm_about') || JSON.stringify(DEFAULT_ABOUT));
+  const root = document.getElementById('about-page-root');
+  root.innerHTML = data.map(b => `
+    <div class="about-block">
+      <h3>${b.title}</h3>
+      <p>${b.body.replace(/\n/g, '<br>')}</p>
+    </div>
+  `).join('');
+
+  const adminBar = document.getElementById('about-admin-bar');
+  if(currentUser && currentUser.isAdmin) adminBar.style.display = 'flex';
+  else adminBar.style.display = 'none';
+}
+
+// ============================================================
+// QUIZ & EXAM SYSTEM
+// ============================================================
+function renderCategories() {
+  const root = document.getElementById('category-list');
+  root.innerHTML = categories.map(cat => {
+    const qCount = questions.filter(q => (q.catId || 'general') === cat.id).length;
+    return `
+      <div class="panel cat-card" onclick="selectCategory('${cat.id}')">
+        <div class="cat-name">${cat.name}</div>
+        <div class="cat-desc">${cat.desc || ''}</div>
+        <div class="cat-meta">จำนวนข้อสอบ: ${qCount} ข้อ</div>
+      </div>
+    `;
+  }).join('');
+}
+
+function selectCategory(catId) {
+  currentCatId = catId;
+  hideAllViews();
+  const cat = categories.find(c => c.id === catId) || categories[0];
+  document.getElementById('home-cat-name').innerText = cat.name;
+  document.getElementById('home-desc').innerText = cat.desc || '';
+  document.getElementById('view-home').style.display = 'block';
+  renderUserStats();
+}
+
+function goToCategories() {
+  hideAllViews();
+  renderCategories();
+  document.getElementById('view-categories').style.display = 'block';
+}
+
+function startQuiz() {
+  userAnswers = {};
+  const catQuestions = questions.filter(q => (q.catId || 'general') === currentCatId);
+  
+  if(catQuestions.length === 0) {
+    alert("หมวดหมู่นี้ยังไม่มีข้อสอบ");
+    return;
+  }
+
+  hideAllViews();
+  document.getElementById('view-quiz').style.display = 'block';
+  
+  const listEl = document.getElementById('question-list');
+  listEl.innerHTML = catQuestions.map((q, idx) => `
+    <div class="qcard" id="qcard-${q.id}">
       <div class="qhead">
-        <span class="qnum">ข้อ ${i+1}/${QUESTIONS.length}</span>
-        <div class="qtext">${escapeHtml(q.q)}${isMulti ? ' <span style="font-size:12px;color:var(--danger);font-weight:700;">(เลือกได้มากกว่า 1 ข้อ)</span>' : ''}</div>
+        <span class="qnum">ข้อที่ ${idx + 1}</span>
       </div>
-      <div class="opts">`;
-    Object.keys(opts).forEach(letter=>{
-      html += `<button class="opt-btn" data-q="${i}" data-letter="${letter}" onclick="selectAnswer(${i},'${letter}',${isMulti})">
-        <span class="opt-letter">${letter}.</span>${escapeHtml(opts[letter])}
-      </button>`;
-    });
-    html += `</div></div>`;
-  });
-  list.innerHTML = html;
+      <div class="qtext">${q.q}</div>
+      <div class="opts">
+        ${Object.keys(q.opts).map(key => `
+          <button type="button" class="opt-btn" id="opt-${q.id}-${key}" onclick="selectAnswer('${q.id}', '${key}')">
+            <span class="opt-letter">${key}.</span> ${q.opts[key]}
+          </button>
+        `).join('')}
+      </div>
+    </div>
+  `).join('');
+
+  updateQuizProgress();
 }
 
-function selectAnswer(qIndex, letter, isMulti){
-  const card = document.getElementById(`qcard-${qIndex}`);
-  if(isMulti){
-    if(!Array.isArray(answers[qIndex])) answers[qIndex] = [];
-    const pos = answers[qIndex].indexOf(letter);
-    if(pos === -1) answers[qIndex].push(letter);
-    else answers[qIndex].splice(pos,1);
-    card.querySelectorAll('.opt-btn').forEach(btn=>{
-      btn.classList.toggle('selected', answers[qIndex].includes(btn.dataset.letter));
-    });
-  }else{
-    answers[qIndex] = letter;
-    card.querySelectorAll('.opt-btn').forEach(btn=>{
-      btn.classList.toggle('selected', btn.dataset.letter === letter);
-    });
-  }
-  updateProgress();
-}
-
-function isAnswered(a){
-  if(Array.isArray(a)) return a.length > 0;
-  return a !== null && a !== undefined;
-}
-
-function updateProgress(){
-  const total = QUESTIONS.length;
-  const answered = answers.filter(isAnswered).length;
-  document.getElementById('progress-text').textContent = `ตอบแล้ว ${answered} / ${total}`;
-  document.getElementById('progress-fill').style.width = `${total ? (answered/total)*100 : 0}%`;
-}
-
-function isAnswerCorrect(q, userAns){
-  if(q.t === 'multi'){
-    const correct = q.ans.split(',').map(s=>s.trim()).filter(Boolean).sort();
-    const given = Array.isArray(userAns) ? [...userAns].sort() : [];
-    return correct.length === given.length && correct.every((v,idx)=>v===given[idx]);
-  }
-  return userAns === q.ans;
-}
-
-async function finishQuiz(){
-  const total = QUESTIONS.length;
-  const answered = answers.filter(isAnswered).length;
-  if(answered < total){
-    document.getElementById('unanswered-note').style.display = 'block';
-    const idx = answers.findIndex(a=>!isAnswered(a));
-    if(idx !== -1){
-      document.getElementById(`qcard-${idx}`).scrollIntoView({behavior:'smooth', block:'center'});
+function selectAnswer(qId, key) {
+  userAnswers[qId] = key;
+  const q = questions.find(item => item.id === qId);
+  Object.keys(q.opts).forEach(k => {
+    const btn = document.getElementById(`opt-${qId}-${k}`);
+    if(btn) {
+      if(k === key) btn.classList.add('selected');
+      else btn.classList.remove('selected');
     }
+  });
+  updateQuizProgress();
+}
+
+function updateQuizProgress() {
+  const catQuestions = questions.filter(q => (q.catId || 'general') === currentCatId);
+  const total = catQuestions.length;
+  const answered = Object.keys(userAnswers).length;
+  document.getElementById('progress-text').innerText = `ตอบแล้ว ${answered} / ${total}`;
+  const pct = total > 0 ? (answered / total) * 100 : 0;
+  document.getElementById('progress-fill').style.width = pct + '%';
+}
+
+function finishQuiz() {
+  const catQuestions = questions.filter(q => (q.catId || 'general') === currentCatId);
+  const total = catQuestions.length;
+  const answered = Object.keys(userAnswers).length;
+
+  if(answered < total) {
+    document.getElementById('unanswered-note').style.display = 'block';
     return;
   }
   document.getElementById('unanswered-note').style.display = 'none';
 
   let score = 0;
-  const detail = QUESTIONS.map((q,i)=>{
-    const correct = isAnswerCorrect(q, answers[i]);
-    if(correct) score++;
-    return {
-      i,
-      q: q.q,
-      t: q.t,
-      opts: getOptions(q),
-      userAns: answers[i],
-      correctAns: q.ans,
-      correct
-    };
+  catQuestions.forEach(q => {
+    if(userAnswers[q.id] === q.ans) score++;
   });
 
-  const requiredPercent = (SETTINGS && typeof SETTINGS.passingPercent === 'number') ? SETTINGS.passingPercent : DEFAULT_PASSING_PERCENT;
-  const passed = total > 0 && ((score / total) * 100) >= (requiredPercent - 1e-9);
-  const history = await loadHistory();
-  const cat = CATEGORIES.find(c=>c.id===currentCategoryId);
-  history.push({
-    id: 'a' + Date.now() + Math.random().toString(36).slice(2,7),
-    username: currentUser,
-    categoryId: currentCategoryId,
-    categoryName: cat ? cat.name : '',
-    score, total, passed,
-    date: new Date().toLocaleString('th-TH', {dateStyle:'medium', timeStyle:'short'}),
-    detail
-  });
-  await saveHistory(history);
-
-  renderResult(score, total, passed, history);
-  showView('view-result');
-  updateNavActive('exambank');
-  window.scrollTo({top:0, behavior:'smooth'});
+  saveAttemptResult(score, total);
+  showResult(score, total);
 }
 
-let lastResultScore = 0;
-let lastResultTotal = 0;
-let lastResultPassed = false;
+function saveAttemptResult(score, total) {
+  const history = JSON.parse(localStorage.getItem('mm_history') || '[]');
+  const record = {
+    username: currentUser ? currentUser.username : 'Anonymous',
+    catId: currentCatId,
+    score: score,
+    total: total,
+    date: new Date().toLocaleString('th-TH')
+  };
+  history.push(record);
+  localStorage.setItem('mm_history', JSON.stringify(history));
+}
 
-function renderResult(score, total, passed, history){
-  lastResultScore = score;
-  lastResultTotal = total;
-  lastResultPassed = passed;
+function showResult(score, total) {
+  hideAllViews();
+  document.getElementById('view-result').style.display = 'block';
+  document.getElementById('score-big').innerText = `${score} / ${total}`;
 
-  document.getElementById('score-big').textContent = `${score} / ${total}`;
-  document.getElementById('score-big').style.color = passed ? 'var(--ok)' : 'var(--danger)';
-  document.getElementById('stamp-area').innerHTML = `<div class="stamp ${passed?'pass':'fail'}">${passed ? 'ผ่าน' : 'ไม่ผ่าน'}</div>`;
+  const pct = (score / total) * 100;
+  const passed = pct >= 80;
 
+  const stampArea = document.getElementById('stamp-area');
   const msgArea = document.getElementById('message-area');
-  if(passed){
-    const passMsg = SETTINGS.passMessage || DEFAULT_PASS_MESSAGE;
-    msgArea.innerHTML = `<div class="big-message pass">${escapeHtml(passMsg)}</div>`;
-  }else{
-    const missing = total - score;
-    const failMsg = (SETTINGS.failMessage || DEFAULT_FAIL_MESSAGE).replace(/\{missing\}/g, missing);
-    msgArea.innerHTML = `<div class="big-message fail">${escapeHtml(failMsg)}</div>`;
-  }
-
-  showCertificateButton(passed, score, total);
-
-  const keyArea = document.getElementById('answerkey-area');
-  keyArea.innerHTML = "";
-  const consecFails = computeConsecutiveFails(history, currentUser, currentCategoryId);
-  const lastEntry = history[history.length - 1];
-  const wrongList = (lastEntry && lastEntry.detail) ? lastEntry.detail.filter(d => !d.correct) : [];
-
-  let html = "";
-
-  if(wrongList.length > 0){
-    html += `<div class="answerkey-unlock">
-      <strong>您答错的题目|ข้อที่คุณตอบผิด</strong>
-      <div class="qadmin-meta" style="margin:6px 0 10px;">ตอบผิดทั้งหมด ${wrongList.length} ข้อ</div>`;
-    wrongList.forEach(d=>{
-      const userAnsLabel = formatAnsLabel(d.userAns, d.opts);
-      html += `<div class="qadmin-card review-fail">
-        <div class="qadmin-meta">ข้อ ${d.i+1} &middot; <span class="ans-status-fail">✗ ตอบผิด</span></div>
-        <div class="qadmin-text">${escapeHtml(d.q)}</div>
-        <div class="qadmin-meta">คำตอบของคุณ: <strong class="ans-status-fail">${escapeHtml(userAnsLabel || '(ไม่ได้ตอบ)')}</strong></div>
-      </div>`;
-    });
-    html += `</div>`;
-  }
-
-  if(consecFails >= SETTINGS.unlockThreshold){
-    html += `<div class="answerkey-unlock">
-      <strong>好吧，给你看答案|โอ้ยย ไม่ผ่านสักทีเฉลยให้ก็ได้จำด้วยล่ะ</strong>
-      <div class="btn-row" style="justify-content:center;"><button class="btn btn-outline" onclick="renderAnswerKey('user-answerkey-result')">查看所有答案|ดูเฉลยทั้งหมด</button></div>
-    </div>
-    <div id="user-answerkey-result"></div>`;
-  }
-
-  keyArea.innerHTML = html;
-}
-
-// CERTIFICATE
-function showCertificateButton(passed, score, total){
   const certArea = document.getElementById('certificate-btn-area');
-  if(!certArea) return;
-  if(passed && total > 0 && score === total){
-    certArea.innerHTML = `<div class="btn-row" style="justify-content:center;margin-top:4px;">
-      <button class="btn btn-primary" onclick="openCertificateForm()">&#127942; 颁发荣誉证书|ออกใบประกาศเกียรติคุณ</button>
-    </div>`;
-  }else{
-    certArea.innerHTML = "";
+
+  if(passed) {
+    stampArea.innerHTML = `<div class="stamp pass">PASSED / ผ่าน</div>`;
+    msgArea.innerHTML = `<div class="big-message pass">ยินดีด้วย! คุณผ่านการทดสอบความรู้</div>`;
+    certArea.innerHTML = `<button class="btn btn-purple" style="margin-top:14px;" onclick="openCertificate('${currentUser.username}', ${score}, ${total})">🎓 รับใบประกาศนียบัตร (Certificate)</button>`;
+  } else {
+    stampArea.innerHTML = `<div class="stamp fail">FAILED / ไม่ผ่าน</div>`;
+    msgArea.innerHTML = `<div class="big-message fail">คุณยังไม่ผ่านเกณฑ์ 80% กรุณาทบทวนเนื้อหาและลองใหม่อีกครั้ง</div>`;
+    certArea.innerHTML = '';
   }
+
+  // Answer Key
+  const keyArea = document.getElementById('answerkey-area');
+  const catQuestions = questions.filter(q => (q.catId || 'general') === currentCatId);
+  keyArea.innerHTML = `
+    <div class="answerkey-unlock">
+      <strong style="color:var(--accent);">เฉลยคำตอบ (Answer Key)</strong>
+      <div class="answerkey-list">
+        ${catQuestions.map((q, i) => `
+          <div>ข้อ ${i+1}: <strong style="color:var(--ok);">${q.ans}</strong></div>
+        `).join('')}
+      </div>
+    </div>
+  `;
 }
 
-function renderHomeCertificateBox(){
-  const area = document.getElementById('home-certificate-area');
-  if(!area) return;
-  if(!homeCertPass){
-    area.innerHTML = "";
+function renderUserStats() {
+  const root = document.getElementById('stats-area');
+  const history = JSON.parse(localStorage.getItem('mm_history') || '[]');
+  const myHistory = history.filter(h => h.username === (currentUser ? currentUser.username : '') && h.catId === currentCatId);
+
+  if(myHistory.length === 0) {
+    root.innerHTML = `<p class="empty-note">ยังไม่มีประวัติการสอบในหมวดนี้</p>`;
     return;
   }
-  area.innerHTML = `<div class="answerkey-unlock" style="border-color:var(--admin);background:rgba(106,74,163,0.06);">
-    <strong>คุณเคยสอบผ่านหมวดนี้ด้วยคะแนนเต็ม ${homeCertPass.score}/${homeCertPass.total}</strong> — ออกใบประกาศได้เลยโดยไม่ต้องสอบใหม่
-    <div class="btn-row"><button class="btn btn-primary" onclick="openCertificateForm('home-certificate-area','view-home',${homeCertPass.score},${homeCertPass.total})">&#127942; 颁发荣誉证书|ออกใบประกาศเกียรติคุณ</button></div>
-  </div>`;
-}
 
-function openCertificateForm(areaId, returnView, score, total){
-  certAreaId = areaId || 'certificate-btn-area';
-  certReturnView = returnView || 'view-result';
-  if(score !== undefined) lastResultScore = score;
-  if(total !== undefined) lastResultTotal = total;
-  lastResultPassed = true;
+  const attempts = myHistory.length;
+  const bestScore = Math.max(...myHistory.map(h => h.score));
+  const lastScore = myHistory[myHistory.length - 1].score;
 
-  const certArea = document.getElementById(certAreaId);
-  if(!certArea) return;
-  certArea.innerHTML = `<div class="confirm-box" style="border-color:var(--admin);background:rgba(106,74,163,0.06);">
-    <strong>请输入姓名以颁发证书|กรอกชื่อ-นามสกุลเพื่อออกใบประกาศ</strong>
-    <div class="form-grid" style="margin-top:10px;max-width:340px;margin-left:auto;margin-right:auto;">
-      <div><label>NAME|ชื่อ</label><input type="text" id="cert-fname" placeholder="NAME|ชื่อจริง"></div>
-      <div><label>LASTNAME|นามสกุล</label><input type="text" id="cert-lname" placeholder="LASTNAME|นามสกุล"></div>
+  root.innerHTML = `
+    <div class="stat-grid">
+      <div class="stat-box"><div class="num">${attempts}</div><div class="lbl">จำนวนครั้งที่สอบ</div></div>
+      <div class="stat-box"><div class="num">${bestScore}</div><div class="lbl">คะแนนสูงสุด</div></div>
+      <div class="stat-box"><div class="num">${lastScore}</div><div class="lbl">คะแนนล่าสุด</div></div>
     </div>
-    <div class="btn-row" style="justify-content:center;">
-      <button class="btn btn-primary btn-small" onclick="generateCertificate()">SUBMIT|ออกใบประกาศ</button>
-      <button class="btn btn-outline btn-small" onclick="cancelCertificateForm()">CANCEL|ยกเลิก</button>
-    </div>
-  </div>`;
+    <ul class="history-list">
+      ${myHistory.map(h => `
+        <li>
+          <span>${h.date}</span>
+          <span style="font-weight:700;color:${(h.score/h.total)>=0.8?'var(--ok)':'var(--danger)'}">${h.score}/${h.total}</span>
+        </li>
+      `).join('')}
+    </ul>
+  `;
 }
 
-function cancelCertificateForm(){
-  if(certAreaId === 'certificate-btn-area'){
-    showCertificateButton(lastResultPassed, lastResultScore, lastResultTotal);
-  }else{
-    renderHomeCertificateBox();
-  }
+function openCertificate(name, score, total) {
+  hideAllViews();
+  document.getElementById('cert-name-out').innerText = name;
+  document.getElementById('cert-score-inline').innerText = `${score}/${total}`;
+  document.getElementById('cert-score-out').innerText = `${score}/${total} QUESTIONS`;
+  document.getElementById('cert-date-out').innerText = new Date().toLocaleDateString('th-TH');
+  document.getElementById('view-certificate').style.display = 'block';
 }
 
-function generateCertificate(){
-  const fname = document.getElementById('cert-fname').value.trim();
-  const lname = document.getElementById('cert-lname').value.trim();
-  if(!fname || !lname){
-    alert('กรุณากรอกทั้งชื่อและนามสกุล');
-    return;
-  }
-  const fullName = `${fname} ${lname}`;
-  const scoreLabel = `${lastResultScore}/${lastResultTotal}`;
-  const dateStr = new Date().toLocaleDateString('en-GB', {day:'2-digit', month:'long', year:'numeric'});
-
-  document.getElementById('cert-name-out').textContent = fullName;
-  document.getElementById('cert-score-inline').textContent = scoreLabel;
-  document.getElementById('cert-score-out').textContent = `${scoreLabel} QUESTIONS`;
-  document.getElementById('cert-date-out').textContent = dateStr;
-
-  showView('view-certificate');
-  window.scrollTo({top:0, behavior:'smooth'});
+function closeCertificateView() {
+  hideAllViews();
+  document.getElementById('view-result').style.display = 'block';
 }
 
-function closeCertificateView(){
-  showView(certReturnView);
-  if(certReturnView === 'view-result'){
-    showCertificateButton(lastResultPassed, lastResultScore, lastResultTotal);
-  }else{
-    renderHomeCertificateBox();
-  }
+function goHome() {
+  navigateTo('home');
 }
 
-// ADMIN
-let adminUiMode = 'full'; // full | single | exam
-
-const ADMIN_TAB_TITLES = {
-  homepage: 'แก้ไขหน้าหลัก',
-  knowledge: 'จัดการคลังความรู้',
-  stats: 'สถิติ & ประวัติ',
-  questions: 'จัดการข้อสอบ',
-  categories: 'หมวดข้อสอบ',
-  criteria: 'แก้ไขเกณฑ์ประเมิน',
-  about: 'แก้ไขเกี่ยวกับเรา'
-};
-
-async function enterAdmin(startTab, mode){
-  CATEGORIES = await loadCategories();
-  SETTINGS = await loadSettings();
-  if(!adminCurrentCategoryId || !CATEGORIES.find(c=>c.id===adminCurrentCategoryId)){
-    adminCurrentCategoryId = CATEGORIES.length ? CATEGORIES[0].id : null;
-  }
-  QUESTIONS = adminCurrentCategoryId ? await loadQuestions(adminCurrentCategoryId) : [];
-  updateSessionBar();
-
-  // mode: full (แผงควบคุม), single (แก้ไขหน้าเดียว), exam (จากเมนูคลังข้อสอบ)
-  if(mode === 'full' || mode === 'single' || mode === 'exam'){
-    adminUiMode = mode;
-  } else if(startTab === 'stats' || startTab === 'questions' || startTab === 'categories'){
-    adminUiMode = adminUiMode === 'full' ? 'full' : 'exam';
-  } else if(startTab){
-    adminUiMode = 'single';
-  } else {
-    adminUiMode = 'full';
-  }
-
-  const tab = startTab || (adminUiMode === 'full' ? 'homepage' : 'stats');
-  switchAdminTab(tab);
-  showView('view-admin');
-
-  if(adminUiMode === 'full') updateNavActive(null);
-  else if(tab==='knowledge') updateNavActive('knowledge');
-  else if(tab==='homepage') updateNavActive('home');
-  else if(tab==='criteria') updateNavActive('criteria');
-  else if(tab==='about') updateNavActive('about');
-  else updateNavActive('exambank');
-
-  window.scrollTo({top:0, behavior:'smooth'});
+// ============================================================
+// ADMIN PANEL SYSTEM
+// ============================================================
+function openAdminPanel() {
+  if(!currentUser || !currentUser.isAdmin) return;
+  hideAllViews();
+  document.getElementById('view-admin').style.display = 'block';
+  document.getElementById('admin-full-tabs').style.display = 'flex';
+  switchAdminTab('stats');
 }
 
-function switchAdminTab(tab){
-  const fullEl = document.getElementById('admin-full-tabs');
-  const examEl = document.getElementById('admin-exam-tabs');
-  const singleEl = document.getElementById('admin-single-bar');
-  const titleEl = document.getElementById('admin-single-title');
+function openAdminSection(section) {
+  openAdminPanel();
+  switchAdminTab(section);
+}
 
-  if(adminUiMode === 'full'){
-    if(fullEl) fullEl.style.display = 'flex';
-    if(examEl) examEl.style.display = 'none';
-    if(singleEl) singleEl.style.display = 'none';
-  } else if(adminUiMode === 'exam'){
-    if(fullEl) fullEl.style.display = 'none';
-    if(examEl) examEl.style.display = 'flex';
-    if(singleEl) singleEl.style.display = 'none';
-  } else {
-    // single: hide tab strips, show back bar
-    if(fullEl) fullEl.style.display = 'none';
-    if(examEl) examEl.style.display = 'none';
-    if(singleEl) singleEl.style.display = 'flex';
-    if(titleEl) titleEl.textContent = ADMIN_TAB_TITLES[tab] || 'แก้ไข';
-  }
-
-  const all = ['stats','questions','categories','knowledge','homepage','criteria','about'];
-  all.forEach(t=>{
-    const ids = ['tab-'+t, 'tab-'+t+'-exam'];
-    if(t==='criteria') ids.push('tab-criteria-edit');
-    if(t==='about') ids.push('tab-about-edit');
-    ids.forEach(id=>{
-      const btn = document.getElementById(id);
-      if(btn) btn.classList.toggle('active', tab===t);
-    });
-    const panel = document.getElementById('admin-tab-'+t);
-    if(panel) panel.style.display = tab===t ? 'block' : 'none';
+function switchAdminTab(tab) {
+  activeAdminTab = tab;
+  ['stats', 'questions', 'categories', 'knowledge', 'homepage', 'criteria', 'about'].forEach(t => {
+    const el = document.getElementById('admin-tab-' + t);
+    const btn = document.getElementById('tab-' + t);
+    if(el) el.style.display = 'none';
+    if(btn) btn.classList.remove('active');
   });
 
-  if(tab==='stats') renderAdminStats();
-  else if(tab==='questions') renderAdminQuestionsTab();
-  else if(tab==='categories') renderAdminCategories();
-  else if(tab==='knowledge') renderAdminKnowledge();
-  else if(tab==='homepage') renderHomepageAdmin();
-  else if(tab==='criteria') renderCriteriaAdmin();
-  else if(tab==='about') renderAboutAdmin();
+  const activeEl = document.getElementById('admin-tab-' + tab);
+  const activeBtn = document.getElementById('tab-' + tab);
+  if(activeEl) activeEl.style.display = 'block';
+  if(activeBtn) activeBtn.classList.add('active');
+
+  if(tab === 'stats') renderAdminStats();
+  else if(tab === 'questions') renderAdminQuestions();
+  else if(tab === 'categories') renderAdminCategories();
+  else if(tab === 'knowledge') renderAdminKnowledge();
+  else if(tab === 'homepage') renderAdminHomepage();
+  else if(tab === 'criteria') renderAdminCriteria();
+  else if(tab === 'about') renderAdminAbout();
 }
 
-async function renderAdminStats(){
-  const history = await loadHistory();
-  CATEGORIES = await loadCategories();
+function renderAdminStats() {
+  const history = JSON.parse(localStorage.getItem('mm_history') || '[]');
   const overview = document.getElementById('admin-stats-overview');
-  const existingFilter = document.getElementById('history-category-filter');
-  const filterId = existingFilter ? existingFilter.value : '';
+  overview.innerHTML = `
+    <div class="stat-grid">
+      <div class="stat-box"><div class="num">${history.length}</div><div class="lbl">การสอบทั้งหมด</div></div>
+      <div class="stat-box"><div class="num">${new Set(history.map(h => h.username)).size}</div><div class="lbl">ผู้ใช้งานทั้งหมด</div></div>
+      <div class="stat-box"><div class="num">${history.filter(h => (h.score/h.total)>=0.8).length}</div><div class="lbl">ผ่านการประเมิน</div></div>
+    </div>
+  `;
 
-  const users = new Set(history.map(h=>h.username));
-  const passCount = history.filter(h=>h.passed).length;
-  const avgScore = history.length ? (history.reduce((s,h)=>s+h.score,0)/history.length).toFixed(1) : '0';
-
-  overview.innerHTML = `<div class="stat-grid">
-    <div class="stat-box"><div class="num">${history.length}</div><div class="lbl">จำนวนครั้งที่สอบทั้งหมด</div></div>
-    <div class="stat-box"><div class="num">${users.size}</div><div class="lbl">ผู้ใช้ที่ไม่ซ้ำกัน</div></div>
-    <div class="stat-box"><div class="num">${passCount}</div><div class="lbl">จำนวนครั้งที่ผ่าน</div></div>
-  </div>
-  <div class="stat-grid" style="margin-top:10px;">
-    <div class="stat-box"><div class="num">${avgScore}</div><div class="lbl">คะแนนเฉลี่ย</div></div>
-    <div class="stat-box"><div class="num">${CATEGORIES.length}</div><div class="lbl">จำนวนหมวดข้อสอบ</div></div>
-    <div class="stat-box"><div class="num">${SETTINGS.unlockThreshold}</div><div class="lbl">เกณฑ์ปลดล็อกเฉลย</div></div>
-  </div>
-  <div class="stat-grid" style="margin-top:10px;">
-    <div class="stat-box"><div class="num">${SETTINGS.passingPercent}%</div><div class="lbl">เกณฑ์คะแนนผ่าน</div></div>
-  </div>
-  <div class="form-grid" style="margin-top:14px;max-width:360px;">
-    <div>
-      <label>แก้ไขเกณฑ์คะแนนผ่าน (% ของคะแนนเต็มที่ต้องได้จึงจะถือว่าผ่าน)</label>
-      <div style="display:flex;gap:8px;align-items:center;">
-        <input type="text" inputmode="numeric" id="passing-percent-input" value="${SETTINGS.passingPercent}" style="max-width:100px;">
-        <span style="font-size:13px;color:var(--ink-soft);">%</span>
-        <button class="btn btn-purple btn-small" onclick="savePassingPercent()">บันทึก</button>
-      </div>
-      <p style="font-size:12px;color:var(--ink-soft);margin:6px 0 0;">ตัวอย่าง: ตั้ง 80 หมายถึงต้องตอบถูกอย่างน้อย 80% ของข้อสอบทั้งหมดจึงจะผ่าน (ค่าเริ่มต้น 100 คือต้องตอบถูกทุกข้อ) — ใบประกาศเกียรติคุณยังคงออกได้เฉพาะผู้ที่ทำคะแนนเต็มเท่านั้น ไม่เกี่ยวกับเกณฑ์นี้</p>
-    </div>
-  </div>
-  <div class="form-grid" style="margin-top:18px;max-width:360px;">
-    <div>
-      <label>แก้ไขเกณฑ์จำนวนครั้งที่ไม่ผ่านติดต่อกัน เพื่อปลดล็อกเมนูดูเฉลย</label>
-      <div style="display:flex;gap:8px;align-items:center;">
-        <input type="text" inputmode="numeric" id="threshold-input" value="${SETTINGS.unlockThreshold}" style="max-width:100px;">
-        <button class="btn btn-purple btn-small" onclick="saveThreshold()">บันทึก</button>
-      </div>
-    </div>
-  </div>
-  <div class="form-grid" style="margin-top:18px;max-width:480px;">
-    <div>
-      <label>ข้อความที่แสดงเมื่อสอบผ่าน (คะแนนเต็ม)</label>
-      <textarea id="pass-message-input">${escapeHtml(SETTINGS.passMessage || DEFAULT_PASS_MESSAGE)}</textarea>
-    </div>
-    <div>
-      <label>ข้อความที่แสดงเมื่อสอบไม่ผ่าน (ใส่ {missing} แทนตำแหน่งจำนวนคะแนนที่ขาด)</label>
-      <textarea id="fail-message-input">${escapeHtml(SETTINGS.failMessage || DEFAULT_FAIL_MESSAGE)}</textarea>
-    </div>
-    <div class="btn-row">
-      <button class="btn btn-purple btn-small" onclick="saveMessages()">บันทึกข้อความ</button>
-    </div>
-  </div>`;
-
-  const tableArea = document.getElementById('admin-history-table');
-  lastLoadedHistory = history;
-  const filterHtml = `<div class="form-grid" style="max-width:360px;margin-bottom:10px;">
-    <div><label>กรองประวัติตามหมวดข้อสอบ</label>
-      <select id="history-category-filter" onchange="renderAdminStats()">
-        <option value="">ทั้งหมดทุกหมวด</option>
-        ${CATEGORIES.map(c=>`<option value="${c.id}" ${filterId===c.id?'selected':''}>${escapeHtml(c.name)}</option>`).join('')}
-      </select>
-    </div>
-  </div>`;
-
-  const filteredHistory = filterId ? history.filter(h=>(h.categoryId||DEFAULT_CATEGORY_ID)===filterId) : history;
-
-  if(filteredHistory.length === 0){
-    tableArea.innerHTML = filterHtml + `<p class="empty-note">ยังไม่มีข้อมูลการสอบ</p>`;
+  const tableRoot = document.getElementById('admin-history-table');
+  if(history.length === 0) {
+    tableRoot.innerHTML = `<p class="empty-note">ไม่มีประวัติการสอบ</p>`;
     return;
   }
-  let rows = "";
-  filteredHistory.slice().reverse().forEach((h,idx)=>{
-    rows += `<tr>
-      <td>${filteredHistory.length-idx}</td>
-      <td>${escapeHtml(h.username)}</td>
-      <td>${escapeHtml(h.categoryName || 'แบบทดสอบความรู้บรรจุภัณฑ์')}</td>
-      <td>${h.date}</td>
-      <td>${h.score}/${h.total}</td>
-      <td class="${h.passed?'tag-pass':'tag-fail'}">${h.passed?'ผ่าน':'ไม่ผ่าน'}</td>
-      <td>${h.detail ? `<button class="btn btn-outline btn-small" onclick="showAttemptDetail('${h.id}')">ดูคำตอบ</button>` : `<span style="color:var(--ink-soft);font-size:11px;">ไม่มีข้อมูล</span>`}</td>
-    </tr>`;
-  });
-  tableArea.innerHTML = filterHtml + `<div class="admin-table-wrap"><table class="admin-table">
-    <thead><tr><th>#</th><th>ผู้ใช้</th><th>หมวด</th><th>วันที่</th><th>คะแนน</th><th>ผลลัพธ์</th><th>รายละเอียด</th></tr></thead>
-    <tbody>${rows}</tbody>
-  </table></div>`;
-}
 
-async function saveThreshold(){
-  const raw = document.getElementById('threshold-input').value;
-  const val = parseInt(raw, 10);
-  if(isNaN(val) || val < 1){
-    alert('กรุณากรอกตัวเลขจำนวนเต็มที่มากกว่า 0');
-    return;
-  }
-  await saveSettings({ ...SETTINGS, unlockThreshold: val });
-  renderAdminStats();
-}
-
-async function savePassingPercent(){
-  const raw = document.getElementById('passing-percent-input').value;
-  const val = parseInt(raw, 10);
-  if(isNaN(val) || val < 1 || val > 100){
-    alert('กรุณากรอกตัวเลขระหว่าง 1 ถึง 100');
-    return;
-  }
-  await saveSettings({ ...SETTINGS, passingPercent: val });
-  renderAdminStats();
-}
-
-async function saveMessages(){
-  const passEl = document.getElementById('pass-message-input');
-  const failEl = document.getElementById('fail-message-input');
-  const passMsg = passEl.value.trim();
-  const failMsg = failEl.value.trim();
-  if(!passMsg || !failMsg){
-    alert('กรุณากรอกข้อความทั้งสองช่อง');
-    return;
-  }
-  await saveSettings({ ...SETTINGS, passMessage: passMsg, failMessage: failMsg });
-  alert('บันทึกข้อความเรียบร้อยแล้ว');
-  renderAdminStats();
-}
-
-function formatAnsLabel(ans, opts){
-  if(ans === null || ans === undefined) return '';
-  const letters = Array.isArray(ans) ? ans : String(ans).split(',').map(s=>s.trim()).filter(Boolean);
-  if(letters.length === 0) return '';
-  return letters.map(l => `${l}. ${opts && opts[l] ? opts[l] : ''}`).join('  ,  ');
-}
-
-function showAttemptDetail(attemptId){
-  currentDetailEntry = lastLoadedHistory.find(h => h.id === attemptId) || null;
-  showOnlyWrongAnswers = true;
-  renderAttemptDetailPanel();
-  const area = document.getElementById('attempt-detail-area');
-  if(area) area.scrollIntoView({behavior:'smooth', block:'start'});
-}
-
-function toggleDetailFilter(){
-  const el = document.getElementById('detail-filter-wrong');
-  showOnlyWrongAnswers = el ? el.checked : true;
-  renderAttemptDetailPanel();
-}
-
-function closeAttemptDetail(){
-  currentDetailEntry = null;
-  document.getElementById('attempt-detail-area').innerHTML = '';
-}
-
-function renderAttemptDetailPanel(){
-  const area = document.getElementById('attempt-detail-area');
-  const entry = currentDetailEntry;
-  if(!area) return;
-  if(!entry || !entry.detail){
-    area.innerHTML = '';
-    return;
-  }
-  const wrongCount = entry.detail.filter(d=>!d.correct).length;
-
-  let html = `<div class="qadmin-card" style="border:2px solid var(--accent);">
-    <div class="qadmin-head">
-      <div style="flex:1;">
-        <div class="qadmin-text" style="font-weight:700;">รายละเอียดคำตอบของ ${escapeHtml(entry.username)}</div>
-        <div class="qadmin-meta">${escapeHtml(entry.categoryName || 'แบบทดสอบความรู้บรรจุภัณฑ์')} · ${entry.date} · คะแนน ${entry.score}/${entry.total} · ตอบผิด ${wrongCount} ข้อ</div>
-      </div>
-      <div class="qadmin-actions">
-        <button class="btn btn-outline btn-small" onclick="closeAttemptDetail()">ปิด</button>
-      </div>
+  tableRoot.innerHTML = `
+    <div class="admin-table-wrap">
+      <table class="admin-table">
+        <thead>
+          <tr>
+            <th>ผู้ใช้</th>
+            <th>หมวด</th>
+            <th>คะแนน</th>
+            <th>สถานะ</th>
+            <th>วันที่</th>
+          </tr>
+        </thead>
+        <tbody>
+          ${history.slice().reverse().map(h => {
+            const pass = (h.score/h.total) >= 0.8;
+            return `
+              <tr>
+                <td>${h.username}</td>
+                <td>${h.catId || 'general'}</td>
+                <td>${h.score}/${h.total}</td>
+                <td class="${pass?'tag-pass':'tag-fail'}">${pass?'PASS':'FAIL'}</td>
+                <td>${h.date}</td>
+              </tr>
+            `;
+          }).join('')}
+        </tbody>
+      </table>
     </div>
-    <div class="review-toolbar">
-      <label class="filter-check">
-        <input type="checkbox" id="detail-filter-wrong" onchange="toggleDetailFilter()" ${showOnlyWrongAnswers?'checked':''}>
-        <span>แสดงเฉพาะข้อที่ตอบผิด</span>
-      </label>
-    </div>
-  </div>`;
-
-  const list = showOnlyWrongAnswers ? entry.detail.filter(d=>!d.correct) : entry.detail;
-  if(list.length === 0){
-    html += `<p class="empty-note">${showOnlyWrongAnswers ? 'ตอบถูกทุกข้อ ไม่มีข้อที่ตอบผิด 🎉' : 'ไม่มีข้อมูลคำถาม'}</p>`;
-  }else{
-    list.forEach(d=>{
-      const userAnsLabel = formatAnsLabel(d.userAns, d.opts);
-      const correctAnsLabel = formatAnsLabel(d.correctAns, d.opts);
-      html += `<div class="qadmin-card ${d.correct?'review-ok':'review-fail'}">
-        <div class="qadmin-meta">ข้อ ${d.i+1} · <span class="${d.correct?'ans-status-ok':'ans-status-fail'}">${d.correct ? '✓ ตอบถูก' : '✗ ตอบผิด'}</span></div>
-        <div class="qadmin-text">${escapeHtml(d.q)}</div>
-        <div class="qadmin-meta">คำตอบของผู้ใช้: <strong class="${d.correct?'ans-status-ok':'ans-status-fail'}">${escapeHtml(userAnsLabel || '(ไม่ได้ตอบ)')}</strong></div>
-        ${!d.correct ? `<div class="qadmin-ans">เฉลยที่ถูกต้อง: ${escapeHtml(correctAnsLabel)}</div>` : ''}
-      </div>`;
-    });
-  }
-  area.innerHTML = html;
+  `;
 }
 
-function showResetConfirm(){
+function showResetConfirm() {
   document.getElementById('reset-confirm-area').innerHTML = `
     <div class="confirm-box">
-      <strong>ยืนยันการรีเซ็ตสถิติทั้งหมด?</strong> ประวัติการสอบของผู้ใช้ทุกคนในทุกหมวดจะถูกลบอย่างถาวรและกู้คืนไม่ได้
-      <div class="btn-row">
-        <button class="btn btn-danger btn-small" onclick="confirmReset()">ยืนยัน ลบทั้งหมด</button>
-        <button class="btn btn-outline btn-small" onclick="document.getElementById('reset-confirm-area').innerHTML=''">ยกเลิก</button>
-      </div>
-    </div>`;
+      ⚠️ คุณแน่ใจหรือไม่ว่าต้องการรีเซ็ตสถิติและประวัติการสอบทั้งหมด?<br><br>
+      <button class="btn btn-danger btn-small" onclick="clearAllHistory()">ยืนยันลบประวัติทั้งหมด</button>
+      <button class="btn btn-outline btn-small" onclick="document.getElementById('reset-confirm-area').innerHTML=''">ยกเลิก</button>
+    </div>
+  `;
 }
-async function confirmReset(){
-  await saveHistory([]);
-  currentDetailEntry = null;
-  document.getElementById('attempt-detail-area').innerHTML = '';
-  document.getElementById('reset-confirm-area').innerHTML = `<p class="empty-note">รีเซ็ตสถิติเรียบร้อยแล้ว</p>`;
+
+function clearAllHistory() {
+  localStorage.removeItem('mm_history');
+  document.getElementById('reset-confirm-area').innerHTML = '';
   renderAdminStats();
 }
 
-// ADMIN CATEGORIES
-async function renderAdminCategories(){
-  CATEGORIES = await loadCategories();
-  const list = document.getElementById('admin-category-list');
-  if(CATEGORIES.length === 0){
-    list.innerHTML = `<p class="empty-note">ยังไม่มีหมวดข้อสอบ กด "+ เพิ่มหมวดข้อสอบใหม่" เพื่อเริ่มสร้าง</p>`;
+// Question Admin
+function renderAdminQuestions() {
+  const sel = document.getElementById('qadmin-category-select');
+  sel.innerHTML = categories.map(c => `<option value="${c.id}">${c.name}</option>`).join('');
+  sel.value = currentCatId;
+
+  document.getElementById('q-count-label').innerText = questions.length;
+  renderQuestionList();
+}
+
+function switchQuestionCategory(catId) {
+  currentCatId = catId;
+  renderQuestionList();
+}
+
+function renderQuestionList() {
+  const root = document.getElementById('admin-question-list');
+  const catQ = questions.filter(q => (q.catId || 'general') === currentCatId);
+
+  if(catQ.length === 0) {
+    root.innerHTML = `<p class="empty-note">ไม่มีข้อสอบในหมวดนี้</p>`;
     return;
   }
-  let html = "";
-  CATEGORIES.forEach(cat=>{
-    html += `<div class="qadmin-card" id="cat-card-${cat.id}">${renderCategoryCardView(cat)}</div>`;
-  });
-  list.innerHTML = html;
-}
 
-function renderCategoryCardView(cat){
-  return `
+  root.innerHTML = catQ.map((q, idx) => `
+    <div class="qadmin-card">
       <div class="qadmin-head">
-        <div style="flex:1;">
-          <div class="qadmin-text" style="font-weight:700;">${escapeHtml(cat.name)}</div>
-          <div class="qadmin-meta">${escapeHtml(cat.desc || '')}</div>
-          <div class="qadmin-meta">รหัสหมวด: ${cat.id}</div>
+        <div>
+          <div class="qadmin-meta">ข้อที่ ${idx+1} (ID: ${q.id})</div>
+          <div class="qadmin-text">${q.q}</div>
+          <div class="qadmin-ans">คำตอบที่ถูกต้อง: ${q.ans}</div>
         </div>
         <div class="qadmin-actions">
-          <button class="btn btn-outline btn-small" onclick="openCategoryForm('${cat.id}')">แก้ไข</button>
-          <button class="btn btn-danger btn-small" onclick="confirmDeleteCategory('${cat.id}')">ลบ</button>
+          <button class="btn btn-outline btn-small" onclick="openQuestionForm('${q.id}')">✏️</button>
+          <button class="btn btn-danger btn-small" onclick="deleteQuestion('${q.id}')">🗑️</button>
         </div>
-      </div>`;
+      </div>
+    </div>
+  `).join('');
 }
 
-function renderCategoryFormInner(cat, catId){
-  return `
-      <h2 class="purple" style="font-size:14px;">${catId ? 'แก้ไขหมวดข้อสอบ' : 'เพิ่มหมวดข้อสอบใหม่'}</h2>
+function openQuestionForm(qId) {
+  const root = document.getElementById('question-form-area');
+  const q = questions.find(item => item.id === qId) || { id: 'q_' + Date.now(), q: '', opts: {A:'', B:'', C:'', D:''}, ans: 'A', catId: currentCatId };
+
+  root.innerHTML = `
+    <div class="panel" style="margin-top:10px;">
+      <h3>${qId ? 'แก้ไขข้อสอบ' : 'เพิ่มข้อสอบใหม่'}</h3>
+      <div class="form-grid">
+        <div>
+          <label>โจทย์คำถาม</label>
+          <textarea id="qform-text" rows="3">${q.q}</textarea>
+        </div>
+        <div class="opt-row"><span>A:</span><input type="text" id="qform-optA" value="${q.opts.A || ''}"></div>
+        <div class="opt-row"><span>B:</span><input type="text" id="qform-optB" value="${q.opts.B || ''}"></div>
+        <div class="opt-row"><span>C:</span><input type="text" id="qform-optC" value="${q.opts.C || ''}"></div>
+        <div class="opt-row"><span>D:</span><input type="text" id="qform-optD" value="${q.opts.D || ''}"></div>
+        <div>
+          <label>เฉลยข้อที่ถูกต้อง</label>
+          <select id="qform-ans">
+            <option value="A" ${q.ans==='A'?'selected':''}>A</option>
+            <option value="B" ${q.ans==='B'?'selected':''}>B</option>
+            <option value="C" ${q.ans==='C'?'selected':''}>C</option>
+            <option value="D" ${q.ans==='D'?'selected':''}>D</option>
+          </select>
+        </div>
+      </div>
+      <div class="btn-row" style="margin-top:12px;">
+        <button class="btn btn-purple btn-small" onclick="saveQuestion('${q.id}')">บันทึก</button>
+        <button class="btn btn-outline btn-small" onclick="document.getElementById('question-form-area').innerHTML=''">ยกเลิก</button>
+      </div>
+    </div>
+  `;
+}
+
+function saveQuestion(qId) {
+  const text = document.getElementById('qform-text').value.trim();
+  const optA = document.getElementById('qform-optA').value.trim();
+  const optB = document.getElementById('qform-optB').value.trim();
+  const optC = document.getElementById('qform-optC').value.trim();
+  const optD = document.getElementById('qform-optD').value.trim();
+  const ans = document.getElementById('qform-ans').value;
+
+  if(!text || !optA || !optB) {
+    alert("กรุณากรอกโจทย์และตัวเลือกอย่างน้อย A และ B");
+    return;
+  }
+
+  const existingIdx = questions.findIndex(q => q.id === qId);
+  const qObj = {
+    id: qId,
+    t: "single",
+    q: text,
+    opts: { A: optA, B: optB, C: optC, D: optD },
+    ans: ans,
+    catId: currentCatId
+  };
+
+  if(existingIdx >= 0) questions[existingIdx] = qObj;
+  else questions.push(qObj);
+
+  localStorage.setItem('mm_questions', JSON.stringify(questions));
+  document.getElementById('question-form-area').innerHTML = '';
+  renderAdminQuestions();
+}
+
+function deleteQuestion(qId) {
+  if(!confirm("ยืนยันลบข้อสอบข้อนี้?")) return;
+  questions = questions.filter(q => q.id !== qId);
+  localStorage.setItem('mm_questions', JSON.stringify(questions));
+  renderAdminQuestions();
+}
+
+// Category Admin
+function renderAdminCategories() {
+  const root = document.getElementById('admin-category-list');
+  root.innerHTML = categories.map(c => `
+    <div class="qadmin-card">
+      <div class="qadmin-head">
+        <div>
+          <div class="cat-name">${c.name}</div>
+          <div class="cat-desc">${c.desc || ''}</div>
+        </div>
+        <div class="qadmin-actions">
+          <button class="btn btn-outline btn-small" onclick="openCategoryForm('${c.id}')">✏️</button>
+          ${c.id !== 'general' ? `<button class="btn btn-danger btn-small" onclick="deleteCategory('${c.id}')">🗑️</button>` : ''}
+        </div>
+      </div>
+    </div>
+  `).join('');
+}
+
+function openCategoryForm(catId) {
+  const root = document.getElementById('category-form-area');
+  const c = categories.find(item => item.id === catId) || { id: 'cat_' + Date.now(), name: '', desc: '' };
+
+  root.innerHTML = `
+    <div class="panel" style="margin-top:10px;">
+      <h3>${catId ? 'แก้ไขหมวดข้อสอบ' : 'เพิ่มหมวดข้อสอบใหม่'}</h3>
       <div class="form-grid">
         <div>
           <label>ชื่อหมวดข้อสอบ</label>
-          <input type="text" id="cf-name" value="${cat ? escapeHtml(cat.name) : ''}" placeholder="เช่น แบบทดสอบความปลอดภัยในการทำงาน">
+          <input type="text" id="cform-name" value="${c.name}">
         </div>
         <div>
-          <label>คำอธิบายสั้น ๆ (ไม่บังคับ)</label>
-          <input type="text" id="cf-desc" value="${cat ? escapeHtml(cat.desc || '') : ''}" placeholder="รายละเอียดของหมวดข้อสอบนี้">
+          <label>คำอธิบายเพิ่มเติม</label>
+          <input type="text" id="cform-desc" value="${c.desc || ''}">
         </div>
       </div>
-      <div class="btn-row">
-        <button class="btn btn-purple" onclick="saveCategoryForm()">บันทึกหมวดข้อสอบ</button>
-        <button class="btn btn-outline" onclick="closeCategoryForm()">ยกเลิก</button>
-      </div>`;
+      <div class="btn-row" style="margin-top:12px;">
+        <button class="btn btn-purple btn-small" onclick="saveCategory('${c.id}')">บันทึก</button>
+        <button class="btn btn-outline btn-small" onclick="document.getElementById('category-form-area').innerHTML=''">ยกเลิก</button>
+      </div>
+    </div>
+  `;
 }
 
-function openCategoryForm(catId){
-  editingCategoryId = catId || null;
-  const cat = catId ? CATEGORIES.find(c=>c.id===catId) : null;
+function saveCategory(catId) {
+  const name = document.getElementById('cform-name').value.trim();
+  const desc = document.getElementById('cform-desc').value.trim();
 
-  if(catId){
-    const card = document.getElementById('cat-card-'+catId);
-    if(card){
-      card.style.border = '2px solid var(--admin)';
-      card.innerHTML = renderCategoryFormInner(cat, catId);
-      card.scrollIntoView({behavior:'smooth', block:'center'});
-    }
-  }else{
-    const area = document.getElementById('category-form-area');
-    area.innerHTML = `<div class="qadmin-card" style="border:2px solid var(--admin);">${renderCategoryFormInner(null, null)}</div>`;
-    area.scrollIntoView({behavior:'smooth', block:'center'});
-  }
-}
-
-function closeCategoryForm(){
-  const wasEditingId = editingCategoryId;
-  editingCategoryId = null;
-  if(wasEditingId){
-    renderAdminCategories();
-  }else{
-    document.getElementById('category-form-area').innerHTML = '';
-  }
-}
-
-async function saveCategoryForm(){
-  const nameEl = document.getElementById('cf-name');
-  const descEl = document.getElementById('cf-desc');
-  const name = nameEl.value.trim();
-  if(!name){
-    alert('กรุณากรอกชื่อหมวดข้อสอบ');
+  if(!name) {
+    alert("กรุณากรอกชื่อหมวดข้อสอบ");
     return;
   }
-  const desc = descEl.value.trim();
-  const cats = await loadCategories();
-  if(editingCategoryId){
-    const idx = cats.findIndex(c=>c.id===editingCategoryId);
-    if(idx !== -1){ cats[idx] = { id: editingCategoryId, name, desc }; }
-  }else{
-    const id = 'cat' + Date.now();
-    cats.push({ id, name, desc });
-    await window.storage.set('quiz_questions_bank__' + id, JSON.stringify([]));
-    adminCurrentCategoryId = id;
-  }
-  await saveCategories(cats);
-  editingCategoryId = null;
+
+  const idx = categories.findIndex(c => c.id === catId);
+  const cObj = { id: catId, name: name, desc: desc };
+
+  if(idx >= 0) categories[idx] = cObj;
+  else categories.push(cObj);
+
+  localStorage.setItem('mm_categories', JSON.stringify(categories));
   document.getElementById('category-form-area').innerHTML = '';
   renderAdminCategories();
-  populateQuestionCategorySelect();
 }
 
-function confirmDeleteCategory(catId){
-  const card = document.getElementById('cat-card-'+catId);
-  if(!card) return;
-  card.innerHTML = `<div class="confirm-box">
-    <strong>ยืนยันการลบหมวดข้อสอบนี้?</strong> ข้อสอบทั้งหมดในหมวดนี้และการตั้งค่าจะถูกลบอย่างถาวรและกู้คืนไม่ได้
-    <div class="btn-row">
-      <button class="btn btn-danger btn-small" onclick="deleteCategory('${catId}')">ยืนยัน ลบหมวดนี้</button>
-      <button class="btn btn-outline btn-small" onclick="renderAdminCategories()">ยกเลิก</button>
-    </div>
-  </div>`;
-}
-async function deleteCategory(catId){
-  const cats = (await loadCategories()).filter(c=>c.id!==catId);
-  await saveCategories(cats);
-  try{ await window.storage.delete('quiz_questions_bank__'+catId); }catch(e){ }
-  if(adminCurrentCategoryId === catId) adminCurrentCategoryId = null;
-  renderAdminCategories();
-  populateQuestionCategorySelect();
-}
-
-// ADMIN QUESTIONS
-async function renderAdminQuestionsTab(){
-  CATEGORIES = await loadCategories();
-  if(!adminCurrentCategoryId || !CATEGORIES.find(c=>c.id===adminCurrentCategoryId)){
-    adminCurrentCategoryId = CATEGORIES.length ? CATEGORIES[0].id : null;
-  }
-  populateQuestionCategorySelect();
-  QUESTIONS = adminCurrentCategoryId ? await loadQuestions(adminCurrentCategoryId) : [];
-  document.getElementById('question-form-area').innerHTML = '';
-  renderAdminQuestions();
-}
-
-function populateQuestionCategorySelect(){
-  const sel = document.getElementById('qadmin-category-select');
-  if(!sel) return;
-  if(CATEGORIES.length === 0){
-    sel.innerHTML = `<option value="">— ยังไม่มีหมวดข้อสอบ —</option>`;
-    return;
-  }
-  sel.innerHTML = CATEGORIES.map(c=>`<option value="${c.id}" ${c.id===adminCurrentCategoryId?'selected':''}>${escapeHtml(c.name)}</option>`).join('');
-}
-
-async function switchQuestionCategory(catId){
-  adminCurrentCategoryId = catId;
-  QUESTIONS = await loadQuestions(catId);
-  document.getElementById('question-form-area').innerHTML = '';
-  renderAdminQuestions();
-}
-
-function renderAdminQuestions(){
-  document.getElementById('q-count-label').textContent = QUESTIONS.length;
-  const list = document.getElementById('admin-question-list');
-  if(!adminCurrentCategoryId){
-    list.innerHTML = `<p class="empty-note">กรุณาเพิ่มหมวดข้อสอบก่อนในแท็บ "หมวดข้อสอบ"</p>`;
-    return;
-  }
-  if(QUESTIONS.length === 0){
-    list.innerHTML = `<p class="empty-note">ยังไม่มีข้อสอบในหมวดนี้ กด "+ เพิ่มข้อสอบใหม่" เพื่อเริ่มสร้างข้อสอบ</p>`;
-    return;
-  }
-  let html = "";
-  QUESTIONS.forEach((q,i)=>{
-    html += `<div class="qadmin-card" id="qadmin-card-${q.id}">${renderQuestionCardView(q,i)}</div>`;
+function deleteCategory(catId) {
+  if(!confirm("ยืนยันลบหมวดหมู่นี้? ข้อสอบในหมวดนี้จะถูกย้ายไปหมวดทั่วไป")) return;
+  categories = categories.filter(c => c.id !== catId);
+  questions.forEach(q => {
+    if(q.catId === catId) q.catId = 'general';
   });
-  list.innerHTML = html;
+  localStorage.setItem('mm_categories', JSON.stringify(categories));
+  localStorage.setItem('mm_questions', JSON.stringify(questions));
+  renderAdminCategories();
 }
 
-function renderQuestionCardView(q, i){
-  const opts = getOptions(q);
-  const optsPreview = Object.keys(opts).map(l=>`${l}:${opts[l]}`).join(' | ');
-  const typeLabel = q.t === 'tf' ? 'ถูก/ผิด' : (q.t === 'multi' ? 'หลายคำตอบ' : 'ตัวเลือกเดียว');
-  return `
+// Knowledge Admin
+function renderAdminKnowledge() {
+  const kbData = JSON.parse(localStorage.getItem('mm_knowledge') || '[]');
+  document.getElementById('kb-count-label').innerText = kbData.length;
+  const root = document.getElementById('admin-knowledge-list');
+
+  if(kbData.length === 0) {
+    root.innerHTML = `<p class="empty-note">ไม่มีบทความในคลังความรู้</p>`;
+    return;
+  }
+
+  root.innerHTML = kbData.map((item, idx) => `
+    <div class="kb-admin-card">
       <div class="qadmin-head">
-        <div style="flex:1;">
-          <div class="qadmin-meta">ข้อ ${i+1} · ${typeLabel} · รหัส ${q.id}</div>
-          <div class="qadmin-text">${escapeHtml(q.q)}</div>
-          <div class="qadmin-meta">${escapeHtml(optsPreview)}</div>
-          <div class="qadmin-ans">เฉลย: ${q.ans.split(',').join(', ')}</div>
+        <div>
+          <div class="kb-title">${item.title}</div>
+          <div class="kb-desc">${item.desc}</div>
         </div>
         <div class="qadmin-actions">
-          <button class="btn btn-outline btn-small" onclick="openQuestionForm('${q.id}')">แก้ไข</button>
-          <button class="btn btn-danger btn-small" onclick="confirmDeleteQuestion('${q.id}')">ลบ</button>
+          <button class="btn btn-outline btn-small" onclick="openKnowledgeForm(${idx})">✏️</button>
+          <button class="btn btn-danger btn-small" onclick="deleteKnowledge(${idx})">🗑️</button>
         </div>
-      </div>`;
+      </div>
+    </div>
+  `).join('');
 }
 
-function renderOptionRowsHtml(){
-  return qfOptionLetters.map(letter=>`
-    <div class="opt-row3" data-letter="${letter}">
-      <span>${letter}</span>
-      <input type="text" id="qf-opt-${letter}" value="${escapeHtml(qfOptionValues[letter]||'')}" placeholder="ข้อความตัวเลือก ${letter}">
-      <button type="button" class="btn btn-danger btn-small" onclick="removeOptionRow('${letter}')" ${qfOptionLetters.length<=2?'disabled':''} title="ลบตัวเลือกนี้">×</button>
-    </div>`).join('');
-}
+function openKnowledgeForm(idx) {
+  const kbData = JSON.parse(localStorage.getItem('mm_knowledge') || '[]');
+  const root = document.getElementById('knowledge-form-area');
+  const item = idx !== null ? kbData[idx] : { title: '', desc: '', img: '', file: '' };
 
-function collectOptionValuesFromDom(){
-  qfOptionLetters.forEach(letter=>{
-    const el = document.getElementById('qf-opt-'+letter);
-    if(el) qfOptionValues[letter] = el.value;
-  });
-}
-
-function addOptionRow(){
-  collectOptionValuesFromDom();
-  const next = LETTER_POOL.find(l=>!qfOptionLetters.includes(l));
-  if(!next){
-    alert('เพิ่มตัวเลือกได้สูงสุด ' + LETTER_POOL.length + ' ตัวเลือก');
-    return;
-  }
-  qfOptionLetters.push(next);
-  document.getElementById('qf-options-rows').innerHTML = renderOptionRowsHtml();
-  refreshAnswerSection();
-}
-
-function removeOptionRow(letter){
-  if(qfOptionLetters.length <= 2) return;
-  collectOptionValuesFromDom();
-  qfOptionLetters = qfOptionLetters.filter(l=>l!==letter);
-  delete qfOptionValues[letter];
-  document.getElementById('qf-options-rows').innerHTML = renderOptionRowsHtml();
-  refreshAnswerSection();
-}
-
-function refreshAnswerSection(){
-  const typeEl = document.getElementById('qf-type');
-  const type = typeEl ? typeEl.value : 'single';
-  document.getElementById('qf-answer-wrap').innerHTML = renderAnswerSection(type, null);
-}
-
-function renderAnswerSection(type, currentAns){
-  if(type === 'tf'){
-    return `<div><label>เฉลยคำตอบที่ถูกต้อง</label>
-      <select id="qf-answer-single">
-        <option value="A" ${currentAns==='A'?'selected':''}>A - ถูก</option>
-        <option value="B" ${currentAns==='B'?'selected':''}>B - ผิด</option>
-      </select></div>`;
-  }
-  if(type === 'multi'){
-    const selected = (currentAns||'').split(',').map(s=>s.trim()).filter(Boolean);
-    return `<div><label>เฉลยคำตอบที่ถูกต้อง (เลือกได้มากกว่า 1 ข้อ)</label>
-      <div class="multi-ans-wrap">
-      ${qfOptionLetters.map(l=>`<label class="multi-ans-opt"><input type="checkbox" value="${l}" ${selected.includes(l)?'checked':''}> ${l}</label>`).join('')}
-      </div></div>`;
-  }
-  return `<div><label>เฉลยคำตอบที่ถูกต้อง</label>
-    <select id="qf-answer-single">
-      ${qfOptionLetters.map(l=>`<option value="${l}" ${currentAns===l?'selected':''}>${l}</option>`).join('')}
-    </select></div>`;
-}
-
-function toggleQfType(){
-  const type = document.getElementById('qf-type').value;
-  const optsWrap = document.getElementById('qf-options-wrap');
-  if(type === 'tf'){
-    optsWrap.style.display = 'none';
-  }else{
-    optsWrap.style.display = 'block';
-    if(qfOptionLetters.length < 2){
-      qfOptionLetters = ['A','B','C','D'];
-    }
-    document.getElementById('qf-options-rows').innerHTML = renderOptionRowsHtml();
-  }
-  refreshAnswerSection();
-}
-
-function renderQuestionFormInner(q, qId){
-  const type = q ? q.t : 'single';
-  if(q && q.t !== 'tf'){
-    const opts = getOptions(q);
-    qfOptionLetters = Object.keys(opts).length ? Object.keys(opts) : ['A','B','C','D'];
-    qfOptionValues = { ...opts };
-  }else{
-    qfOptionLetters = ['A','B','C','D'];
-    qfOptionValues = {};
-  }
-  const isTf = type === 'tf';
-  const currentAns = q ? q.ans : 'A';
-  return `
-      <h2 class="purple" style="font-size:14px;">${qId ? 'แก้ไขข้อสอบ' : 'เพิ่มข้อสอบใหม่'}</h2>
+  root.innerHTML = `
+    <div class="panel" style="margin-top:10px;">
+      <h3>${idx !== null ? 'แก้ไขบทความ' : 'เพิ่มบทความใหม่'}</h3>
       <div class="form-grid">
         <div>
-          <label>ประเภทข้อสอบ</label>
-          <select id="qf-type" onchange="toggleQfType()">
-            <option value="single" ${type==='single'?'selected':''}>ตัวเลือกเดียว (Single Choice)</option>
-            <option value="multi" ${type==='multi'?'selected':''}>เลือกได้หลายคำตอบ (Multiple Select)</option>
-            <option value="tf" ${isTf?'selected':''}>ถูก/ผิด (True/False)</option>
-          </select>
+          <label>หัวข้อบทความ</label>
+          <input type="text" id="kbform-title" value="${item.title}">
         </div>
         <div>
-          <label>โจทย์คำถาม</label>
-          <textarea id="qf-text">${escapeHtml(q ? q.q : '')}</textarea>
+          <label>เนื้อหา / คำอธิบาย</label>
+          <textarea id="kbform-desc" rows="4">${item.desc}</textarea>
         </div>
-        <div id="qf-options-wrap" style="${isTf?'display:none;':''}">
-          <label>ตัวเลือก</label>
-          <div id="qf-options-rows">${renderOptionRowsHtml()}</div>
-          <div class="btn-row">
-            <button type="button" class="btn btn-outline btn-small" onclick="addOptionRow()">+ เพิ่มตัวเลือก</button>
-          </div>
+        <div>
+          <label>URL รูปภาพประกอบ (ถ้ามี)</label>
+          <input type="text" id="kbform-img" value="${item.img || ''}">
         </div>
-        <div id="qf-answer-wrap">${renderAnswerSection(type, currentAns)}</div>
+        <div>
+          <label>URL ไฟล์แนบ/เอกสาร (ถ้ามี)</label>
+          <input type="text" id="kbform-file" value="${item.file || ''}">
+        </div>
       </div>
-      <div class="btn-row">
-        <button class="btn btn-purple" onclick="saveQuestionForm()">บันทึกข้อสอบ</button>
-        <button class="btn btn-outline" onclick="closeQuestionForm()">ยกเลิก</button>
-      </div>`;
-}
-
-function openQuestionForm(qId){
-  editingQuestionId = qId;
-
-  if(qId){
-    const q = QUESTIONS.find(x=>x.id===qId);
-    const card = document.getElementById('qadmin-card-'+qId);
-    if(!card || !q) return;
-    card.classList.add('editing-card');
-    card.style.border = '2px solid var(--admin)';
-    card.innerHTML = renderQuestionFormInner(q, qId);
-    card.scrollIntoView({behavior:'smooth', block:'center'});
-  }else{
-    const formArea = document.getElementById('question-form-area');
-    formArea.innerHTML = `<div class="qadmin-card" style="border:2px solid var(--admin);">${renderQuestionFormInner(null, null)}</div>`;
-    formArea.scrollIntoView({behavior:'smooth', block:'center'});
-  }
-}
-
-function closeQuestionForm(){
-  const wasEditingId = editingQuestionId;
-  editingQuestionId = null;
-  if(wasEditingId){
-    const card = document.getElementById('qadmin-card-'+wasEditingId);
-    const idx = QUESTIONS.findIndex(x=>x.id===wasEditingId);
-    if(card && idx !== -1){
-      card.classList.remove('editing-card');
-      card.style.border = '';
-      card.innerHTML = renderQuestionCardView(QUESTIONS[idx], idx);
-    }
-  }else{
-    document.getElementById('question-form-area').innerHTML = '';
-  }
-}
-
-function confirmDeleteQuestion(qId){
-  const card = document.getElementById('qadmin-card-'+qId);
-  if(!card) return;
-  card.innerHTML = `<div class="confirm-box">
-    <strong>ยืนยันการลบข้อสอบข้อนี้?</strong> ไม่สามารถกู้คืนได้หลังจากลบ
-    <div class="btn-row">
-      <button class="btn btn-danger btn-small" onclick="deleteQuestion('${qId}')">ยืนยัน ลบข้อนี้</button>
-      <button class="btn btn-outline btn-small" onclick="renderAdminQuestions()">ยกเลิก</button>
+      <div class="btn-row" style="margin-top:12px;">
+        <button class="btn btn-purple btn-small" onclick="saveKnowledge(${idx})">บันทึก</button>
+        <button class="btn btn-outline btn-small" onclick="document.getElementById('knowledge-form-area').innerHTML=''">ยกเลิก</button>
+      </div>
     </div>
-  </div>`;
+  `;
 }
 
-async function saveQuestionForm(){
-  const type = document.getElementById('qf-type').value;
-  const text = document.getElementById('qf-text').value.trim();
+function saveKnowledge(idx) {
+  const title = document.getElementById('kbform-title').value.trim();
+  const desc = document.getElementById('kbform-desc').value.trim();
+  const img = document.getElementById('kbform-img').value.trim();
+  const file = document.getElementById('kbform-file').value.trim();
 
-  if(!text){
-    alert('กรุณากรอกโจทย์คำถาม');
+  if(!title) {
+    alert("กรุณากรอกหัวข้อบทความ");
     return;
   }
 
-  let opts = null;
-  let ans = '';
+  const kbData = JSON.parse(localStorage.getItem('mm_knowledge') || '[]');
+  const itemObj = { title, desc, img, file };
 
-  if(type === 'tf'){
-    opts = null;
-    ans = document.getElementById('qf-answer-single').value;
-  }else if(type === 'single'){
-    collectOptionValuesFromDom();
-    opts = {};
-    qfOptionLetters.forEach(l=>{ opts[l] = (qfOptionValues[l]||'').trim() || `ตัวเลือก ${l}`; });
-    ans = document.getElementById('qf-answer-single').value;
-  }else{ 
-    collectOptionValuesFromDom();
-    opts = {};
-    qfOptionLetters.forEach(l=>{ opts[l] = (qfOptionValues[l]||'').trim() || `ตัวเลือก ${l}`; });
-    const checked = Array.from(document.querySelectorAll('#qf-answer-wrap input[type="checkbox"]:checked')).map(cb=>cb.value);
-    if(checked.length === 0){
-      alert('กรุณาเลือกเฉลยอย่างน้อย 1 ข้อ สำหรับคำถามแบบเลือกได้หลายคำตอบ');
-      return;
-    }
-    ans = checked.sort().join(',');
-  }
+  if(idx !== null) kbData[idx] = itemObj;
+  else kbData.push(itemObj);
 
-  if(!adminCurrentCategoryId){
-    alert('กรุณาเลือกหรือสร้างหมวดข้อสอบก่อน');
-    return;
-  }
-
-  const qs = await loadQuestions(adminCurrentCategoryId);
-  let savedId;
-  if(editingQuestionId){
-    savedId = editingQuestionId;
-    const idx = qs.findIndex(x=>x.id===editingQuestionId);
-    if(idx !== -1){
-      qs[idx] = { id: editingQuestionId, t: type, q: text, opts, ans };
-    }
-  }else{
-    savedId = 'q' + Date.now();
-    qs.push({ id: savedId, t: type, q: text, opts, ans });
-  }
-  await saveQuestions(adminCurrentCategoryId, qs);
-  const wasAdding = !editingQuestionId;
-  editingQuestionId = null;
-  if(wasAdding){
-    document.getElementById('question-form-area').innerHTML = '';
-  }
-  renderAdminQuestions();
-  const savedCard = document.getElementById('qadmin-card-'+savedId);
-  if(savedCard) savedCard.scrollIntoView({behavior:'smooth', block:'center'});
+  localStorage.setItem('mm_knowledge', JSON.stringify(kbData));
+  document.getElementById('knowledge-form-area').innerHTML = '';
+  renderAdminKnowledge();
 }
 
-async function deleteQuestion(qId){
-  const qs = await loadQuestions(adminCurrentCategoryId);
-  const filtered = qs.filter(x=>x.id!==qId);
-  await saveQuestions(adminCurrentCategoryId, filtered);
-  renderAdminQuestions();
+function deleteKnowledge(idx) {
+  if(!confirm("ยืนยันลบบทความนี้?")) return;
+  const kbData = JSON.parse(localStorage.getItem('mm_knowledge') || '[]');
+  kbData.splice(idx, 1);
+  localStorage.setItem('mm_knowledge', JSON.stringify(kbData));
+  renderAdminKnowledge();
 }
 
+// Homepage Admin
+function renderAdminHomepage() {
+  const root = document.getElementById('homepage-admin-root');
+  const hpData = JSON.parse(localStorage.getItem('mm_homepage') || JSON.stringify(DEFAULT_HOMEPAGE));
 
-function toggleProcessStep(header){
-  const step = header.closest('.process-step');
-  const isOpen = step.classList.contains('open');
-  // optional: close others
-  // document.querySelectorAll('.process-step.open').forEach(s => {
-  //   s.classList.remove('open');
-  //   const t = s.querySelector('.process-step-toggle');
-  //   if(t) t.textContent = '▶';
-  // });
-  if(isOpen){
-    step.classList.remove('open');
-    header.querySelector('.process-step-toggle').textContent = '▶';
-  }else{
-    step.classList.add('open');
-    header.querySelector('.process-step-toggle').textContent = '▼';
-  }
+  root.innerHTML = `
+    <div class="hp-editor-block">
+      <h3>1. ข้อความ Banner หน้าแรก</h3>
+      <div class="form-grid">
+        <div>
+          <label>หัวข้อใหญ่ (Hero Title)</label>
+          <input type="text" id="hpeditor-title" value="${hpData.heroTitle}">
+        </div>
+        <div>
+          <label>คำอธิบายย่อย (Hero Subtitle)</label>
+          <input type="text" id="hpeditor-sub" value="${hpData.heroSub}">
+        </div>
+      </div>
+    </div>
+  `;
 }
 
+function saveHomepageFromAdmin() {
+  const hpData = JSON.parse(localStorage.getItem('mm_homepage') || JSON.stringify(DEFAULT_HOMEPAGE));
+  hpData.heroTitle = document.getElementById('hpeditor-title').value.trim();
+  hpData.heroSub = document.getElementById('hpeditor-sub').value.trim();
 
-function closeMobileSidebar(){
-  const sb = document.getElementById('sidebar');
-  if(sb) sb.classList.remove('open');
-  document.body.classList.remove('sidebar-open');
+  localStorage.setItem('mm_homepage', JSON.stringify(hpData));
+  document.getElementById('homepage-save-msg').innerText = "บันทึกข้อมูลหน้าหลักเรียบร้อยแล้ว";
+  setTimeout(() => document.getElementById('homepage-save-msg').innerText = "", 3000);
 }
-function toggleSidebar(){
-  const sb = document.getElementById('sidebar');
-  if(!sb) return;
-  const open = sb.classList.toggle('open');
-  document.body.classList.toggle('sidebar-open', open);
-}
-document.querySelectorAll('.side-nav .nav-item').forEach(btn=>{
-  btn.addEventListener('click',()=>{ closeMobileSidebar(); });
-});
 
-
-// ---- Theme (Dark / Light) ----
-const THEME_KEY = 'mm_pack_theme';
-function getPreferredTheme(){
-  try{
-    const saved = localStorage.getItem(THEME_KEY);
-    if(saved === 'light' || saved === 'dark') return saved;
-  }catch(e){}
-  if(window.matchMedia && window.matchMedia('(prefers-color-scheme: light)').matches) return 'light';
-  return 'dark';
+function resetHomepageToDefault() {
+  if(!confirm("คืนค่าเริ่มต้นหน้าหลัก?")) return;
+  localStorage.setItem('mm_homepage', JSON.stringify(DEFAULT_HOMEPAGE));
+  renderAdminHomepage();
 }
-function applyTheme(theme){
-  const t = (theme === 'light') ? 'light' : 'dark';
-  document.documentElement.setAttribute('data-theme', t);
-  try{ localStorage.setItem(THEME_KEY, t); }catch(e){}
+
+// Criteria Admin
+function renderAdminCriteria() {
+  const root = document.getElementById('criteria-admin-root');
+  const data = JSON.parse(localStorage.getItem('mm_criteria') || JSON.stringify(DEFAULT_CRITERIA));
+
+  root.innerHTML = `
+    <div class="form-grid">
+      <div>
+        <label>หัวข้อหน้า</label>
+        <input type="text" id="criteditor-title" value="${data.title}">
+      </div>
+      <div>
+        <label>คำนำหน้า</label>
+        <input type="text" id="criteditor-intro" value="${data.intro}">
+      </div>
+    </div>
+  `;
+}
+
+function saveCriteriaPage() {
+  const data = JSON.parse(localStorage.getItem('mm_criteria') || JSON.stringify(DEFAULT_CRITERIA));
+  data.title = document.getElementById('criteditor-title').value.trim();
+  data.intro = document.getElementById('criteditor-intro').value.trim();
+
+  localStorage.setItem('mm_criteria', JSON.stringify(data));
+  document.getElementById('criteria-save-msg').innerText = "บันทึกหน้าเกณฑ์ประเมินเรียบร้อยแล้ว";
+  setTimeout(() => document.getElementById('criteria-save-msg').innerText = "", 3000);
+}
+
+function resetCriteriaPage() {
+  if(!confirm("คืนค่าเริ่มต้นเกณฑ์ประเมิน?")) return;
+  localStorage.setItem('mm_criteria', JSON.stringify(DEFAULT_CRITERIA));
+  renderAdminCriteria();
+}
+
+// About Admin
+function renderAdminAbout() {
+  const root = document.getElementById('about-admin-root');
+  const data = JSON.parse(localStorage.getItem('mm_about') || JSON.stringify(DEFAULT_ABOUT));
+
+  root.innerHTML = data.map((b, i) => `
+    <div class="hp-editor-block">
+      <div class="form-grid">
+        <div>
+          <label>หัวข้อที่ ${i+1}</label>
+          <input type="text" id="abeditor-title-${i}" value="${b.title}">
+        </div>
+        <div>
+          <label>เนื้อหา</label>
+          <textarea id="abeditor-body-${i}" rows="3">${b.body}</textarea>
+        </div>
+      </div>
+    </div>
+  `).join('');
+}
+
+function saveAboutPage() {
+  const data = JSON.parse(localStorage.getItem('mm_about') || JSON.stringify(DEFAULT_ABOUT));
+  data.forEach((b, i) => {
+    const t = document.getElementById(`abeditor-title-${i}`);
+    const body = document.getElementById(`abeditor-body-${i}`);
+    if(t) b.title = t.value.trim();
+    if(body) b.body = body.value.trim();
+  });
+
+  localStorage.setItem('mm_about', JSON.stringify(data));
+  document.getElementById('about-save-msg').innerText = "บันทึกหน้าเกี่ยวกับเราเรียบร้อยแล้ว";
+  setTimeout(() => document.getElementById('about-save-msg').innerText = "", 3000);
+}
+
+function resetAboutPage() {
+  if(!confirm("คืนค่าเริ่มต้นเกี่ยวกับเรา?")) return;
+  localStorage.setItem('mm_about', JSON.stringify(DEFAULT_ABOUT));
+  renderAdminAbout();
+}
+
+// ============================================================
+// UTILS & THEME TOGGLE
+// ============================================================
+function toggleTheme() {
+  const current = document.documentElement.getAttribute('data-theme');
+  const next = current === 'light' ? 'dark' : 'light';
+  document.documentElement.setAttribute('data-theme', next);
+  localStorage.setItem('mm_pack_theme', next);
+
   const icon = document.getElementById('theme-icon');
   const label = document.getElementById('theme-label');
-  if(icon) icon.textContent = t === 'dark' ? '☀️' : '🌙';
-  if(label) label.textContent = t === 'dark' ? 'โหมดสว่าง' : 'โหมดมืด';
-}
-function toggleTheme(){
-  const cur = document.documentElement.getAttribute('data-theme') || 'dark';
-  applyTheme(cur === 'dark' ? 'light' : 'dark');
-}
-// apply ASAP
-applyTheme(getPreferredTheme());
-
-
-
-// ===== Sidebar collapse =====
-function toggleSidebarCollapse(){
-  const app = document.querySelector('.app');
-  if(!app) return;
-  const collapsed = app.classList.toggle('sidebar-collapsed');
-  const fab = document.getElementById('sidebar-toggle-fab');
-  if(fab) fab.style.display = collapsed ? 'flex' : 'none';
-  try{ localStorage.setItem('mm_pack_sidebar_collapsed', collapsed ? '1' : '0'); }catch(e){}
-}
-(function restoreSidebar(){
-  try{
-    if(localStorage.getItem('mm_pack_sidebar_collapsed') === '1'){
-      const app = document.querySelector('.app');
-      if(app) app.classList.add('sidebar-collapsed');
-      const fab = document.getElementById('sidebar-toggle-fab');
-      if(fab) fab.style.display = 'flex';
-    }
-  }catch(e){}
-})();
-
-// ===== Homepage CMS =====
-let HOMEPAGE_DATA = null;
-window.__hpImageMap = {};
-
-function getDefaultHomepage(){
-  return {
-    hero: {
-      badge: 'Innovation Light Our Future',
-      title: 'ภาพรวมกระบวนการแพ็คหลัง',
-      subtitle: 'เบื้องต้น · ศูนย์รวมความรู้และแบบทดสอบมาตรฐานงานบรรจุภัณฑ์',
-      btnPrimary: 'เริ่มสำรวจกระบวนการ →',
-      btnSecondary: 'ทำแบบทดสอบ',
-      company: 'TERAHOP (Thailand) Ltd. · MM Packaging'
-    },
-    moiTitle: 'รหัส MOI',
-    moiDesc: 'มาตรฐานการแพ็คตามลูกค้าแต่ละราย อ้างอิงจากเอกสาร MOI',
-    moiRows: [
-      { code:'699', name:'Nvidia', moi:'D20-8363' },
-      { code:'678', name:'Facebook', moi:'D20-8290' },
-      { code:'666', name:'Google LLC', moi:'D20-8180' },
-      { code:'677', name:'Cisgo', moi:'D20-8148' },
-      { code:'688', name:'Amazon', moi:'D20-8291' },
-      { code:'618', name:'Microsoft', moi:'D20-8830' },
-      { code:'603', name:'Oracle', moi:'D20-8944' },
-      { code:'633', name:'Juniper', moi:'D20-8304' },
-      { code:'822', name:'TikTok', moi:'D20-8911' },
-      { code:'—', name:'Quanta', moi:'D20-8887' }
-    ],
-    processTitle: 'กระบวนการแพ็คหลัง',
-    processDesc: 'ขั้นตอนตั้งแต่สถานีขนส่งจนถึงศุลกากร',
-    steps: [
-      { id:'p1', num:'01', title:'Shipping Station (สถานีขนส่ง)', body:'Shipping Station หรือสถานีขนส่ง คือ การสแกนงานเข้าระบบขายและตรวจเช็คข้อมูลของชิ้นงานว่าครบถ้วนหรือไม่ จากนั้นนำใส่ Tray ก่อนส่งต่อไปด้านหลังเพื่อแพ็คงานตามขั้นตอนต่อไป', note:'การเช็คเลขวัสดุ Tray ที่ใช้ในการบรรจุ เช็คได้จาก BOM', labels:[], images:[{src:'images/shipping1.jpg', caption:'Station สแกนทีละตัว'},{src:'images/shipping2.jpg', caption:'Station สแกนได้หลายตัว'}] },
-      { id:'p2', num:'02', title:'Station การทำข้อมูลก่อนการแพ็ค', body:'เมื่อผ่านกระบวนการแรกมาแล้วจะถูกส่งต่อมาด้านหลังเพื่อดำเนินการต่อไป\nขั้นแรกจะผ่าน Station การทำข้อมูลก่อนการแพ็ค เพื่อตรวจหาข้อมูลที่ NG ก่อนดำเนินการแพ็คส่งให้ลูกค้า จะนำเลข DO ในใบ Shipping ไปดึงข้อมูลมาตรวจสอบ', note:'', labels:[], images:[{src:'images/data_station.jpg', caption:''}] },
-      { id:'p3', num:'03', title:'Station Packing', body:'เมื่อข้อมูลทุกอย่างโอเค จะเริ่มการแพ็คตามมาตรฐานของแต่ละลูกค้า สามารถอ้างอิงได้จาก MOI', note:'', labels:[{text:'เครื่องปริ้นลาเบล',link:''},{text:'พัดลมไอออน',link:''},{text:'จอคอม',link:''},{text:'ปืนสแกน',link:''}], images:[{src:'images/packing_station.jpg', caption:''}] },
-      { id:'p4', num:'04', title:'ตัวอย่างการเริ่มแพ็ค', body:'ตรวจเช็คตัวเองทุกครั้งก่อนเริ่มงาน ทำความสะอาดสเตชั่นทุกครั้งไล่จากบนลงล่าง เมื่อเริ่มงานจะนำกล่องแรกไปให้ฝ่ายตรวจสอบ', note:'', labels:[], images:[{src:'images/start_packing.jpg', caption:''}] },
-      { id:'p5', num:'05', title:'ฝ่ายตรวจสอบ', body:'ฝ่ายตรวจสอบจะนำกล่องแรกและกล่องสุดท้ายมาตรวจสอบทุกกระบวนการ เมื่อตรวจสอบเสร็จจะส่งต่อให้ฝ่ายตรวจสอบที่เป็นคนจีนตรวจสอบซ้ำอีกครั้ง ก่อนยืนยันให้ QC มานำไปตรวจสอบ', note:'', labels:[], images:[{src:'images/inspection.jpg', caption:''}] },
-      { id:'p6', num:'06', title:'การนำไปวางเรียงเพื่อรอตรวจสอบ', body:'จะตั้งไว้หนึ่งกล่องเพื่อรอฝ่ายตรวจสอบกล่องแรกและกล่องสุดท้ายเสร็จ เมื่อเสร็จแล้วจะนำกล่องลงไปในทางเดียวกันทั้งหมดเพื่อให้ QC ทราบ จากนั้น QC จะนำสามกล่องไปตรวจโดยจะมีกล่องแรก กล่องสุดท้าย และจะสุ่มหนึ่งในนั้นไปอีกกล่อง\nเมื่อ QC ตรวจเช็คเรียบร้อยแล้วจะทำการปั้มเครื่องหมายผ่านการตรวจสอบทุกกล่อง จากนั้นจึงจะดำเนินการต่อไปได้', note:'', labels:[], images:[{src:'images/arrange_boxes.jpg', caption:''}] },
-      { id:'p7', num:'07', title:'การตรวจสอบซ้ำ', body:'การตรวจสอบซ้ำเพื่อกันข้อผิดพลาดก่อนส่งให้ฝ่าย QC ตรวจสอบ', note:'', labels:[], images:[{src:'images/recheck.jpg', caption:''}] },
-      { id:'p8', num:'08', title:'ตัวอย่างการขึ้นพาเลท', body:'เมื่อ QC ตรวจสอบแล้วจะนำงานขึ้นพาเลท แต่ละลูกค้าก็จะแตกต่างกันออกไป ในภาพคือลูกค้า Cisgo', note:'', labels:[], images:[{src:'images/pallet.jpg', caption:''}] },
-      { id:'p9', num:'09', title:'ศุลกากร', body:'การทำข้อมูลน้ำหนักโมดูลและน้ำหนักกล่องต่างๆ เพื่อนำข้อมูลส่งให้แวร์เฮ้าส์ดำเนินการต่อไป', note:'', labels:[], images:[{src:'images/customs.jpg', caption:''}] }
-    ]
-  };
-}
-
-async function loadHomepage(){
-  await waitForStorage();
-  try{
-    const res = await window.storage.get('quiz_homepage');
-    if(res && res.value){
-      const parsed = JSON.parse(res.value);
-      if(parsed && parsed.hero && Array.isArray(parsed.steps)){
-        HOMEPAGE_DATA = parsed;
-        return HOMEPAGE_DATA;
-      }
-    }
-  }catch(e){}
-  HOMEPAGE_DATA = getDefaultHomepage();
-  return HOMEPAGE_DATA;
-}
-
-async function saveHomepage(data){
-  await waitForStorage();
-  HOMEPAGE_DATA = data;
-  try{ await window.storage.set('quiz_homepage', JSON.stringify(data)); }
-  catch(e){ console.error(e); throw e; }
-}
-
-async function renderPublicHomepage(){
-  const data = await loadHomepage();
-  const root = document.getElementById('home-dynamic-root');
-  if(!root) return;
-  const h = data.hero || {};
-  const steps = data.steps || [];
-  const moiRows = data.moiRows || [];
-  const moiHtml = moiRows.map(r => {
-    const link = (r.link||'').trim();
-    const eye = link
-      ? `<a class="th-eye-btn" href="${escapeHtml(link)}" target="_blank" rel="noopener noreferrer" title="เปิดลิงก์">👁</a>`
-      : `<span class="th-eye-btn disabled" title="ยังไม่มีลิงก์">👁</span>`;
-    return `<tr><td class="code">${escapeHtml(r.code||'')}</td><td>${escapeHtml(r.name||'')}</td><td class="moi">${escapeHtml(r.moi||'')}</td><td class="moi-link">${eye}</td></tr>`;
-  }).join('');
-  const stepsHtml = steps.map((s, idx) => {
-    const paras = String(s.body||'').split(/\n/).filter(Boolean).map(p => `<p>${escapeHtml(p)}</p>`).join('');
-    const note = s.note ? `<p class="th-note">${escapeHtml(s.note)}</p>` : '';
-    const rawLabels = s.labels || [];
-    const labelItems = rawLabels.map(l => {
-      if(typeof l === 'string') return { text: l, link: '' };
-      return { text: l.text || '', link: l.link || '' };
-    }).filter(l => l.text);
-    const labels = labelItems.length ? `<div class="th-labels">${labelItems.map(l => {
-      if(l.link) return `<a class="th-label-link" href="${escapeHtml(l.link)}" target="_blank" rel="noopener noreferrer">${escapeHtml(l.text)}</a>`;
-      return `<span>${escapeHtml(l.text)}</span>`;
-    }).join('')}</div>` : '';
-
-    let slots = [null, null];
-    const imgs = s.images || [];
-    let hasSlotMeta = imgs.some(im => im && (im.slot === 0 || im.slot === 1));
-    if(hasSlotMeta){
-      imgs.forEach(im => { if(im && im.src && (im.slot===0||im.slot===1)) slots[im.slot] = im; });
-    } else {
-      imgs.forEach((im,j) => { if(im && im.src && j<2) slots[j] = im; });
-    }
-    const hasL = !!(slots[0] && slots[0].src);
-    const hasR = !!(slots[1] && slots[1].src);
-
-    const fig = (im) => {
-      const cap = (im.caption||'').trim();
-      if(cap){
-        return `<figure><img src="${escapeHtml(im.src)}" alt="" loading="lazy"><figcaption>${escapeHtml(cap)}</figcaption></figure>`;
-      }
-      return `<figure class="no-caption"><img src="${escapeHtml(im.src)}" alt="" loading="lazy"></figure>`;
-    };
-    const singleMedia = (im) => {
-      const cap = (im.caption||'').trim();
-      if(cap){
-        return `<div class="th-card-media"><img src="${escapeHtml(im.src)}" alt="" loading="lazy"><div class="th-cap">${escapeHtml(cap)}</div></div>`;
-      }
-      return `<div class="th-card-media no-caption"><img src="${escapeHtml(im.src)}" alt="" loading="lazy"></div>`;
-    };
-
-    let reverse = '';
-    let media = '';
-    if(hasL && hasR){
-      reverse = idx % 2 === 1 ? ' reverse' : '';
-      media = `<div class="th-card-media dual">${fig(slots[0])}${fig(slots[1])}</div>`;
-    } else if(hasL){
-      reverse = ' reverse';
-      media = singleMedia(slots[0]);
-    } else if(hasR){
-      reverse = '';
-      media = singleMedia(slots[1]);
-    }
-
-    const body = `<div class="th-card-body"><span class="th-num">${escapeHtml(s.num||String(idx+1).padStart(2,'0'))}</span><h3>${escapeHtml(s.title||'')}</h3>${paras}${note}${labels}</div>`;
-    if(!media){
-      return `<article class="th-card th-card-textonly" id="${escapeHtml(s.id||('p'+idx))}">${body}</article>`;
-    }
-    return `<article class="th-card${reverse}" id="${escapeHtml(s.id||('p'+idx))}">${body}${media}</article>`;
-  }).join('');
-  const flowNav = steps.map((s,i) => `<a href="#${escapeHtml(s.id||('p'+i))}">${escapeHtml(s.num||String(i+1))}. ${escapeHtml((s.title||'').slice(0,16))}</a>`).join('');
-  root.innerHTML = `<section class="th-hero"><div class="th-hero-inner"><div class="th-badge">${escapeHtml(h.badge||'')}</div><h1>${escapeHtml(h.title||'')}</h1><p class="th-sub">${escapeHtml(h.subtitle||'')}</p><div class="th-hero-actions"><a class="th-btn th-btn-primary" href="#th-moi">${escapeHtml(h.btnPrimary||'เริ่มสำรวจ')}</a><button type="button" class="th-btn th-btn-outline" onclick="navigateTo('exambank')">${escapeHtml(h.btnSecondary||'ทำแบบทดสอบ')}</button></div><p class="th-company">${escapeHtml(h.company||'')}</p></div></section>
-  <div class="th-quick"><button type="button" class="th-q" onclick="navigateTo('knowledge')"><span>📚</span><b>คลังความรู้</b><small>คู่มือและมาตรฐาน</small></button><button type="button" class="th-q" onclick="navigateTo('exambank')"><span>📝</span><b>คลังข้อสอบ</b><small>ทดสอบความรู้</small></button><button type="button" class="th-q" onclick="navigateTo('criteria')"><span>✅</span><b>เกณฑ์ประเมิน</b><small>ผ่าน / ไม่ผ่าน</small></button><button type="button" class="th-q" onclick="navigateTo('about')"><span>ℹ️</span><b>เกี่ยวกับเรา</b><small>ข้อมูลระบบ</small></button></div>
-  <section class="th-section" id="th-moi"><div class="th-section-head"><h2>${escapeHtml(data.moiTitle||'รหัส MOI')}</h2><p>${escapeHtml(data.moiDesc||'')}</p></div><div class="th-table-wrap"><table class="th-moi-table"><thead><tr><th>รหัสลูกค้า</th><th>ชื่อลูกค้า</th><th>มาตรฐานการแพ็ค MOI</th><th style="width:52px;text-align:center;">ลิงก์</th></tr></thead><tbody>${moiHtml}</tbody></table></div></section>
-  <section class="th-section" id="th-process"><div class="th-section-head"><h2>${escapeHtml(data.processTitle||'กระบวนการ')}</h2><p>${escapeHtml(data.processDesc||'')}</p></div><div class="th-flow"><div class="th-flow-nav">${flowNav}</div>${stepsHtml}</div></section>`;
-}
-
-function hpSyncImageMapFromData(data){
-  window.__hpImageMap = window.__hpImageMap || {};
-  (data.steps||[]).forEach((s,i)=>{
-    const imgs = s.images || [];
-    // clear existing for this step then set
-    delete window.__hpImageMap[i+':0'];
-    delete window.__hpImageMap[i+':1'];
-    let usedLegacy = false;
-    imgs.forEach((im)=>{
-      if(!im || !im.src) return;
-      if(im.slot===0 || im.slot===1){
-        window.__hpImageMap[i+':'+im.slot] = im.src;
-      } else {
-        usedLegacy = true;
-      }
-    });
-    if(usedLegacy || (!window.__hpImageMap[i+':0'] && !window.__hpImageMap[i+':1'])){
-      imgs.forEach((im,j)=>{ if(im && im.src && j<2) window.__hpImageMap[i+':'+j] = im.src; });
-    }
-  });
-}
-
-function hpCollectFromAdmin(){
-  const data = {
-    hero: {
-      badge: (document.getElementById('hp-badge')||{}).value || '',
-      title: (document.getElementById('hp-title')||{}).value || '',
-      subtitle: (document.getElementById('hp-subtitle')||{}).value || '',
-      btnPrimary: (document.getElementById('hp-btn1')||{}).value || '',
-      btnSecondary: (document.getElementById('hp-btn2')||{}).value || '',
-      company: (document.getElementById('hp-company')||{}).value || ''
-    },
-    moiTitle: (document.getElementById('hp-moi-title')||{}).value || '',
-    moiDesc: (document.getElementById('hp-moi-desc')||{}).value || '',
-    moiRows: [],
-    processTitle: (document.getElementById('hp-proc-title')||{}).value || '',
-    processDesc: (document.getElementById('hp-proc-desc')||{}).value || '',
-    steps: []
-  };
-  document.querySelectorAll('[data-moi="code"]').forEach(el=>{
-    const i = el.getAttribute('data-i');
-    const name = document.querySelector('[data-moi="name"][data-i="'+i+'"]');
-    const moi = document.querySelector('[data-moi="moi"][data-i="'+i+'"]');
-    const linkEl = document.querySelector('[data-moi="link"][data-i="'+i+'"]');
-    data.moiRows.push({ code: el.value.trim(), name: name?name.value.trim():'', moi: moi?moi.value.trim():'', link: linkEl?linkEl.value.trim():'' });
-  });
-  const idxs = [...new Set([...document.querySelectorAll('[data-step]')].map(el=>el.getAttribute('data-step')))].sort((a,b)=>Number(a)-Number(b));
-  idxs.forEach(i=>{
-    const get = f => { const el = document.querySelector('[data-step="'+i+'"][data-f="'+f+'"]'); return el ? el.value : ''; };
-    // labels with optional links
-    const labels = [];
-    document.querySelectorAll('[data-label-step="'+i+'"][data-label-f="text"]').forEach(tel=>{
-      const li = tel.getAttribute('data-label-i');
-      const text = tel.value.trim();
-      const linkEl = document.querySelector('[data-label-step="'+i+'"][data-label-i="'+li+'"][data-label-f="link"]');
-      const link = linkEl ? linkEl.value.trim() : '';
-      if(text) labels.push({ text, link });
-    });
-    // fixed image slots 0=left, 1=right
-    const images = [];
-    for(let j=0;j<2;j++){
-      const src = (window.__hpImageMap && window.__hpImageMap[i+':'+j]) || '';
-      const capEl = document.querySelector('[data-step-img="'+i+'"][data-img="'+j+'"][data-f="caption"]');
-      if(src) images.push({ src, caption: capEl ? capEl.value.trim() : '', slot: j });
-    }
-    data.steps.push({
-      id: 'p'+(Number(i)+1),
-      num: get('num') || String(Number(i)+1).padStart(2,'0'),
-      title: get('title'),
-      body: get('body'),
-      note: get('note'),
-      labels,
-      images
-    });
-  });
-  return data;
-}
-
-function renderHomepageAdminForce(data){
-  const root = document.getElementById('homepage-admin-root');
-  if(!root) return;
-  hpSyncImageMapFromData(data);
-  const h = data.hero || {};
-  const moiRows = (data.moiRows||[]).map((r,i)=>{
-    const link = r.link || '';
-    const eyeBtn = link
-      ? `<a class="th-eye-btn" href="${escapeHtml(link)}" target="_blank" rel="noopener noreferrer" title="เปิดลิงก์">👁</a>`
-      : `<span class="th-eye-btn disabled" title="ยังไม่มีลิงก์">👁</span>`;
-    return `<div class="hp-moi-row">
-    <input type="text" data-moi="code" data-i="${i}" value="${escapeHtml(r.code||'')}" placeholder="รหัส">
-    <input type="text" data-moi="name" data-i="${i}" value="${escapeHtml(r.name||'')}" placeholder="ชื่อลูกค้า">
-    <input type="text" data-moi="moi" data-i="${i}" value="${escapeHtml(r.moi||'')}" placeholder="MOI">
-    <input type="url" class="hp-link-full" data-moi="link" data-i="${i}" value="${escapeHtml(link)}" placeholder="https://... ลิงก์เอกสาร" onchange="hpRefreshMoiEye(${i})">
-    ${eyeBtn}
-    <button type="button" class="btn btn-danger btn-small" onclick="hpRemoveMoiRow(${i})">×</button>
-  </div>`;
-  }).join('');
-  const stepsHtml = (data.steps||[]).map((s,i)=>{
-    // resolve image slots
-    let slotSrc = ['',''];
-    let slotCap = ['',''];
-    const imgs = s.images || [];
-    if(imgs.length && imgs[0] && (imgs[0].slot===0 || imgs[0].slot===1 || imgs[0].slot===undefined)){
-      imgs.forEach(im=>{
-        if(!im || !im.src) return;
-        const sl = (im.slot===0||im.slot===1) ? im.slot : null;
-        if(sl!==null){ slotSrc[sl]=im.src; slotCap[sl]=im.caption||''; }
-      });
-      // legacy sequential if no slot keys matched
-      if(!slotSrc[0] && !slotSrc[1]){
-        imgs.forEach((im,j)=>{ if(im&&im.src&&j<2){ slotSrc[j]=im.src; slotCap[j]=im.caption||''; }});
-      }
-    }
-    // prefer image map (in-session uploads/edits)
-    if(window.__hpImageMap[i+':0']) slotSrc[0] = window.__hpImageMap[i+':0'];
-    if(window.__hpImageMap[i+':1']) slotSrc[1] = window.__hpImageMap[i+':1'];
-
-    // normalize labels to objects
-    const labels = (s.labels||[]).map(l => typeof l === 'string' ? {text:l, link:''} : {text:l.text||'', link:l.link||''});
-    const labelsHtml = labels.map((l,li)=>`<div class="hp-label-row">
-      <input type="text" data-label-step="${i}" data-label-i="${li}" data-label-f="text" value="${escapeHtml(l.text)}" placeholder="ชื่อป้าย">
-      <input type="url" data-label-step="${i}" data-label-i="${li}" data-label-f="link" value="${escapeHtml(l.link)}" placeholder="https://... ลิงก์ (ถ้ามี)">
-      <button type="button" class="btn btn-danger btn-small" onclick="hpRemoveLabel(${i},${li})">×</button>
-    </div>`).join('');
-
-    const imgBlock = (j, label) => {
-      const src = slotSrc[j];
-      const cap = slotCap[j];
-      return `<div class="hp-img-col"><label>${label}</label>
-        <input type="file" accept="image/*" onchange="hpUploadStepImage(${i},${j},this)">
-        <input type="text" data-step-img="${i}" data-img="${j}" data-f="caption" value="${escapeHtml(cap)}" placeholder="คำบรรยาย">
-        ${src ? `<div class="hp-img-wrap"><img class="hp-img-preview" src="${escapeHtml(src)}" alt=""><button type="button" class="hp-img-remove" onclick="hpRemoveStepImage(${i},${j})" title="ลบรูป">×</button></div>` : ''}
-      </div>`;
-    };
-
-    return `<div class="hp-editor-block hp-step-admin"><h3>ขั้นตอน ${i+1}</h3><div class="form-grid">
-      <div><label>เลขที่</label><input type="text" data-step="${i}" data-f="num" value="${escapeHtml(s.num||'')}"></div>
-      <div><label>หัวข้อ</label><input type="text" data-step="${i}" data-f="title" value="${escapeHtml(s.title||'')}"></div>
-      <div><label>เนื้อหา</label><textarea data-step="${i}" data-f="body">${escapeHtml(s.body||'')}</textarea></div>
-      <div><label>หมายเหตุ</label><input type="text" data-step="${i}" data-f="note" value="${escapeHtml(s.note||'')}"></div>
-      <div>
-        <label>ป้ายกำกับ (คลิกได้ถ้ามีลิงก์)</label>
-        ${labelsHtml || '<p class="empty-note">ยังไม่มีป้าย</p>'}
-        <div class="btn-row"><button type="button" class="btn btn-outline btn-small" onclick="hpAddLabel(${i})">+ เพิ่มป้าย</button></div>
-      </div>
-      <div class="hp-img-row">
-        ${imgBlock(0, 'รูปซ้าย (รูป 1)')}
-        ${imgBlock(1, 'รูปขวา (รูป 2)')}
-      </div>
-      <div class="btn-row"><button type="button" class="btn btn-danger btn-small" onclick="hpRemoveStep(${i})">ลบขั้นตอนนี้</button></div>
-    </div></div>`;
-  }).join('');
-  root.innerHTML = `<div class="hp-editor-block"><h3>Hero</h3><div class="form-grid">
-    <div><label>Badge</label><input type="text" id="hp-badge" value="${escapeHtml(h.badge||'')}"></div>
-    <div><label>หัวข้อ</label><input type="text" id="hp-title" value="${escapeHtml(h.title||'')}"></div>
-    <div><label>คำอธิบาย</label><input type="text" id="hp-subtitle" value="${escapeHtml(h.subtitle||'')}"></div>
-    <div><label>ปุ่มหลัก</label><input type="text" id="hp-btn1" value="${escapeHtml(h.btnPrimary||'')}"></div>
-    <div><label>ปุ่มรอง</label><input type="text" id="hp-btn2" value="${escapeHtml(h.btnSecondary||'')}"></div>
-    <div><label>บริษัท</label><input type="text" id="hp-company" value="${escapeHtml(h.company||'')}"></div>
-  </div></div>
-  <div class="hp-editor-block"><h3>ตาราง MOI</h3><div class="form-grid">
-    <div><label>หัวข้อ</label><input type="text" id="hp-moi-title" value="${escapeHtml(data.moiTitle||'')}"></div>
-    <div><label>คำอธิบาย</label><input type="text" id="hp-moi-desc" value="${escapeHtml(data.moiDesc||'')}"></div>
-  </div><div style="margin-top:10px;">${moiRows||'<p class="empty-note">ยังไม่มีแถว</p>'}</div>
-  <div class="btn-row"><button type="button" class="btn btn-outline btn-small" onclick="hpAddMoiRow()">+ เพิ่มแถว</button></div></div>
-  <div class="hp-editor-block"><h3>กระบวนการ</h3><div class="form-grid">
-    <div><label>หัวข้อ</label><input type="text" id="hp-proc-title" value="${escapeHtml(data.processTitle||'')}"></div>
-    <div><label>คำอธิบาย</label><input type="text" id="hp-proc-desc" value="${escapeHtml(data.processDesc||'')}"></div>
-  </div></div>
-  <div>${stepsHtml}</div>
-  <div class="btn-row"><button type="button" class="btn btn-outline btn-small" onclick="hpAddStep()">+ เพิ่มขั้นตอน</button></div>`;
-}
-
-async function renderHomepageAdmin(){
-  const data = await loadHomepage();
-  renderHomepageAdminForce(data);
-}
-
-async function saveHomepageFromAdmin(){
-  const msg = document.getElementById('homepage-save-msg');
-  try{
-    const data = hpCollectFromAdmin();
-    await saveHomepage(data);
-    if(msg) msg.textContent = 'บันทึกหน้าหลักเรียบร้อยแล้ว';
-    renderHomepageAdminForce(data);
-  }catch(e){
-    if(msg) msg.textContent = 'บันทึกไม่สำเร็จ: '+(e.message||e);
+  if(icon && label) {
+    icon.innerText = next === 'light' ? '🌙' : '☀️';
+    label.innerText = next === 'light' ? 'โหมดมืด' : 'โหมดสว่าง';
   }
 }
 
-async function resetHomepageToDefault(){
-  if(!confirm('คืนค่าหน้าหลักเป็นค่าเริ่มต้น?')) return;
-  window.__hpImageMap = {};
-  const d = getDefaultHomepage();
-  await saveHomepage(d);
-  renderHomepageAdminForce(d);
-  const msg = document.getElementById('homepage-save-msg');
-  if(msg) msg.textContent = 'คืนค่าเริ่มต้นแล้ว';
+function toggleSidebar() {
+  document.getElementById('sidebar').classList.toggle('open');
 }
 
-
-function hpRefreshMoiEye(i){
-  const data = hpCollectFromAdmin();
-  renderHomepageAdminForce(data);
+function closeMobileSidebar() {
+  document.getElementById('sidebar').classList.remove('open');
 }
 
-function hpAddMoiRow(){
-  const data = hpCollectFromAdmin();
-  data.moiRows.push({code:'',name:'',moi:'',link:''});
-  renderHomepageAdminForce(data);
-}
-function hpRemoveMoiRow(i){
-  const data = hpCollectFromAdmin();
-  data.moiRows.splice(i,1);
-  renderHomepageAdminForce(data);
-}
-function hpAddStep(){
-  const data = hpCollectFromAdmin();
-  const n = data.steps.length+1;
-  data.steps.push({id:'p'+n,num:String(n).padStart(2,'0'),title:'ขั้นตอนใหม่',body:'',note:'',labels:[],images:[]});
-  renderHomepageAdminForce(data);
-}
-function hpRemoveStep(i){
-  const data = hpCollectFromAdmin();
-  data.steps.splice(i,1);
-  const newMap = {};
-  data.steps.forEach((s,ni)=>{(s.images||[]).forEach((im,j)=>{ if(im.src) newMap[ni+':'+j]=im.src; });});
-  window.__hpImageMap = newMap;
-  renderHomepageAdminForce(data);
+function toggleSidebarCollapse() {
+  document.querySelector('.app').classList.toggle('sidebar-collapsed');
 }
 
-function hpRemoveStepImage(stepIndex, imgIndex){
-  if(window.__hpImageMap) delete window.__hpImageMap[stepIndex+':'+imgIndex];
-  const data = hpCollectFromAdmin();
-  // ensure removed from collected images
-  if(data.steps[stepIndex] && data.steps[stepIndex].images){
-    data.steps[stepIndex].images = data.steps[stepIndex].images.filter(im => im.slot !== imgIndex);
+function setupUI() {
+  const t = document.documentElement.getAttribute('data-theme');
+  const icon = document.getElementById('theme-icon');
+  const label = document.getElementById('theme-label');
+  if(icon && label) {
+    icon.innerText = t === 'light' ? '🌙' : '☀️';
+    label.innerText = t === 'light' ? 'โหมดมืด' : 'โหมดสว่าง';
   }
-  // clear map entry again after collect
-  if(window.__hpImageMap) delete window.__hpImageMap[stepIndex+':'+imgIndex];
-  renderHomepageAdminForce(data);
-}
-function hpAddLabel(stepIndex){
-  const data = hpCollectFromAdmin();
-  if(!data.steps[stepIndex].labels) data.steps[stepIndex].labels = [];
-  data.steps[stepIndex].labels.push({ text: '', link: '' });
-  renderHomepageAdminForce(data);
-}
-function hpRemoveLabel(stepIndex, labelIndex){
-  const data = hpCollectFromAdmin();
-  if(data.steps[stepIndex] && data.steps[stepIndex].labels){
-    data.steps[stepIndex].labels.splice(labelIndex, 1);
-  }
-  renderHomepageAdminForce(data);
 }
 
-function hpUploadStepImage(stepIndex, imgIndex, input){
-  const file = input.files && input.files[0];
-  if(!file) return;
-  if(file.size > 2.5*1024*1024){ alert('ไฟล์ใหญ่เกิน 2.5MB'); input.value=''; return; }
-  const reader = new FileReader();
-  reader.onload = ()=>{
-    window.__hpImageMap = window.__hpImageMap || {};
-    window.__hpImageMap[stepIndex+':'+imgIndex] = reader.result;
-    const data = hpCollectFromAdmin();
-    renderHomepageAdminForce(data);
-  };
-  reader.readAsDataURL(file);
-}
-
-
-
-// ===== Criteria & About page CMS =====
-function getDefaultCriteriaPage(){
-  return {
-    title: 'เกณฑ์การประเมิน | 评估标准',
-    intro: 'เกณฑ์การผ่านแบบทดสอบและเงื่อนไขต่าง ๆ ของระบบ',
-    // items rendered from SETTINGS still via renderCriteriaList
-  };
-}
-function getDefaultAboutPage(){
-  return {
-    title: 'เกี่ยวกับเรา | 关于我们',
-    blocks: [
-      { heading: 'ระบบทดสอบความรู้บรรจุภัณฑ์', body: 'เว็บไซต์นี้จัดทำขึ้นเพื่อใช้เป็นเครื่องมือฝึกอบรมและทดสอบความรู้ภายในองค์กร สำหรับพนักงานฝ่ายผลิตและฝ่าย MM ในหัวข้อมาตรฐานการบรรจุภัณฑ์และฉลากจัดส่งสินค้า (Packaging & Shipping Label Compliance)' },
-      { heading: 'วัตถุประสงค์', body: 'เพื่อให้พนักงานสามารถทบทวนความรู้ ทำแบบทดสอบ ติดตามสถิติการทำข้อสอบของตนเอง และรับใบประกาศเกียรติคุณเมื่อผ่านเกณฑ์ที่กำหนด' },
-      { heading: 'ผู้พัฒนา', body: 'MM BACKPAKING · Packaging System' }
-    ]
-  };
-}
-async function loadCriteriaPage(){
-  await waitForStorage();
-  try{
-    const res = await window.storage.get('quiz_criteria_page');
-    if(res && res.value){ const p = JSON.parse(res.value); if(p && p.title) return p; }
-  }catch(e){}
-  return getDefaultCriteriaPage();
-}
-async function saveCriteriaPageData(data){
-  await waitForStorage();
-  await window.storage.set('quiz_criteria_page', JSON.stringify(data));
-}
-async function loadAboutPage(){
-  await waitForStorage();
-  try{
-    const res = await window.storage.get('quiz_about_page');
-    if(res && res.value){ const p = JSON.parse(res.value); if(p && p.title) return p; }
-  }catch(e){}
-  return getDefaultAboutPage();
-}
-async function saveAboutPageData(data){
-  await waitForStorage();
-  await window.storage.set('quiz_about_page', JSON.stringify(data));
-}
-
-async function renderCriteriaPage(){
-  const page = await loadCriteriaPage();
-  const t = document.getElementById('criteria-page-title');
-  const intro = document.getElementById('criteria-page-intro');
-  if(t) t.textContent = page.title || '';
-  if(intro) intro.textContent = page.intro || '';
-  renderCriteriaList();
-}
-async function renderAboutPage(){
-  const page = await loadAboutPage();
-  const root = document.getElementById('about-page-root');
-  if(!root) return;
-  let html = `<h2>${escapeHtml(page.title||'')}</h2>`;
-  (page.blocks||[]).forEach(b=>{
-    html += `<div class="about-block"><h3>${escapeHtml(b.heading||'')}</h3><p>${escapeHtml(b.body||'')}</p></div>`;
-  });
-  root.innerHTML = html;
-}
-
-async function renderCriteriaAdmin(){
-  const page = await loadCriteriaPage();
-  const root = document.getElementById('criteria-admin-root');
-  if(!root) return;
-  root.innerHTML = `<div class="form-grid">
-    <div><label>หัวข้อหน้า</label><input type="text" id="cr-title" value="${escapeHtml(page.title||'')}"></div>
-    <div><label>คำอธิบาย</label><textarea id="cr-intro">${escapeHtml(page.intro||'')}</textarea></div>
-  </div>
-  <p class="empty-note" style="margin-top:10px;">รายการเกณฑ์คะแนนผ่าน / ปลดล็อกเฉลย ยังแก้ได้ที่แท็บ สถิติ &amp; ประวัติ (ในคลังข้อสอบ)</p>`;
-}
-async function saveCriteriaPage(){
-  const data = {
-    title: (document.getElementById('cr-title')||{}).value || '',
-    intro: (document.getElementById('cr-intro')||{}).value || ''
-  };
-  await saveCriteriaPageData(data);
-  const msg = document.getElementById('criteria-save-msg');
-  if(msg) msg.textContent = 'บันทึกแล้ว';
-}
-async function resetCriteriaPage(){
-  if(!confirm('คืนค่าเริ่มต้น?')) return;
-  await saveCriteriaPageData(getDefaultCriteriaPage());
-  await renderCriteriaAdmin();
-}
-
-async function renderAboutAdmin(){
-  const page = await loadAboutPage();
-  const root = document.getElementById('about-admin-root');
-  if(!root) return;
-  const blocks = (page.blocks||[]).map((b,i)=>`<div class="hp-editor-block">
-    <div class="form-grid">
-      <div><label>หัวข้อบล็อก</label><input type="text" data-about-h="${i}" value="${escapeHtml(b.heading||'')}"></div>
-      <div><label>เนื้อหา</label><textarea data-about-b="${i}">${escapeHtml(b.body||'')}</textarea></div>
-    </div>
-    <button type="button" class="btn btn-danger btn-small" onclick="aboutRemoveBlock(${i})">ลบบล็อก</button>
-  </div>`).join('');
-  root.innerHTML = `<div class="form-grid"><div><label>หัวข้อหน้า</label><input type="text" id="ab-title" value="${escapeHtml(page.title||'')}"></div></div>
-  <div style="margin-top:12px;">${blocks}</div>
-  <div class="btn-row"><button type="button" class="btn btn-outline btn-small" onclick="aboutAddBlock()">+ เพิ่มบล็อก</button></div>`;
-  window.__aboutCache = page;
-}
-function aboutCollect(){
-  const blocks = [];
-  document.querySelectorAll('[data-about-h]').forEach(el=>{
-    const i = el.getAttribute('data-about-h');
-    const body = document.querySelector('[data-about-b="'+i+'"]');
-    blocks.push({ heading: el.value.trim(), body: body ? body.value.trim() : '' });
-  });
-  return { title: (document.getElementById('ab-title')||{}).value || '', blocks };
-}
-async function saveAboutPage(){
-  const data = aboutCollect();
-  await saveAboutPageData(data);
-  const msg = document.getElementById('about-save-msg');
-  if(msg) msg.textContent = 'บันทึกแล้ว';
-}
-async function resetAboutPage(){
-  if(!confirm('คืนค่าเริ่มต้น?')) return;
-  await saveAboutPageData(getDefaultAboutPage());
-  await renderAboutAdmin();
-}
-function aboutAddBlock(){
-  const data = aboutCollect();
-  data.blocks.push({ heading: 'หัวข้อใหม่', body: '' });
-  window.__aboutCache = data;
-  // temp save to form only
-  const root = document.getElementById('about-admin-root');
-  const page = data;
-  const blocks = (page.blocks||[]).map((b,i)=>`<div class="hp-editor-block">
-    <div class="form-grid">
-      <div><label>หัวข้อบล็อก</label><input type="text" data-about-h="${i}" value="${escapeHtml(b.heading||'')}"></div>
-      <div><label>เนื้อหา</label><textarea data-about-b="${i}">${escapeHtml(b.body||'')}</textarea></div>
-    </div>
-    <button type="button" class="btn btn-danger btn-small" onclick="aboutRemoveBlock(${i})">ลบบล็อก</button>
-  </div>`).join('');
-  root.innerHTML = `<div class="form-grid"><div><label>หัวข้อหน้า</label><input type="text" id="ab-title" value="${escapeHtml(page.title||'')}"></div></div>
-  <div style="margin-top:12px;">${blocks}</div>
-  <div class="btn-row"><button type="button" class="btn btn-outline btn-small" onclick="aboutAddBlock()">+ เพิ่มบล็อก</button></div>`;
-}
-function aboutRemoveBlock(i){
-  const data = aboutCollect();
-  data.blocks.splice(i,1);
-  window.__aboutCache = data;
-  aboutAddBlock = aboutAddBlock; // keep
-  const page = data;
-  const root = document.getElementById('about-admin-root');
-  const blocks = (page.blocks||[]).map((b,i)=>`<div class="hp-editor-block">
-    <div class="form-grid">
-      <div><label>หัวข้อบล็อก</label><input type="text" data-about-h="${i}" value="${escapeHtml(b.heading||'')}"></div>
-      <div><label>เนื้อหา</label><textarea data-about-b="${i}">${escapeHtml(b.body||'')}</textarea></div>
-    </div>
-    <button type="button" class="btn btn-danger btn-small" onclick="aboutRemoveBlock(${i})">ลบบล็อก</button>
-  </div>`).join('');
-  root.innerHTML = `<div class="form-grid"><div><label>หัวข้อหน้า</label><input type="text" id="ab-title" value="${escapeHtml(page.title||'')}"></div></div>
-  <div style="margin-top:12px;">${blocks}</div>
-  <div class="btn-row"><button type="button" class="btn btn-outline btn-small" onclick="aboutAddBlock()">+ เพิ่มบล็อก</button></div>`;
-}
-
-
-// Initial View
-(async function boot(){
-  const restored = restoreSession();
-  updateNavAuth();
-  if(restored){
-    try{ updateSessionBar(); }catch(e){}
-  }
-  await navigateTo('home');
-})();
+// Start application
+window.onload = initApp;
 </script>
-<!DOCTYPE html>
-<html lang="th">
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>MM BACKPACKING · กระบวนการแพ็คหลัง & แบบทดสอบ</title>
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link href="https://fonts.googleapis.com/css2?family=Oswald:wght@500;600;700&family=Noto+Sans+Thai:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500;700&display=swap" rel="stylesheet">
-  <style>
-    :root, [data-theme="dark"] {
-      --bg: #0b0a1a;
-      --bg-2: #12122a;
-      --surface: #161633;
-      --surface-2: #1c1c3d;
-      --border: #2e2e5a;
-      --text: #eef0ff;
-      --muted: #9aa3c7;
-      --accent: #8b5cf6;
-      --teal: #6ee7b7;
-      --font: 'Noto Sans Thai', system-ui, sans-serif;
-      --mono: 'JetBrains Mono', ui-monospace, monospace;
-      --display: 'Oswald', system-ui, sans-serif;
-    }
-    body {
-      font-family: var(--font);
-      background: var(--bg);
-      color: var(--text);
-      margin: 0;
-      padding: 24px;
-      line-height: 1.6;
-    }
-    .container {
-      max-width: 800px;
-      margin: 0 auto;
-    }
-    .card {
-      background: var(--surface);
-      border: 1px solid var(--border);
-      border-radius: 14px;
-      padding: 20px;
-      margin-bottom: 20px;
-    }
-    h1, h2 {
-      font-family: var(--display);
-      color: var(--accent);
-      margin-top: 0;
-    }
-    input {
-      width: 100%;
-      padding: 12px;
-      margin-bottom: 12px;
-      border-radius: 8px;
-      border: 1px solid var(--border);
-      background: var(--bg-2);
-      color: var(--text);
-      box-sizing: border-box;
-    }
-    .btn {
-      background: var(--accent);
-      color: #fff;
-      border: none;
-      padding: 12px 20px;
-      border-radius: 8px;
-      font-weight: 700;
-      cursor: pointer;
-      width: 100%;
-      font-size: 15px;
-    }
-    .btn:hover {
-      opacity: 0.9;
-    }
-    .history-item {
-      background: var(--surface-2);
-      border: 1px solid var(--border);
-      padding: 10px 14px;
-      border-radius: 8px;
-      margin-bottom: 8px;
-      display: flex;
-      justify-content: space-between;
-      font-family: var(--mono);
-      font-size: 13px;
-    }
-  </style>
-</head>
-<body>
-
-  <div class="container">
-    <h1>🎒 MM BACKPACKING</h1>
-
-    <!-- โซนที่ 1: บันทึกคะแนนสอบ -->
-    <div class="card">
-      <h2>ส่งผลคะแนนแบบทดสอบ</h2>
-      <input type="text" id="userName" placeholder="กรอกชื่อของคุณ..." />
-      <input type="number" id="userScore" placeholder="คะแนนที่ได้ (เช่น 8)" min="0" max="10" />
-      <button class="btn" onclick="saveData()">บันทึกข้อมูลลง Firebase</button>
-    </div>
-
-    <!-- โซนที่ 2: แสดงประวัติคะแนนจาก Firebase -->
-    <div class="card">
-      <h2>ประวัติการส่งคะแนนล่าสุด</h2>
-      <div id="historyList">กำลังโหลดข้อมูล...</div>
-    </div>
-  </div>
-
-  <!-- ========================================== -->
-  <!-- Firebase SDK & Logic (Firebase v10 Modules) -->
-  <!-- ========================================== -->
-  <script type="module">
-    import { initializeApp } from "https://www.gstatic.com/firebasejs/10.8.0/firebase-app.js";
-    import { 
-      getFirestore, 
-      collection, 
-      addDoc, 
-      getDocs, 
-      query, 
-      orderBy, 
-      limit, 
-      serverTimestamp 
-    } from "https://www.gstatic.com/firebasejs/10.8.0/firebase-firestore.js";
-
-    // 1. นำค่า Config จาก Firebase Console มาแปะวางตรงนี้ได้เลย
-    const firebaseConfig = {
-    apiKey: "AIzaSyAcO1kLJjjxhM5xraLNBXd1wfIYuNGvjh4",
-    authDomain: "mm-backpacking.firebaseapp.com",
-    projectId: "mm-backpacking",
-    storageBucket: "mm-backpacking.firebasestorage.app",
-    messagingSenderId: "992848606739",
-    appId: "1:992848606739:web:a5ae7fc16217ed9bfb31e6",
-    measurementId: "G-DYKCTFD9E9"
-  };
-
-    // Initialize Firebase & Firestore
-    const app = initializeApp(firebaseConfig);
-    const db = getFirestore(app);
-
-    // 2. ฟังก์ชันบันทึกข้อมูลคะแนน
-    window.saveData = async function() {
-      const nameInput = document.getElementById("userName").value.trim();
-      const scoreInput = document.getElementById("userScore").value;
-
-      if (!nameInput || scoreInput === "") {
-        alert("กรุณากรอกชื่อและคะแนนให้ครบถ้วนครับ!");
-        return;
-      }
-
-      try {
-        // บันทึกลง Collection ชื่อ 'quiz_results'
-        await addDoc(collection(db, "quiz_results"), {
-          name: nameInput,
-          score: parseInt(scoreInput),
-          createdAt: serverTimestamp()
-        });
-
-        alert("🎉 บันทึกข้อมูลลง Firebase เรียบร้อยแล้ว!");
-        document.getElementById("userName").value = "";
-        document.getElementById("userScore").value = "";
-        
-        // ดึงข้อมูลใหม่มาอัปเดตหน้าจอทันที
-        loadHistory();
-      } catch (error) {
-        console.error("เกิดข้อผิดพลาดในการบันทึก:", error);
-        alert("เกิดข้อผิดพลาด: " + error.message);
-      }
-    };
-
-    // 3. ฟังก์ชันดึงประวัติคะแนนมาแสดง
-    async function loadHistory() {
-      const historyContainer = document.getElementById("historyList");
-      historyContainer.innerHTML = "กำลังดึงข้อมูล...";
-
-      try {
-        // ดึง 10 รายการล่าสุดเรียงตามเวลา
-        const q = query(
-          collection(db, "quiz_results"), 
-          orderBy("createdAt", "desc"), 
-          limit(10)
-        );
-        
-        const querySnapshot = await getDocs(q);
-        
-        if (querySnapshot.empty) {
-          historyContainer.innerHTML = "<span style='color: var(--muted);'>ยังไม่มีข้อมูลในระบบ</span>";
-          return;
-        }
-
-        let html = "";
-        querySnapshot.forEach((doc) => {
-          const data = doc.data();
-          html += `
-            <div class="history-item">
-              <span>👤 ${data.name || 'ไม่ระบุชื่อ'}</span>
-              <span style="color: var(--teal);">🏆 ${data.score} คะแนน</span>
-            </div>
-          `;
-        });
-        
-        historyContainer.innerHTML = html;
-      } catch (error) {
-        console.error("เกิดข้อผิดพลาดในการโหลดข้อมูล:", error);
-        historyContainer.innerHTML = "<span style='color: #f87171;'>กรุณาตั้งค่า Firestore Rules ใน Firebase Console เป็น Test Mode ก่อนครับ</span>";
-      }
-    }
-
-    // เรียกดึงข้อมูลเมื่อโหลดหน้าเว็บครั้งแรก
-    loadHistory();
-  </script>
-</body>
-</html>
 </body>
 </html>
