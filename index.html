@@ -1453,32 +1453,39 @@ function escapeHtml(str){
 (function initStorageFallback(){
   if (window.storage) return;
   const mem = {};
+  
   window.storage = {
+    // 1. อ่านข้อมูลจาก Supabase
     async get(key){
       try {
-        const v = localStorage.getItem('mm_pack_' + key);
-        if (v === null) return { value: null };
-        return { value: v };
+        const { data, error } = await supabaseClient
+          .from('site_settings')
+          .select('value')
+          .eq('key', key)
+          .maybeSingle();
+
+        if (error || !data) return { value: null };
+        return { value: data.value };
       } catch(e) {
         return { value: mem[key] || null };
       }
     },
+
+    // 2. บันทึกข้อมูลลง Supabase
     async set(key, value){
       try {
-        localStorage.setItem('mm_pack_' + key, value);
-      } catch(e) {
         mem[key] = value;
-      }
-    },
-    async delete(key){
-      try {
-        localStorage.removeItem('mm_pack_' + key);
+        const { error } = await supabaseClient
+          .from('site_settings')
+          .upsert([{ key: key, value: String(value) }], { onConflict: 'key' });
+
+        if (error) console.error('Supabase Save Error:', error);
+        return { value: value };
       } catch(e) {
-        delete mem[key];
+        return { value: value };
       }
     }
   };
-  try { window.dispatchEvent(new Event('storage-ready')); } catch(e) {}
 })();
 
 function waitForStorage() {
