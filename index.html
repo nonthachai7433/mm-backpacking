@@ -6,8 +6,9 @@
 <title>MM BACKPAKING · กระบวนการแพ็คหลัง &amp; แบบทดสอบ</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link href="https://fonts.googleapis.com/css2?family=Oswald:wght@500;600;700&family=Noto+Sans+Thai:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500;700&display=swap" rel="stylesheet">
-<style>
 <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+<style>
+
 :root, [data-theme="dark"]{
   --bg:#0b0a1a;
   --bg-2:#12122a;
@@ -897,34 +898,16 @@ footer.note{text-align:center;font-size:11px;color:var(--muted);margin-top:32px;
 #session-bar{display:none!important;}
 
 </style>
-  <!-- 1. ดึงไลบรารี Supabase -->
-<script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
-
-<!-- 2. โค้ดเชื่อมต่อและใช้งาน Supabase -->
 <script>
-  const SUPABASE_URL = 'https://meqnspytvcbphiryuxzw.supabase.co';
-  const SUPABASE_KEY = 'sb_publishable_fgtHQEgOuIJObyTtk7JsXA_Zuy-KTLJ';
-
-  const supabaseClient = supabase.createClient(SUPABASE_URL, SUPABASE_KEY);
-
-  // ฟังก์ชันสำหรับบันทึกคะแนนลง Supabase
-  async function saveScoreToSupabase(userName, userScore, resultStatus) {
-    const { data, error } = await supabaseClient
-      .from('quiz_results')
-      .insert([
-        { 
-          name: userName, 
-          score: userScore, 
-          status: resultStatus 
-        }
-      ]);
-
-    if (error) {
-      console.error('บันทึกไม่สำเร็จ:', error.message);
-    } else {
-      console.log('บันทึกคะแนนเรียบร้อย!');
+(function(){
+  try{
+    var t = localStorage.getItem('mm_pack_theme');
+    if(t !== 'light' && t !== 'dark'){
+      t = (window.matchMedia && window.matchMedia('(prefers-color-scheme: light)').matches) ? 'light' : 'dark';
     }
-  }
+    document.documentElement.setAttribute('data-theme', t);
+  }catch(e){ document.documentElement.setAttribute('data-theme', 'dark'); }
+})();
 </script>
 </head>
 <body>
@@ -1449,43 +1432,92 @@ function escapeHtml(str){
   el.innerHTML = html;
 })();
 
-// Storage adapter: use host window.storage if present, else localStorage fallback
-(function initStorageFallback(){
-  if (window.storage) return;
-  const mem = {};
-  
-  window.storage = {
-    // 1. อ่านข้อมูลจาก Supabase
-    async get(key){
-      try {
-        const { data, error } = await supabaseClient
-          .from('site_settings')
-          .select('value')
-          .eq('key', key)
-          .maybeSingle();
+// ============================================================
+// Storage adapter: backed by Supabase (table: app_storage)
+// Falls back to localStorage if Supabase is unreachable, so the
+// app never fully breaks (e.g. offline / misconfigured project).
+// ============================================================
+const SUPABASE_URL = 'https://bmieexekisperlrcdmbs.supabase.co';
+const SUPABASE_ANON_KEY = 'sb_publishable_FFtjNOcAHILY0CNYQPz2-A_rPr8AiES';
 
-        if (error || !data) return { value: null };
-        return { value: data.value };
-      } catch(e) {
-        return { value: mem[key] || null };
+(function initStorage(){
+  if (window.storage) return;
+
+  const mem = {};
+  function localGet(key){
+    try {
+      const v = localStorage.getItem('mm_pack_' + key);
+      return v === null ? null : v;
+    } catch(e) { return mem[key] || null; }
+  }
+  function localSet(key, value){
+    try { localStorage.setItem('mm_pack_' + key, value); }
+    catch(e) { mem[key] = value; }
+  }
+  function localDelete(key){
+    try { localStorage.removeItem('mm_pack_' + key); }
+    catch(e) { delete mem[key]; }
+  }
+
+  let client = null;
+  try {
+    if (window.supabase && SUPABASE_URL && SUPABASE_ANON_KEY) {
+      client = window.supabase.createClient(SUPABASE_URL, SUPABASE_ANON_KEY);
+    }
+  } catch(e) { console.error('Supabase init failed, falling back to localStorage', e); client = null; }
+
+  window.storage = {
+    async get(key){
+      if (client) {
+        try {
+          const { data, error } = await client
+            .from('app_storage')
+            .select('value')
+            .eq('key', key)
+            .maybeSingle();
+          if (error) throw error;
+          if (data && data.value !== undefined && data.value !== null) {
+            // value column is jsonb; re-stringify so callers can JSON.parse() it
+            // exactly like they did with the old localStorage-based string value.
+            const strVal = JSON.stringify(data.value);
+            localSet(key, strVal); // keep a local mirror as offline cache
+            return { value: strVal };
+          }
+          return { value: null };
+        } catch(e) {
+          console.error('supabase get failed, using local cache', key, e);
+        }
+      }
+      return { value: localGet(key) };
+    },
+    async set(key, value){
+      localSet(key, value); // always mirror locally as offline cache
+      if (client) {
+        try {
+          const parsed = JSON.parse(value);
+          const { error } = await client
+            .from('app_storage')
+            .upsert({ key, value: parsed }, { onConflict: 'key' });
+          if (error) throw error;
+          return;
+        } catch(e) {
+          console.error('supabase set failed, saved locally only', key, e);
+        }
       }
     },
-
-    // 2. บันทึกข้อมูลลง Supabase
-    async set(key, value){
-      try {
-        mem[key] = value;
-        const { error } = await supabaseClient
-          .from('site_settings')
-          .upsert([{ key: key, value: String(value) }], { onConflict: 'key' });
-
-        if (error) console.error('Supabase Save Error:', error);
-        return { value: value };
-      } catch(e) {
-        return { value: value };
+    async delete(key){
+      localDelete(key);
+      if (client) {
+        try {
+          const { error } = await client.from('app_storage').delete().eq('key', key);
+          if (error) throw error;
+        } catch(e) {
+          console.error('supabase delete failed', key, e);
+        }
       }
     }
   };
+  try { window.dispatchEvent(new Event('storage-ready')); } catch(e) {}
 })();
 
 function waitForStorage() {
@@ -1619,6 +1651,17 @@ function computeConsecutiveFails(history, username, categoryId){
   return n;
 }
 
+// Simple client-side password hashing (SHA-256, salted with username).
+// Note: this is NOT a substitute for a real auth system (no per-user random
+// salt, no rate limiting) but it keeps plain-text passwords out of the
+// database in case the Supabase anon key is ever exposed/misused.
+async function hashPassword(username, password){
+  const enc = new TextEncoder();
+  const bytes = enc.encode('mmpack::' + String(username).toLowerCase() + '::' + password);
+  const digest = await crypto.subtle.digest('SHA-256', bytes);
+  return Array.from(new Uint8Array(digest)).map(b => b.toString(16).padStart(2,'0')).join('');
+}
+
 // LOGIN
 async function handleLogin(){
   const uEl = document.getElementById('login-username');
@@ -1645,14 +1688,15 @@ async function handleLogin(){
   }
 
   const accounts = await loadAccounts();
+  const hashedPassword = await hashPassword(username, password);
   if(Object.prototype.hasOwnProperty.call(accounts, username)){
-    if(accounts[username] !== password){
+    if(accounts[username] !== hashedPassword){
       errEl.textContent = 'รหัสผ่านไม่ถูกต้องสำหรับผู้ใช้นี้';
       errEl.style.display = 'block';
       return;
     }
   }else{
-    accounts[username] = password;
+    accounts[username] = hashedPassword;
     await saveAccounts(accounts);
   }
 
