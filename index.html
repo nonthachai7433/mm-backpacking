@@ -6,7 +6,10 @@
 <title>MM BACKPAKING · กระบวนการแพ็คหลัง &amp; แบบทดสอบ</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link href="https://fonts.googleapis.com/css2?family=Oswald:wght@500;600;700&family=Noto+Sans+Thai:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500;700&display=swap" rel="stylesheet">
-<script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+<!-- Firebase (compat SDK ใช้งานง่ายกับสคริปต์แบบเดิมที่ไม่ใช่ ES module) -->
+<script src="https://www.gstatic.com/firebasejs/10.13.2/firebase-app-compat.js"></script>
+<script src="https://www.gstatic.com/firebasejs/10.13.2/firebase-firestore-compat.js"></script>
+<script src="https://www.gstatic.com/firebasejs/10.13.2/firebase-auth-compat.js"></script>
 <style>
 
 :root, [data-theme="dark"]{
@@ -1379,8 +1382,6 @@ const DEFAULT_QUESTIONS = [
 {id:"q40", t:"tf", q:"699客户包装需要在ESD静电区域作业\nการบรรจุสินค้าของลูกค้า 699 ต้องทำงานในพื้นที่ป้องกันไฟฟ้าสถิต (ESD)", ans:"A"},
 ];
 
-const ADMIN_USER = "C25HBD";
-const ADMIN_PASS = "C25HBD";
 const DEFAULT_UNLOCK_THRESHOLD = 10;
 const DEFAULT_PASSING_PERCENT = 100;
 const DEFAULT_CATEGORY_ID = "default";
@@ -1433,110 +1434,102 @@ function escapeHtml(str){
 })();
 
 // ============================================================
-// Storage adapter: backed by Supabase (table: app_storage)
-// Falls back to localStorage if Supabase is unreachable, so the
-// app never fully breaks (e.g. offline / misconfigured project).
+// FIREBASE CONFIG
 // ============================================================
-const SUPABASE_URL = 'https://bmieexekisperlrcdmbs.supabase.co';
-const SUPABASE_ANON_KEY = 'sb_publishable_FFtjNOcAHILY0CNYQPz2-A_rPr8AiES';
+// 👉 เอาค่าจาก Firebase Console > Project settings > Your apps > SDK setup and configuration
+//    มาแทนที่ค่าด้านล่างนี้ทั้งหมด ก่อน deploy ขึ้น hosting จริง
+const firebaseConfig = {
+  apiKey: "AIzaSyBfzRIZEKcqkRhUdjLIr8fQekGhfWrQuaI",
+  authDomain: "mm-backpacking-3fce8.firebaseapp.com",
+  projectId: "mm-backpacking-3fce8",
+  storageBucket: "mm-backpacking-3fce8.firebasestorage.app",
+  messagingSenderId: "963070526811",
+  appId: "1:963070526811:web:8baa08ce598185c8b4467e"
+};
+firebase.initializeApp(firebaseConfig);
+const db = firebase.firestore();
+const auth = firebase.auth();
+// เก็บ session การล็อกอินไว้ในเบราว์เซอร์ (คนละเครื่อง = คนละ session ตามปกติ)
+auth.setPersistence(firebase.auth.Auth.Persistence.LOCAL).catch(()=>{});
 
-(function initStorage(){
-  if (window.storage) return;
-
-  const mem = {};
-  function localGet(key){
-    try {
-      const v = localStorage.getItem('mm_pack_' + key);
-      return v === null ? null : v;
-    } catch(e) { return mem[key] || null; }
-  }
-  function localSet(key, value){
-    try { localStorage.setItem('mm_pack_' + key, value); }
-    catch(e) { mem[key] = value; }
-  }
-  function localDelete(key){
-    try { localStorage.removeItem('mm_pack_' + key); }
-    catch(e) { delete mem[key]; }
-  }
-
-  let client = null;
-  try {
-    if (window.supabase && SUPABASE_URL && SUPABASE_ANON_KEY) {
-      client = window.supabase.createClient(SUPABASE_URL, SUPABASE_ANON_KEY);
-    }
-  } catch(e) { console.error('Supabase init failed, falling back to localStorage', e); client = null; }
-
+// Storage adapter: เก็บข้อมูลทั้งหมดของเว็บลง Firestore (collection "kv")
+// รูปแบบ get/set/delete/list เหมือนของเดิมทุกประการ โค้ดส่วนอื่นของแอปไม่ต้องแก้อะไร
+(function initFirestoreStorage(){
+  const KV = 'kv';
+  window.__recentLocalWrites = window.__recentLocalWrites || {};
   window.storage = {
     async get(key){
-      if (client) {
-        try {
-          const { data, error } = await client
-            .from('app_storage')
-            .select('value')
-            .eq('key', key)
-            .maybeSingle();
-          if (error) throw error;
-          if (data && data.value !== undefined && data.value !== null) {
-            // value column is jsonb; re-stringify so callers can JSON.parse() it
-            // exactly like they did with the old localStorage-based string value.
-            const strVal = JSON.stringify(data.value);
-            localSet(key, strVal); // keep a local mirror as offline cache
-            return { value: strVal };
-          }
-          return { value: null };
-        } catch(e) {
-          console.error('supabase get failed, using local cache', key, e);
-        }
-      }
-      return { value: localGet(key) };
+      try{
+        const doc = await db.collection(KV).doc(key).get();
+        if(!doc.exists) return { value: null };
+        const data = doc.data();
+        return { value: (data && typeof data.value === 'string') ? data.value : null };
+      }catch(e){ console.error('storage.get failed:', key, e); return { value: null }; }
     },
     async set(key, value){
-      localSet(key, value); // always mirror locally as offline cache
-      if (client) {
-        try {
-          const parsed = JSON.parse(value);
-          const { error } = await client
-            .from('app_storage')
-            .upsert({ key, value: parsed }, { onConflict: 'key' });
-          if (error) throw error;
-          return;
-        } catch(e) {
-          console.error('supabase set failed, saved locally only', key, e);
-        }
-      }
+      window.__recentLocalWrites[key] = Date.now();
+      try{
+        await db.collection(KV).doc(key).set({
+          value: value,
+          updatedAt: firebase.firestore.FieldValue.serverTimestamp()
+        });
+        return { key, value };
+      }catch(e){ console.error('storage.set failed:', key, e); throw e; }
     },
     async delete(key){
-      localDelete(key);
-      if (client) {
-        try {
-          const { error } = await client.from('app_storage').delete().eq('key', key);
-          if (error) throw error;
-        } catch(e) {
-          console.error('supabase delete failed', key, e);
-        }
-      }
+      window.__recentLocalWrites[key] = Date.now();
+      try{
+        await db.collection(KV).doc(key).delete();
+        return { key, deleted:true };
+      }catch(e){ console.error('storage.delete failed:', key, e); return null; }
+    },
+    async list(prefix){
+      try{
+        const snap = await db.collection(KV).get();
+        const keys = [];
+        snap.forEach(d=>{ if(!prefix || d.id.indexOf(prefix) === 0) keys.push(d.id); });
+        return { keys, prefix };
+      }catch(e){ console.error('storage.list failed:', e); return { keys: [] }; }
     }
   };
   try { window.dispatchEvent(new Event('storage-ready')); } catch(e) {}
+
+  // ---- Real-time sync: เมื่อแอดมินแก้ไขข้อมูลจากเครื่องหนึ่ง เครื่องอื่นที่เปิดหน้าอยู่จะอัปเดตให้อัตโนมัติ ----
+  const REALTIME_REFRESH_MAP = {
+    quiz_homepage:      ['home'],
+    quiz_knowledge:     ['knowledge'],
+    quiz_criteria_page: ['criteria'],
+    quiz_settings:      ['criteria'],
+    quiz_about_page:    ['about'],
+    quiz_categories:    ['exambank']
+  };
+  const refreshTimers = {};
+  function scheduleUIRefresh(key){
+    clearTimeout(refreshTimers[key]);
+    refreshTimers[key] = setTimeout(()=>{
+      // อย่าไปแทรกระหว่างผู้ใช้กำลังทำข้อสอบอยู่ หรือกำลังเปิดแผงแอดมิน (กันฟอร์มที่กำลังแก้ถูกเขียนทับ)
+      const quizEl = document.getElementById('view-quiz');
+      const adminEl = document.getElementById('view-admin');
+      if(quizEl && quizEl.style.display !== 'none') return;
+      if(adminEl && adminEl.style.display !== 'none') return;
+      const sections = REALTIME_REFRESH_MAP[key] || [];
+      if(sections.includes(window.__currentSection) && typeof navigateTo === 'function'){
+        navigateTo(window.__currentSection);
+      }
+    }, 400);
+  }
+  db.collection(KV).onSnapshot((snapshot)=>{
+    snapshot.docChanges().forEach((change)=>{
+      const key = change.doc.id;
+      const lastLocal = window.__recentLocalWrites[key] || 0;
+      if(Date.now() - lastLocal < 4000) return; // ข้าม echo ของการเขียนจากเครื่องตัวเอง
+      scheduleUIRefresh(key);
+    });
+  }, (err)=>{ console.error('Realtime sync error:', err); });
 })();
 
 function waitForStorage() {
-  return new Promise((resolve) => {
-    if (window.storage) return resolve();
-    window.addEventListener('storage-ready', resolve, { once: true });
-    // safety timeout so login never hangs forever
-    setTimeout(() => {
-      if (!window.storage) {
-        const mem = {};
-        window.storage = {
-          async get(key){ return { value: mem[key] || null }; },
-          async set(key, value){ mem[key] = value; },
-          async delete(key){ delete mem[key]; }
-        };
-      }
-      resolve();
-    }, 800);
-  });
+  return Promise.resolve(); // window.storage พร้อมใช้งานทันทีเสมอ (Firestore เชื่อมตั้งแต่โหลดหน้า)
 }
 
 // STORAGE LOGIC
@@ -1610,17 +1603,10 @@ async function saveHistory(history){
   try{ await window.storage.set('quiz_attempts', JSON.stringify(history)); }
   catch(e){ console.error('save history failed', e); }
 }
-async function loadAccounts(){
-  await waitForStorage();
-  try{
-    const res = await window.storage.get('quiz_accounts');
-    return res && res.value ? JSON.parse(res.value) : {};
-  }catch(e){ return {}; }
-}
-async function saveAccounts(accounts){
-  await waitForStorage();
-  try{ await window.storage.set('quiz_accounts', JSON.stringify(accounts)); }
-  catch(e){ console.error('save accounts failed', e); }
+// แปลง username เป็นอีเมลปลอมสำหรับ Firebase Auth (ผู้ใช้ยังคงกรอกแค่ "ชื่อผู้ใช้" เหมือนเดิม)
+function usernameToAuthEmail(username){
+  const clean = String(username).trim().toLowerCase().replace(/[^a-z0-9_.-]/g, '');
+  return clean + '@mmpack.local';
 }
 
 async function loadKnowledgeBank(){
@@ -1651,19 +1637,10 @@ function computeConsecutiveFails(history, username, categoryId){
   return n;
 }
 
-// Simple client-side password hashing (SHA-256, salted with username).
-// Note: this is NOT a substitute for a real auth system (no per-user random
-// salt, no rate limiting) but it keeps plain-text passwords out of the
-// database in case the Supabase anon key is ever exposed/misused.
-async function hashPassword(username, password){
-  const enc = new TextEncoder();
-  const bytes = enc.encode('mmpack::' + String(username).toLowerCase() + '::' + password);
-  const digest = await crypto.subtle.digest('SHA-256', bytes);
-  return Array.from(new Uint8Array(digest)).map(b => b.toString(16).padStart(2,'0')).join('');
-}
-
-// LOGIN
+// LOGIN (Firebase Authentication - Email/Password โดยแปลง username เป็นอีเมลปลอมภายใน)
+let __authBusy = false;
 async function handleLogin(){
+  if(__authBusy) return;
   const uEl = document.getElementById('login-username');
   const pEl = document.getElementById('login-password');
   const errEl = document.getElementById('login-error');
@@ -1677,48 +1654,94 @@ async function handleLogin(){
     errEl.style.display = 'block';
     return;
   }
-
-  if(username === ADMIN_USER && password === ADMIN_PASS){
-    currentUser = username;
-    isAdmin = true;
-    saveSession();
-    updateNavAuth();
-    await enterAdmin('homepage', 'full');
+  if(password.length < 6){
+    errEl.textContent = 'รหัสผ่านต้องมีอย่างน้อย 6 ตัวอักษร (ข้อกำหนดของระบบยืนยันตัวตน)';
+    errEl.style.display = 'block';
     return;
   }
 
-  const accounts = await loadAccounts();
-  const hashedPassword = await hashPassword(username, password);
-  if(Object.prototype.hasOwnProperty.call(accounts, username)){
-    if(accounts[username] !== hashedPassword){
-      errEl.textContent = 'รหัสผ่านไม่ถูกต้องสำหรับผู้ใช้นี้';
-      errEl.style.display = 'block';
-      return;
+  const email = usernameToAuthEmail(username);
+  __authBusy = true;
+  try{
+    let cred;
+    try{
+      cred = await auth.signInWithEmailAndPassword(email, password);
+    }catch(err){
+      if(err.code === 'auth/user-not-found' || err.code === 'auth/invalid-credential'){
+        // ยังไม่เคยมีบัญชีนี้มาก่อน -> สมัครให้อัตโนมัติ (เหมือนพฤติกรรมเดิมของระบบ)
+        try{
+          cred = await auth.createUserWithEmailAndPassword(email, password);
+        }catch(err2){
+          if(err2.code === 'auth/email-already-in-use'){
+            errEl.textContent = 'รหัสผ่านไม่ถูกต้องสำหรับผู้ใช้นี้';
+          }else if(err2.code === 'auth/invalid-email'){
+            errEl.textContent = 'ชื่อผู้ใช้มีอักขระที่ไม่รองรับ กรุณาใช้ตัวอักษร/ตัวเลขภาษาอังกฤษเท่านั้น';
+          }else{
+            errEl.textContent = 'สมัคร/เข้าสู่ระบบไม่สำเร็จ: ' + (err2.message || err2.code || '');
+          }
+          errEl.style.display = 'block';
+          return;
+        }
+      }else if(err.code === 'auth/wrong-password'){
+        errEl.textContent = 'รหัสผ่านไม่ถูกต้องสำหรับผู้ใช้นี้';
+        errEl.style.display = 'block';
+        return;
+      }else if(err.code === 'auth/invalid-email'){
+        errEl.textContent = 'ชื่อผู้ใช้มีอักขระที่ไม่รองรับ กรุณาใช้ตัวอักษร/ตัวเลขภาษาอังกฤษเท่านั้น';
+        errEl.style.display = 'block';
+        return;
+      }else if(err.code === 'auth/too-many-requests'){
+        errEl.textContent = 'พยายามเข้าสู่ระบบผิดหลายครั้งเกินไป กรุณาลองใหม่ภายหลัง';
+        errEl.style.display = 'block';
+        return;
+      }else{
+        errEl.textContent = 'เข้าสู่ระบบไม่สำเร็จ: ' + (err.message || err.code || '');
+        errEl.style.display = 'block';
+        return;
+      }
     }
-  }else{
-    accounts[username] = hashedPassword;
-    await saveAccounts(accounts);
-  }
 
-  currentUser = username;
-  isAdmin = false;
-  saveSession();
-  updateNavAuth();
-  if(pendingSection){
-    const target = pendingSection;
-    pendingSection = null;
-    navigateTo(target);
-  }else{
-    await goToCategories();
+    const user = cred.user;
+    const accRef = db.collection('accounts').doc(user.uid);
+    const accSnap = await accRef.get();
+    let role = 'user';
+    if(!accSnap.exists){
+      // บัญชีใหม่ทุกบัญชีเริ่มต้นเป็น role: user เสมอ (Firestore rules บังคับไว้เพื่อความปลอดภัย)
+      // การตั้งเป็นแอดมินคนแรกต้องทำผ่าน Firebase Console ครั้งเดียว (ดูคำแนะนำที่ให้ไว้)
+      // ส่วนแอดมินคนถัดไปให้แอดมินที่มีอยู่แล้วเลื่อนตำแหน่งให้ผ่านแผงควบคุม
+      await accRef.set({
+        username: username,
+        role: 'user',
+        createdAt: firebase.firestore.FieldValue.serverTimestamp()
+      });
+    }else{
+      role = accSnap.data().role || 'user';
+    }
+
+    currentUser = (accSnap.exists ? accSnap.data().username : username) || username;
+    isAdmin = (role === 'admin');
+    updateNavAuth();
+
+    if(isAdmin){
+      await enterAdmin('homepage', 'full');
+    }else if(pendingSection){
+      const target = pendingSection;
+      pendingSection = null;
+      navigateTo(target);
+    }else{
+      await goToCategories();
+    }
+  } finally {
+    __authBusy = false;
   }
 }
 
 function logout(){
+  auth.signOut().catch(e=>console.error('signOut failed', e));
   currentUser = null;
   isAdmin = false;
   currentCategoryId = null;
   pendingSection = null;
-  clearSession();
   try{
     document.getElementById('login-username').value = '';
     document.getElementById('login-password').value = '';
@@ -1729,37 +1752,36 @@ function logout(){
   navigateTo('home');
 }
 
-const SESSION_KEY = 'mm_pack_session';
-function saveSession(){
+// การคงสถานะล็อกอิน (session) ตอนนี้จัดการโดย Firebase Authentication เอง (auth.onAuthStateChanged ด้านล่าง)
+// ฟังก์ชันนี้เก็บไว้เผื่อโค้ดส่วนอื่นเรียกใช้ แต่ไม่จำเป็นต้องทำอะไรแล้ว
+function restoreSession(){ return false; }
+
+let __authResolved = false;
+let __authReadyResolve;
+const __authReadyPromise = new Promise(res=>{ __authReadyResolve = res; });
+auth.onAuthStateChanged(async (user)=>{
   try{
-    localStorage.setItem(SESSION_KEY, JSON.stringify({
-      username: currentUser,
-      isAdmin: !!isAdmin,
-      ts: Date.now()
-    }));
-  }catch(e){}
-}
-function clearSession(){
-  try{ localStorage.removeItem(SESSION_KEY); }catch(e){}
-}
-function restoreSession(){
-  try{
-    const raw = localStorage.getItem(SESSION_KEY);
-    if(!raw) return false;
-    const s = JSON.parse(raw);
-    if(!s || !s.username) return false;
-    // optional: expire after 30 days
-    if(s.ts && (Date.now() - s.ts > 30*24*60*60*1000)){
-      clearSession();
-      return false;
+    if(user){
+      const accSnap = await db.collection('accounts').doc(user.uid).get();
+      if(accSnap.exists){
+        const data = accSnap.data();
+        currentUser = data.username || (user.email||'').split('@')[0];
+        isAdmin = data.role === 'admin';
+      }else{
+        currentUser = (user.email||'').split('@')[0];
+        isAdmin = false;
+      }
+    }else{
+      currentUser = null;
+      isAdmin = false;
     }
-    currentUser = s.username;
-    isAdmin = !!s.isAdmin;
-    return true;
   }catch(e){
-    return false;
+    console.error('onAuthStateChanged error', e);
   }
-}
+  updateNavAuth();
+  try{ updateSessionBar(); }catch(e){}
+  if(!__authResolved){ __authResolved = true; __authReadyResolve(); }
+});
 
 function updateSessionBar(){
   // keep legacy placeholders hidden; sidebar auth chip is the real UI
@@ -2139,6 +2161,7 @@ async function deleteKnowledge(id){
 }
 
 async function navigateTo(section){
+  window.__currentSection = section;
   if(NAV_LOGIN_REQUIRED.includes(section) && !currentUser){
     pendingSection = section;
     showView('view-login');
@@ -4098,11 +4121,12 @@ function aboutRemoveBlock(i){
 
 // Initial View
 (async function boot(){
-  const restored = restoreSession();
   updateNavAuth();
-  if(restored){
-    try{ updateSessionBar(); }catch(e){}
-  }
+  // รอผลตรวจสอบ session จาก Firebase Auth ก่อน (สูงสุด 3 วิ กันหน้าจอค้างถ้าเน็ตช้า)
+  await Promise.race([
+    __authReadyPromise,
+    new Promise(res=>setTimeout(res, 3000))
+  ]);
   await navigateTo('home');
 })();
 </script>
