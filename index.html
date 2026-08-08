@@ -7,7 +7,7 @@
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link href="https://fonts.googleapis.com/css2?family=Oswald:wght@500;600;700&family=Noto+Sans+Thai:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500;700&display=swap" rel="stylesheet">
 <style>
-
+<script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
 :root, [data-theme="dark"]{
   --bg:#0b0a1a;
   --bg-2:#12122a;
@@ -897,16 +897,34 @@ footer.note{text-align:center;font-size:11px;color:var(--muted);margin-top:32px;
 #session-bar{display:none!important;}
 
 </style>
+  <!-- 1. ดึงไลบรารี Supabase -->
+<script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+
+<!-- 2. โค้ดเชื่อมต่อและใช้งาน Supabase -->
 <script>
-(function(){
-  try{
-    var t = localStorage.getItem('mm_pack_theme');
-    if(t !== 'light' && t !== 'dark'){
-      t = (window.matchMedia && window.matchMedia('(prefers-color-scheme: light)').matches) ? 'light' : 'dark';
+  const SUPABASE_URL = 'https://meqnspytvcbphiryuxzw.supabase.co';
+  const SUPABASE_KEY = 'sb_publishable_fgtHQEgOuIJObyTtk7JsXA_Zuy-KTLJ';
+
+  const supabaseClient = supabase.createClient(SUPABASE_URL, SUPABASE_KEY);
+
+  // ฟังก์ชันสำหรับบันทึกคะแนนลง Supabase
+  async function saveScoreToSupabase(userName, userScore, resultStatus) {
+    const { data, error } = await supabaseClient
+      .from('quiz_results')
+      .insert([
+        { 
+          name: userName, 
+          score: userScore, 
+          status: resultStatus 
+        }
+      ]);
+
+    if (error) {
+      console.error('บันทึกไม่สำเร็จ:', error.message);
+    } else {
+      console.log('บันทึกคะแนนเรียบร้อย!');
     }
-    document.documentElement.setAttribute('data-theme', t);
-  }catch(e){ document.documentElement.setAttribute('data-theme', 'dark'); }
-})();
+  }
 </script>
 </head>
 <body>
