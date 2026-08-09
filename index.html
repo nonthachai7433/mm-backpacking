@@ -4815,7 +4815,7 @@ function renderOperationsAdminForce(data){
       <div class="btn-row"><button type="button" class="btn btn-danger btn-small" onclick="opsRemoveStep(${i})">ลบขั้นตอนนี้</button></div>
     </div></div>`;
   }).join('');
-  root.innerHTML = `<div class="hp-editor-block"><h3>ตาราง MOI</h3><div class="form-grid">
+  root.innerHTML = `<div class="hp-editor-block"><h3>ตาราง</h3><div class="form-grid">
     <div><label>หัวข้อ</label><input type="text" id="ops-moi-title" value="${escapeHtml(data.moiTitle||'')}"></div>
     <div><label>คำอธิบาย</label><input type="text" id="ops-moi-desc" value="${escapeHtml(data.moiDesc||'')}"></div>
   </div><div style="margin-top:10px;">${moiRows||'<p class="empty-note">ยังไม่มีแถว</p>'}</div>
