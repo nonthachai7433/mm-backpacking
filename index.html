@@ -4675,7 +4675,7 @@ async function renderOperationsPage(){
     return `<article class="th-card${reverse}" id="${anchorId}">${body}${media}</article>`;
   }).join('');
   const flowNav = steps.map((s,i) => `<a href="#ops-${escapeHtml(s.id||('op'+i))}">${escapeHtml(s.num||String(i+1))}. ${escapeHtml((s.title||'').slice(0,16))}</a>`).join('');
-  root.innerHTML = `<section class="th-section" id="ops-moi"><div class="th-section-head"><h2>${escapeHtml(data.moiTitle||'รหัส MOI')}</h2><p>${escapeHtml(data.moiDesc||'')}</p></div><div class="th-table-wrap"><table class="th-moi-table"><thead><tr><th>รหัสลูกค้า</th><th>ชื่อลูกค้า</th><th>มาตรฐานการแพ็ค MOI</th><th style="width:52px;text-align:center;">ลิงก์</th></tr></thead><tbody>${moiHtml}</tbody></table></div></section>
+  root.innerHTML = `<section class="th-section" id="ops-moi"><div class="th-section-head"><h2>${escapeHtml(data.moiTitle||'รหัส MOI')}</h2><p>${escapeHtml(data.moiDesc||'')}</p></div><div class="th-table-wrap"><table class="th-moi-table"><thead><tr><th>ลำดับ</th><th>หน้าที่</th><th>น้ำหนัก MOI</th><th style="width:52px;text-align:center;">ลิงก์</th></tr></thead><tbody>${moiHtml}</tbody></table></div></section>
   <section class="th-section" id="ops-process"><div class="th-section-head"><h2>${escapeHtml(data.processTitle||'กระบวนการ')}</h2><p>${escapeHtml(data.processDesc||'')}</p></div><div class="th-flow"><div class="th-flow-nav">${flowNav}</div>${stepsHtml}</div></section>`;
 }
 
