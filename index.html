@@ -437,9 +437,199 @@ table.admin-table tr:nth-child(even){background:var(--surface-2);}
   font-family:var(--mono);font-size:12px;font-weight:700;padding:8px 12px;border-radius:8px;cursor:pointer;
 }
 .kb-file-link-view-btn{background:var(--accent);color:var(--btn-accent-text);border:none;}
+/* ===== ABOUT PAGE (modern split layout) ===== */
 .about-block{margin-bottom:16px;}
 .about-block h3{font-family:var(--font);font-weight:700;font-size:14px;letter-spacing:0.2px;margin:0 0 6px;color:var(--accent);}
 .about-block p{font-size:14px;line-height:1.7;color:var(--muted);margin:0;}
+
+.about-page{padding:0;}
+
+/* Top split: text left + image right */
+.about-split{
+  display:grid;
+  grid-template-columns:1fr;
+  gap:28px;
+  align-items:center;
+  margin-bottom:36px;
+}
+@media (min-width:860px){
+  .about-split{grid-template-columns:minmax(240px,0.95fr) 1.15fr; gap:36px;}
+}
+.about-split-text h2{
+  font-family:var(--font);
+  font-weight:700;
+  font-size:clamp(24px,3vw,32px);
+  letter-spacing:0;
+  color:var(--accent);
+  margin:0 0 14px;
+  line-height:1.35;
+}
+.about-split-text .about-lead{
+  font-family:var(--font);
+  font-size:14.5px;
+  font-weight:400;
+  line-height:1.9;
+  color:var(--muted);
+  margin:0;
+}
+.about-split-text .about-lead strong{
+  color:var(--text);
+  font-weight:600;
+}
+.about-split-media{
+  position:relative;
+  border-radius:18px;
+  overflow:hidden;
+  border:1px solid var(--border);
+  box-shadow:var(--shadow-soft);
+  background:var(--surface-2);
+  aspect-ratio:16/10;
+  max-height:360px;
+}
+.about-split-media img{
+  width:100%;
+  height:100%;
+  object-fit:cover;
+  object-position:center 35%;
+  display:block;
+}
+.about-split-media .about-media-badge{
+  position:absolute;
+  top:14px;
+  left:14px;
+  background:color-mix(in srgb, var(--surface) 88%, transparent);
+  backdrop-filter:blur(8px);
+  border:1px solid var(--border);
+  color:var(--accent);
+  font-family:var(--mono);
+  font-size:11px;
+  font-weight:700;
+  letter-spacing:0.6px;
+  padding:6px 10px;
+  border-radius:8px;
+}
+
+/* Center mission section */
+.about-mission{
+  text-align:center;
+  max-width:680px;
+  margin:0 auto 32px;
+  padding:8px 8px 0;
+}
+.about-mission h3{
+  font-family:var(--font);
+  font-weight:700;
+  font-size:clamp(20px,2.6vw,26px);
+  color:var(--text);
+  margin:0 0 12px;
+  letter-spacing:0;
+  line-height:1.4;
+}
+.about-mission p{
+  font-size:14.5px;
+  line-height:1.8;
+  color:var(--muted);
+  margin:0 0 8px;
+}
+.about-mission .about-quote{
+  font-family:var(--font);
+  font-size:14px;
+  font-style:normal;
+  color:var(--accent);
+  margin-top:12px;
+  font-weight:600;
+}
+
+/* Icon feature row */
+.about-features{
+  display:grid;
+  grid-template-columns:repeat(2,1fr);
+  gap:14px;
+  margin:0 0 32px;
+  max-width:720px;
+  margin-left:auto;
+  margin-right:auto;
+}
+@media (min-width:640px){
+  .about-features{grid-template-columns:repeat(4,1fr);}
+}
+.about-feat{
+  display:flex;
+  flex-direction:column;
+  align-items:center;
+  text-align:center;
+  gap:10px;
+  padding:8px 4px;
+}
+.about-feat-icon{
+  width:64px;
+  height:64px;
+  border-radius:16px;
+  background:var(--accent);
+  color:var(--btn-accent-text);
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  font-size:26px;
+  box-shadow:var(--shadow-soft);
+  transition:transform .2s, box-shadow .2s;
+}
+.about-feat:hover .about-feat-icon{
+  transform:translateY(-3px);
+  box-shadow:0 10px 24px color-mix(in srgb, var(--accent) 35%, transparent);
+}
+.about-feat span{
+  font-family:var(--font);
+  font-size:13.5px;
+  font-weight:600;
+  color:var(--text);
+  line-height:1.4;
+}
+
+/* Detail cards below */
+.about-detail-grid{
+  display:grid;
+  grid-template-columns:1fr;
+  gap:14px;
+  margin-top:8px;
+}
+@media (min-width:720px){
+  .about-detail-grid{grid-template-columns:1fr 1fr;}
+}
+.about-detail-card{
+  background:var(--surface);
+  border:1px solid var(--border);
+  border-radius:var(--radius);
+  padding:18px 20px;
+  box-shadow:var(--shadow-soft);
+  transition:border-color .2s;
+}
+.about-detail-card:hover{border-color:var(--accent-soft-border);}
+.about-detail-card h4{
+  font-family:var(--font);
+  font-weight:700;
+  font-size:15px;
+  margin:0 0 8px;
+  color:var(--accent);
+  letter-spacing:0;
+  line-height:1.4;
+}
+.about-detail-card p{
+  font-size:13.5px;
+  line-height:1.7;
+  color:var(--muted);
+  margin:0;
+}
+
+.about-footer-note{
+  margin-top:28px;
+  padding-top:16px;
+  border-top:1px dashed var(--border);
+  font-size:12.5px;
+  color:var(--muted);
+  font-family:var(--mono);
+  text-align:center;
+}
 .eval-table-wrap{overflow-x:auto;border:1px solid var(--border);border-radius:10px;}
 table.eval-table{width:100%;min-width:760px;border-collapse:collapse;font-size:12px;}
 table.eval-table th{background:var(--bg);color:var(--accent);text-align:left;padding:8px;font-size:11px;}
@@ -4545,10 +4735,24 @@ function getDefaultCriteriaPage(){
 function getDefaultAboutPage(){
   return {
     title: 'เกี่ยวกับเรา | 关于我们',
+    headline: 'เราคือทีมผู้เชี่ยวชาญ',
+    lead: 'พวกเราเชื่อว่า "มาตรฐานที่ดีเริ่มจากการเรียนรู้"\nเราอยู่กับกระบวนการแพ็คหลังและบรรจุภัณฑ์มาอย่างต่อเนื่อง\nที่ต้องเชื่อมโยงระหว่างคน เครื่องจักร และมาตรฐานลูกค้า\nเราจึงมุ่งมั่นสร้างระบบฝึกอบรมที่ใช้งานง่าย\nเพื่อทำให้การเรียนรู้เป็นเรื่องที่ชัดเจนและวัดผลได้\nนั่นคือปณิธานของเรา',
+    missionTitle: 'มาตรฐานเดียวกันสำหรับทุกคน',
+    missionBody: 'ระบบนี้ถูกสร้างขึ้นเพื่อเป็นศูนย์กลางการเรียนรู้และทดสอบความรู้ด้านกระบวนการแพ็คหลัง (Backpacking) และการปฏิบัติตามมาตรฐานบรรจุภัณฑ์–ฉลากจัดส่งสินค้าภายในองค์กร เราต้องการมอบความรู้ที่ถูกต้องจากแหล่งเดียวกัน เพื่อลดความคลาดเคลื่อนและยกระดับคุณภาพงานก่อนส่งมอบให้ลูกค้า',
+    missionQuote: '"การช่วยให้ทีมงานเข้าใจมาตรฐานเดียวกัน คือเป้าหมายความสำเร็จของเรา"',
+    image: 'images/meeting.jpg',
+    imageCaption: 'การฝึกอบรมพนักงานในพื้นที่ผลิต',
+    features: [
+      { icon: '📘', label: 'เรียนรู้ง่าย' },
+      { icon: '✅', label: 'วัดผลได้จริง' },
+      { icon: '🏭', label: 'ตรงกับงานจริง' },
+      { icon: '📜', label: 'มีใบประกาศ' }
+    ],
     blocks: [
-      { heading: 'ระบบทดสอบความรู้บรรจุภัณฑ์', body: 'เว็บไซต์นี้จัดทำขึ้นเพื่อใช้เป็นเครื่องมือฝึกอบรมและทดสอบความรู้ภายในองค์กร สำหรับพนักงานฝ่ายผลิตและฝ่าย MM ในหัวข้อมาตรฐานการบรรจุภัณฑ์และฉลากจัดส่งสินค้า (Packaging & Shipping Label Compliance)' },
-      { heading: 'วัตถุประสงค์', body: 'เพื่อให้พนักงานสามารถทบทวนความรู้ ทำแบบทดสอบ ติดตามสถิติการทำข้อสอบของตนเอง และรับใบประกาศเกียรติคุณเมื่อผ่านเกณฑ์ที่กำหนด' },
-      { heading: 'ผู้พัฒนา', body: 'MM BACKPAKING · Packaging System' }
+      { heading: 'จุดประสงค์หลัก', body: 'สร้างระบบฝึกอบรมและทดสอบความรู้ที่ใช้งานง่าย ช่วยให้พนักงานฝ่ายผลิตและฝ่าย MM ทบทวนมาตรฐานการบรรจุภัณฑ์และฉลากจัดส่งสินค้าได้ด้วยตนเอง พร้อมวัดผลความเข้าใจผ่านแบบทดสอบมาตรฐาน' },
+      { heading: 'สิ่งที่ระบบมอบให้', body: 'คลังความรู้และคู่มือมาตรฐาน • แบบทดสอบตามหมวดงาน • ติดตามสถิติและประวัติการทำข้อสอบ • ออกใบประกาศเกียรติคุณเมื่อผ่านเกณฑ์ • หน้าการทำงานและเกณฑ์ประเมินที่ชัดเจน' },
+      { heading: 'กลุ่มเป้าหมาย', body: 'พนักงานใหม่และพนักงานประจำในสายการผลิต ฝ่ายบรรจุภัณฑ์ด้านหลัง (Backpacking) ฝ่ายตรวจสอบคุณภาพ และทีมวิศวกรที่เกี่ยวข้องกับกระบวนการแพ็คและจัดส่งสินค้า' },
+      { heading: 'ทำไมต้องมีระบบนี้', body: 'เพื่อลดความคลาดเคลื่อนจากการสื่อสารด้วยปากเปล่า ให้ทุกคนเรียนรู้จากแหล่งเดียวกัน วัดผลได้จริง และยกระดับมาตรฐานความปลอดภัยและความถูกต้องของสินค้าก่อนส่งมอบให้ลูกค้า' }
     ]
   };
 }
@@ -4933,11 +5137,29 @@ function opsUploadStepImage(stepIndex, imgIndex, input){
 
 async function loadAboutPage(){
   await waitForStorage();
+  const def = getDefaultAboutPage();
   try{
     const res = await window.storage.get('quiz_about_page');
-    if(res && res.value){ const p = JSON.parse(res.value); if(p && p.title) return p; }
+    if(res && res.value){
+      const p = JSON.parse(res.value);
+      if(p && (p.title || p.headline)){
+        return {
+          title: p.title || def.title,
+          headline: p.headline || def.headline,
+          lead: p.lead || p.intro || def.lead,
+          intro: p.intro || def.lead,
+          missionTitle: p.missionTitle || def.missionTitle,
+          missionBody: p.missionBody || def.missionBody,
+          missionQuote: p.missionQuote || def.missionQuote,
+          image: p.image || def.image,
+          imageCaption: p.imageCaption || def.imageCaption,
+          features: (p.features && p.features.length) ? p.features : def.features,
+          blocks: (p.blocks && p.blocks.length) ? p.blocks : def.blocks
+        };
+      }
+    }
   }catch(e){}
-  return getDefaultAboutPage();
+  return def;
 }
 async function saveAboutPageData(data){
   await waitForStorage();
@@ -4956,10 +5178,62 @@ async function renderAboutPage(){
   const page = await loadAboutPage();
   const root = document.getElementById('about-page-root');
   if(!root) return;
-  let html = `<h2>${escapeHtml(page.title||'')}</h2>`;
-  (page.blocks||[]).forEach(b=>{
-    html += `<div class="about-block"><h3>${escapeHtml(b.heading||'')}</h3><p>${escapeHtml(b.body||'')}</p></div>`;
+  const img = (page.image || 'images/meeting.jpg').trim();
+  const cap = (page.imageCaption || 'การฝึกอบรมพนักงานในพื้นที่ผลิต').trim();
+  const headline = page.headline || page.title || 'เกี่ยวกับเรา';
+  const leadRaw = (page.lead || page.intro || '').trim();
+  const leadHtml = escapeHtml(leadRaw).replace(/\n/g, '<br>');
+  const features = page.features || [
+    { icon: '📘', label: 'เรียนรู้ง่าย' },
+    { icon: '✅', label: 'วัดผลได้จริง' },
+    { icon: '🏭', label: 'ตรงกับงานจริง' },
+    { icon: '📜', label: 'มีใบประกาศ' }
+  ];
+
+  let html = '<div class="about-page">';
+
+  // Split: text + image
+  html += '<div class="about-split">';
+  html += `<div class="about-split-text"><h2>${escapeHtml(headline)}</h2><p class="about-lead">${leadHtml}</p></div>`;
+  if(img){
+    html += `<div class="about-split-media">
+      <img src="${escapeHtml(img)}" alt="${escapeHtml(cap)}" loading="lazy">
+      <div class="about-media-badge">BACKPACKING</div>
+    </div>`;
+  }
+  html += '</div>';
+
+  // Mission center
+  if(page.missionTitle || page.missionBody){
+    html += '<div class="about-mission">';
+    if(page.missionTitle) html += `<h3>${escapeHtml(page.missionTitle)}</h3>`;
+    if(page.missionBody) html += `<p>${escapeHtml(page.missionBody)}</p>`;
+    if(page.missionQuote) html += `<p class="about-quote">${escapeHtml(page.missionQuote)}</p>`;
+    html += '</div>';
+  }
+
+  // Feature icons
+  html += '<div class="about-features">';
+  features.forEach(f=>{
+    html += `<div class="about-feat"><div class="about-feat-icon">${f.icon||'•'}</div><span>${escapeHtml(f.label||'')}</span></div>`;
   });
+  html += '</div>';
+
+  // Detail cards
+  const blocks = page.blocks || [];
+  if(blocks.length){
+    html += '<div class="about-detail-grid">';
+    blocks.forEach(b=>{
+      const h = (b.heading||'').trim();
+      const body = (b.body||'').trim();
+      if(!h && !body) return;
+      html += `<div class="about-detail-card"><h4>${escapeHtml(h)}</h4><p>${escapeHtml(body)}</p></div>`;
+    });
+    html += '</div>';
+  }
+
+  html += '<p class="about-footer-note">MM BACKPAKING · กระบวนการแพ็คหลัง &amp; แบบทดสอบความรู้บรรจุภัณฑ์</p>';
+  html += '</div>';
   root.innerHTML = html;
 }
 
@@ -4990,19 +5264,7 @@ async function resetCriteriaPage(){
 
 async function renderAboutAdmin(){
   const page = await loadAboutPage();
-  const root = document.getElementById('about-admin-root');
-  if(!root) return;
-  const blocks = (page.blocks||[]).map((b,i)=>`<div class="hp-editor-block">
-    <div class="form-grid">
-      <div><label>หัวข้อบล็อก</label><input type="text" data-about-h="${i}" value="${escapeHtml(b.heading||'')}"></div>
-      <div><label>เนื้อหา</label><textarea data-about-b="${i}">${escapeHtml(b.body||'')}</textarea></div>
-    </div>
-    <button type="button" class="btn btn-danger btn-small" onclick="aboutRemoveBlock(${i})">ลบบล็อก</button>
-  </div>`).join('');
-  root.innerHTML = `<div class="form-grid"><div><label>หัวข้อหน้า</label><input type="text" id="ab-title" value="${escapeHtml(page.title||'')}"></div></div>
-  <div style="margin-top:12px;">${blocks}</div>
-  <div class="btn-row"><button type="button" class="btn btn-outline btn-small" onclick="aboutAddBlock()">+ เพิ่มบล็อก</button></div>`;
-  window.__aboutCache = page;
+  aboutRebuildAdminForm(page);
 }
 function aboutCollect(){
   const blocks = [];
@@ -5011,7 +5273,20 @@ function aboutCollect(){
     const body = document.querySelector('[data-about-b="'+i+'"]');
     blocks.push({ heading: el.value.trim(), body: body ? body.value.trim() : '' });
   });
-  return { title: (document.getElementById('ab-title')||{}).value || '', blocks };
+  const prev = window.__aboutCache || {};
+  return {
+    title: (document.getElementById('ab-title')||{}).value || '',
+    headline: (document.getElementById('ab-headline')||{}).value || prev.headline || '',
+    lead: (document.getElementById('ab-lead')||{}).value || prev.lead || '',
+    intro: (document.getElementById('ab-lead')||{}).value || prev.intro || '',
+    missionTitle: (document.getElementById('ab-mission-title')||{}).value || prev.missionTitle || '',
+    missionBody: (document.getElementById('ab-mission-body')||{}).value || prev.missionBody || '',
+    missionQuote: (document.getElementById('ab-mission-quote')||{}).value || prev.missionQuote || '',
+    image: (document.getElementById('ab-image')||{}).value || prev.image || 'images/meeting.jpg',
+    imageCaption: (document.getElementById('ab-imgcap')||{}).value || prev.imageCaption || '',
+    features: prev.features || undefined,
+    blocks
+  };
 }
 async function saveAboutPage(){
   const data = aboutCollect();
@@ -5024,13 +5299,9 @@ async function resetAboutPage(){
   await saveAboutPageData(getDefaultAboutPage());
   await renderAboutAdmin();
 }
-function aboutAddBlock(){
-  const data = aboutCollect();
-  data.blocks.push({ heading: 'หัวข้อใหม่', body: '' });
-  window.__aboutCache = data;
-  // temp save to form only
+function aboutRebuildAdminForm(page){
   const root = document.getElementById('about-admin-root');
-  const page = data;
+  if(!root) return;
   const blocks = (page.blocks||[]).map((b,i)=>`<div class="hp-editor-block">
     <div class="form-grid">
       <div><label>หัวข้อบล็อก</label><input type="text" data-about-h="${i}" value="${escapeHtml(b.heading||'')}"></div>
@@ -5038,27 +5309,30 @@ function aboutAddBlock(){
     </div>
     <button type="button" class="btn btn-danger btn-small" onclick="aboutRemoveBlock(${i})">ลบบล็อก</button>
   </div>`).join('');
-  root.innerHTML = `<div class="form-grid"><div><label>หัวข้อหน้า</label><input type="text" id="ab-title" value="${escapeHtml(page.title||'')}"></div></div>
-  <div style="margin-top:12px;">${blocks}</div>
+  root.innerHTML = `<div class="form-grid">
+    <div><label>หัวข้อหน้า (title)</label><input type="text" id="ab-title" value="${escapeHtml(page.title||'')}"></div>
+    <div><label>หัวข้อใหญ่ด้านซ้าย (headline)</label><input type="text" id="ab-headline" value="${escapeHtml(page.headline||'')}"></div>
+    <div style="grid-column:1/-1"><label>ข้อความนำด้านซ้าย (lead) — ใช้ \n ขึ้นบรรทัดใหม่</label><textarea id="ab-lead" rows="5">${escapeHtml(page.lead||page.intro||'')}</textarea></div>
+    <div><label>หัวข้อกลาง (mission title)</label><input type="text" id="ab-mission-title" value="${escapeHtml(page.missionTitle||'')}"></div>
+    <div><label>คำคม (mission quote)</label><input type="text" id="ab-mission-quote" value="${escapeHtml(page.missionQuote||'')}"></div>
+    <div style="grid-column:1/-1"><label>คำอธิบายกลาง (mission body)</label><textarea id="ab-mission-body" rows="3">${escapeHtml(page.missionBody||'')}</textarea></div>
+    <div><label>พาธรูปภาพ</label><input type="text" id="ab-image" value="${escapeHtml(page.image||'images/meeting.jpg')}"></div>
+    <div><label>คำบรรยายภาพ</label><input type="text" id="ab-imgcap" value="${escapeHtml(page.imageCaption||'')}"></div>
+  </div>
+  <p class="empty-note" style="margin:12px 0 6px;">บล็อกรายละเอียดด้านล่าง</p>
+  <div>${blocks}</div>
   <div class="btn-row"><button type="button" class="btn btn-outline btn-small" onclick="aboutAddBlock()">+ เพิ่มบล็อก</button></div>`;
+  window.__aboutCache = page;
+}
+function aboutAddBlock(){
+  const data = aboutCollect();
+  data.blocks.push({ heading: 'หัวข้อใหม่', body: '' });
+  aboutRebuildAdminForm(data);
 }
 function aboutRemoveBlock(i){
   const data = aboutCollect();
   data.blocks.splice(i,1);
-  window.__aboutCache = data;
-  aboutAddBlock = aboutAddBlock; // keep
-  const page = data;
-  const root = document.getElementById('about-admin-root');
-  const blocks = (page.blocks||[]).map((b,i)=>`<div class="hp-editor-block">
-    <div class="form-grid">
-      <div><label>หัวข้อบล็อก</label><input type="text" data-about-h="${i}" value="${escapeHtml(b.heading||'')}"></div>
-      <div><label>เนื้อหา</label><textarea data-about-b="${i}">${escapeHtml(b.body||'')}</textarea></div>
-    </div>
-    <button type="button" class="btn btn-danger btn-small" onclick="aboutRemoveBlock(${i})">ลบบล็อก</button>
-  </div>`).join('');
-  root.innerHTML = `<div class="form-grid"><div><label>หัวข้อหน้า</label><input type="text" id="ab-title" value="${escapeHtml(page.title||'')}"></div></div>
-  <div style="margin-top:12px;">${blocks}</div>
-  <div class="btn-row"><button type="button" class="btn btn-outline btn-small" onclick="aboutAddBlock()">+ เพิ่มบล็อก</button></div>`;
+  aboutRebuildAdminForm(data);
 }
 
 
