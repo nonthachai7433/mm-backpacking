@@ -1632,7 +1632,7 @@ footer.note{text-align:center;font-size:11px;color:var(--muted);margin-top:32px;
       <div class="score-big" id="score-big">0 / 0</div>
       <div id="stamp-area"></div>
       <div id="message-area"></div>
-      <div class="btn-row" style="justify-content:center;margin-top:18px;">
+      <div class="btn-row" style="justify-content:center;margin-top:18px;gap:20px;">
         <button class="btn btn-primary" onclick="startQuiz()">再测一次 | ทำแบบทดสอบใหม่</button>
         <button class="btn btn-outline" onclick="goHome()">回到主页 | กลับหน้าหลัก</button>
       </div>
@@ -2827,7 +2827,7 @@ async function renderStats(){
   const passedOnAttempt = firstPassIdx === -1 ? '—' : (firstPassIdx+1);
   const consecFails = computeConsecutiveFails(history, currentUser, currentCategoryId);
 
-  let html = `<div class="stat-grid">
+  let html = `<div class="stat-grid" style="margin-top:16px;">
       <div class="stat-box"><div class="num">${totalAttempts}</div><div class="lbl">您考试的次数|ครั้งที่คุณสอบ</div></div>
       <div class="stat-box"><div class="num">${passedOnAttempt}</div><div class="lbl">次考试中通过|ผ่านตอนครั้งที่</div></div>
       <div class="stat-box"><div class="num">${consecFails}</div><div class="lbl">连续未通过|ไม่ผ่านติดต่อกัน</div></div>
@@ -3165,7 +3165,7 @@ function showCertificateButton(passed, score, total){
   const certArea = document.getElementById('certificate-btn-area');
   if(!certArea) return;
   if(passed && total > 0 && score === total){
-    certArea.innerHTML = `<div class="btn-row" style="justify-content:center;margin-top:4px;">
+    certArea.innerHTML = `<div class="btn-row" style="justify-content:center;margin-top:16px;">
       <button class="btn btn-primary" onclick="openCertificateForm()">&#127942; 颁发荣誉证书|ออกใบประกาศเกียรติคุณ</button>
     </div>`;
   }else{
@@ -3180,9 +3180,9 @@ function renderHomeCertificateBox(){
     area.innerHTML = "";
     return;
   }
-  area.innerHTML = `<div class="answerkey-unlock" style="border-color:var(--admin);background:rgba(106,74,163,0.06);">
+  area.innerHTML = `<div class="answerkey-unlock" style="border-color:var(--admin);background:rgba(106,74,163,0.06);margin-bottom:24px;">
     <strong>คุณเคยสอบผ่านหมวดนี้ด้วยคะแนนเต็ม ${homeCertPass.score}/${homeCertPass.total}</strong> — ออกใบประกาศได้เลยโดยไม่ต้องสอบใหม่
-    <div class="btn-row"><button class="btn btn-primary" onclick="openCertificateForm('home-certificate-area','view-home',${homeCertPass.score},${homeCertPass.total})">&#127942; 颁发荣誉证书|ออกใบประกาศเกียรติคุณ</button></div>
+    <div class="btn-row" style="margin-top:14px;"><button class="btn btn-primary" onclick="openCertificateForm('home-certificate-area','view-home',${homeCertPass.score},${homeCertPass.total})">&#127942; 颁发荣誉证书|ออกใบประกาศเกียรติคุณ</button></div>
   </div>`;
 }
 
