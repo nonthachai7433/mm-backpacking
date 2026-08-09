@@ -761,6 +761,17 @@ footer.note{text-align:center;font-size:11px;color:var(--muted);margin-top:32px;
 [data-theme="light"][data-color="paper"] .th-section-head h2{color:#1C2430;}
 [data-theme="light"][data-color="paper"] .th-q{background:#F7F4EC;border-color:#B9AF98;color:#1C2430;}
 [data-theme="light"][data-color="paper"] .th-q small{color:#4A5364;}
+/* Paper light: criteria + eval table header ใช้สีเดียวกับหัวตาราง MOI */
+[data-theme="light"][data-color="paper"] .criteria-num{
+  background:#1C2430;color:#F0AE12;
+}
+[data-theme="light"][data-color="paper"] table.eval-table th{
+  background:#1C2430 !important;color:#F0AE12 !important;
+}
+[data-theme="light"][data-color="paper"] table.eval-table td.dim-cell,
+[data-theme="light"][data-color="paper"] table.eval-table td.weight-cell{
+  background:#EDEAE1;
+}
 /* Paper DARK quiz/home — อ่านชัดในโหมดมืด */
 [data-theme="dark"][data-color="paper"] .opt-btn{
   background:#243040;border:2px solid #4A5364;color:#EDEAE1;
@@ -785,6 +796,17 @@ footer.note{text-align:center;font-size:11px;color:var(--muted);margin-top:32px;
 [data-theme="dark"][data-color="paper"] .th-section-head h2::after{background:#F0AE12;}
 [data-theme="dark"][data-color="paper"] .th-q{background:#243040;border-color:#4A5364;color:#EDEAE1;}
 [data-theme="dark"][data-color="paper"] .th-q small{color:#B9AF98;}
+/* Paper dark: criteria + eval table header */
+[data-theme="dark"][data-color="paper"] .criteria-num{
+  background:#151b24;color:#F0AE12;
+}
+[data-theme="dark"][data-color="paper"] table.eval-table th{
+  background:#151b24 !important;color:#F0AE12 !important;
+}
+[data-theme="dark"][data-color="paper"] table.eval-table td.dim-cell,
+[data-theme="dark"][data-color="paper"] table.eval-table td.weight-cell{
+  background:#1C2430;
+}
 /* ป้ายเลขข้อขนาดเท่ากันทุกข้อ */
 .qnum{
   display:inline-flex;align-items:center;justify-content:center;
@@ -1014,9 +1036,17 @@ footer.note{text-align:center;font-size:11px;color:var(--muted);margin-top:32px;
   display:inline-flex;align-items:center;justify-content:center;
   margin:0 0 12px;padding:6px 14px;min-width:7.5em;height:1.9em;
   box-sizing:border-box;border-radius:6px;
-  background:#1C2430;color:var(--accent);
+  background:var(--bg-2);color:var(--accent);
   font-size:13px;font-weight:700;letter-spacing:0.02em;
   white-space:nowrap;
+}
+/* Light themes (ยกเว้น paper): ใช้ accent เป็นพื้นหลัง ตัวอักษรขาว ชัดและเข้าธีม */
+[data-theme="light"]:not([data-color="paper"]) .hp-editor-block h3{
+  background:var(--accent);color:#fff;
+}
+/* Paper theme รักษาสไตล์เข้มเดิม */
+[data-color="paper"] .hp-editor-block h3{
+  background:#1C2430;color:#F0AE12;
 }
 .hp-step-admin{border-left:3px solid var(--accent);padding-left:12px;margin-bottom:14px;}
 .hp-img-preview{max-width:100%;max-height:120px;border-radius:8px;margin-top:6px;border:1px solid var(--border);display:block;}
@@ -1138,11 +1168,89 @@ footer.note{text-align:center;font-size:11px;color:var(--muted);margin-top:32px;
   top:0;
   z-index:30;
   background:var(--bg);
-  padding:8px 0 12px;
+  padding:8px 4px 12px 8px;
   margin-bottom:12px;
   border-bottom:1px solid var(--border);
   align-items:center;
   gap:12px;
+}
+/* ปุ่มแอคชันแอดมินให้ขนาดเท่ากัน */
+.kb-admin-card .btn-row .btn,
+#knowledge-form-area .btn-row .btn,
+.qadmin-card .btn-row .btn{
+  min-width:4.8em;
+  text-align:center;
+  justify-content:center;
+}
+/* Admin knowledge card: รูปไม่ล้นกรอบ + เนื้อหาย่อ/ขยาย */
+.kb-admin-card{
+  overflow:hidden;
+}
+.kb-admin-title{
+  font-weight:700;
+  font-size:14.5px;
+  margin-bottom:6px;
+}
+.kb-admin-desc{
+  font-size:13px;
+  color:var(--muted);
+  line-height:1.6;
+  white-space:pre-line;
+  overflow:hidden;
+  max-height:4.8em; /* ~3 บรรทัด */
+  transition:max-height .25s ease;
+  word-break:break-word;
+}
+.kb-admin-desc.is-expanded{
+  max-height:none;
+}
+.kb-admin-desc-wrap{
+  position:relative;
+  margin-bottom:8px;
+}
+.kb-admin-expand-btn{
+  display:none;
+  margin-top:4px;
+  padding:2px 8px;
+  font-size:12px;
+  font-family:var(--mono);
+  font-weight:700;
+  color:var(--accent);
+  background:transparent;
+  border:1px solid var(--border);
+  border-radius:6px;
+  cursor:pointer;
+  line-height:1.4;
+}
+.kb-admin-expand-btn.is-visible{
+  display:inline-flex;
+  align-items:center;
+  gap:4px;
+}
+.kb-admin-thumb-wrap{
+  width:100%;
+  max-height:220px;
+  overflow:hidden;
+  border-radius:8px;
+  border:1px solid var(--border);
+  margin:8px 0;
+  background:var(--bg);
+}
+.kb-admin-thumb{
+  display:block;
+  width:100%;
+  max-height:220px;
+  height:auto;
+  object-fit:contain;
+  object-position:center top;
+}
+.kb-admin-meta{
+  font-size:12px;
+  color:var(--muted);
+  display:flex;
+  flex-wrap:wrap;
+  gap:8px 14px;
+  margin-top:6px;
 }
 #view-admin{position:relative;}
 #view-admin .panel{position:relative;z-index:1;}
@@ -1555,7 +1663,7 @@ footer.note{text-align:center;font-size:11px;color:var(--muted);margin-top:32px;
   <div id="view-admin" style="display:none;">
     <div id="admin-single-bar" class="btn-row admin-single-bar" style="display:none;">
       <span id="admin-single-actions">
-        <button type="button" class="btn btn-outline btn-small" onclick="goToAdminPanel()">← แผงควบคุมทั้งหมด</button>
+        <button type="button" class="btn btn-outline btn-small" onclick="navigateTo('home')">← กลับหน้าหลัก</button>
       </span>
       <span id="admin-single-title" class="admin-single-title"></span>
     </div>
@@ -2327,10 +2435,20 @@ async function renderAdminKnowledge(){
 }
 
 function renderKnowledgeCardView(item){
+  const hasLongDesc = !!(item.desc && item.desc.length > 120);
+  const descHtml = item.desc
+    ? `<div class="kb-admin-desc-wrap">
+        <div class="kb-admin-desc" id="kb-desc-${item.id}">${escapeHtml(item.desc)}</div>
+        ${hasLongDesc ? `<button type="button" class="kb-admin-expand-btn is-visible" id="kb-exp-${item.id}" onclick="toggleKbAdminDesc('${item.id}')">▼ ดูเพิ่มเติม</button>` : ''}
+      </div>`
+    : '';
+  const imgHtml = item.imageData
+    ? `<div class="kb-admin-thumb-wrap"><img class="kb-admin-thumb" src="${item.imageData}" alt=""></div>`
+    : '';
   return `<div class="kb-admin-card" id="kb-admin-card-${item.id}">
     <div class="kb-admin-title">${escapeHtml(item.title)}</div>
-    ${item.desc ? `<div class="kb-admin-desc">${escapeHtml(item.desc)}</div>` : ''}
-    ${item.imageData ? `<img class="kb-admin-thumb" src="${item.imageData}">` : ''}
+    ${descHtml}
+    ${imgHtml}
     <div class="kb-admin-meta">
       ${item.imageData ? `<span>🖼 ${escapeHtml(item.imageName||'')} (${formatFileSize(item.imageSize)})</span>` : ''}
       ${item.fileData ? `<span>📎 ${escapeHtml(item.fileName||'')} (${formatFileSize(item.fileSize)})</span>` : ''}
@@ -2342,6 +2460,14 @@ function renderKnowledgeCardView(item){
       <button class="btn btn-danger btn-small" onclick="confirmDeleteKnowledge('${item.id}')">ลบ</button>
     </div>
   </div>`;
+}
+
+function toggleKbAdminDesc(id){
+  const desc = document.getElementById('kb-desc-'+id);
+  const btn = document.getElementById('kb-exp-'+id);
+  if(!desc || !btn) return;
+  const open = desc.classList.toggle('is-expanded');
+  btn.textContent = open ? '▲ ย่อ' : '▼ ดูเพิ่มเติม';
 }
 
 function readFileAsDataUrl(file){
@@ -2454,8 +2580,8 @@ function openKnowledgeForm(id){
       </div>
     </div>
     <div class="btn-row" style="margin-top:12px;">
-      <button class="btn btn-purple" onclick="saveKnowledgeForm()">บันทึก</button>
-      <button class="btn btn-outline" onclick="closeKnowledgeForm()">ยกเลิก</button>
+      <button class="btn btn-purple btn-small" onclick="saveKnowledgeForm()">บันทึก</button>
+      <button class="btn btn-outline btn-small" onclick="closeKnowledgeForm()">ยกเลิก</button>
     </div>
   </div>`;
   renderKbImagePreview();
@@ -3157,7 +3283,17 @@ function switchAdminTab(tab){
         actionsEl.innerHTML = `<button type="button" class="btn btn-outline btn-small" onclick="navigateTo('home')">← กลับหน้าหลัก</button>
           <button type="button" class="btn btn-primary btn-small" onclick="saveHomepageFromAdmin()">บันทึกหน้าหลัก</button>`;
       } else {
-        actionsEl.innerHTML = `<button type="button" class="btn btn-outline btn-small" onclick="goToAdminPanel()">← แผงควบคุมทั้งหมด</button>`;
+        // ปุ่มย้อนกลับไปยังหน้าเมนูที่ตรงกับส่วนที่กำลังแก้ไข
+        const backMap = {
+          knowledge: { view: 'knowledge', label: '← กลับคลังความรู้' },
+          criteria:  { view: 'criteria',  label: '← กลับเกณฑ์ประเมิน' },
+          about:     { view: 'about',     label: '← กลับเกี่ยวกับเรา' },
+          stats:     { view: 'exambank',  label: '← กลับคลังข้อสอบ' },
+          questions: { view: 'exambank',  label: '← กลับคลังข้อสอบ' },
+          categories:{ view: 'exambank',  label: '← กลับคลังข้อสอบ' }
+        };
+        const back = backMap[tab] || { view: 'home', label: '← กลับหน้าหลัก' };
+        actionsEl.innerHTML = `<button type="button" class="btn btn-outline btn-small" onclick="navigateTo('${back.view}')">${back.label}</button>`;
       }
     }
   }
@@ -3447,8 +3583,8 @@ function renderCategoryFormInner(cat, catId){
         </div>
       </div>
       <div class="btn-row">
-        <button class="btn btn-purple" onclick="saveCategoryForm()">บันทึกหมวดข้อสอบ</button>
-        <button class="btn btn-outline" onclick="closeCategoryForm()">ยกเลิก</button>
+        <button class="btn btn-purple btn-small" onclick="saveCategoryForm()">บันทึกหมวดข้อสอบ</button>
+        <button class="btn btn-outline btn-small" onclick="closeCategoryForm()">ยกเลิก</button>
       </div>`;
 }
 
@@ -3708,8 +3844,8 @@ function renderQuestionFormInner(q, qId){
         <div id="qf-answer-wrap">${renderAnswerSection(type, currentAns)}</div>
       </div>
       <div class="btn-row">
-        <button class="btn btn-purple" onclick="saveQuestionForm()">บันทึกข้อสอบ</button>
-        <button class="btn btn-outline" onclick="closeQuestionForm()">ยกเลิก</button>
+        <button class="btn btn-purple btn-small" onclick="saveQuestionForm()">บันทึกข้อสอบ</button>
+        <button class="btn btn-outline btn-small" onclick="closeQuestionForm()">ยกเลิก</button>
       </div>`;
 }
 
