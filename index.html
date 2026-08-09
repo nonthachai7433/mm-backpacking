@@ -4131,10 +4131,14 @@ function getDefaultHomepage(){
       { code:'603', name:'Oracle', moi:'D20-8944' },
       { code:'633', name:'Juniper', moi:'D20-8304' },
       { code:'822', name:'TikTok', moi:'D20-8911' },
+      { code:'655', name:'Arista', moi:'820-8280' },
+      { code:'_', name:'ADVA', moi:'820-8725' },
+      { code:'_', name:'Standard', moi:'D20-8329' },
+      { code:'_', name:'Infinera', moi:'D20-89GV' },
       { code:'—', name:'Quanta', moi:'D20-8887' }
     ],
     processTitle: 'กระบวนการแพ็คหลัง',
-    processDesc: 'ขั้นตอนตั้งแต่สถานีขนส่งจนถึงศุลกากร',
+    processDesc: 'ขั้นตอนตั้งแต่สถานีขนส่งจนถึงการจัดส่ง',
     steps: [
       { id:'p1', num:'01', title:'Shipping Station (สถานีขนส่ง)', body:'Shipping Station หรือสถานีขนส่ง คือ การสแกนงานเข้าระบบขายและตรวจเช็คข้อมูลของชิ้นงานว่าครบถ้วนหรือไม่ จากนั้นนำใส่ Tray ก่อนส่งต่อไปด้านหลังเพื่อแพ็คงานตามขั้นตอนต่อไป', note:'การเช็คเลขวัสดุ Tray ที่ใช้ในการบรรจุ เช็คได้จาก BOM', labels:[], images:[{src:'images/shipping1.jpg', caption:'Station สแกนทีละตัว'},{src:'images/shipping2.jpg', caption:'Station สแกนได้หลายตัว'}] },
       { id:'p2', num:'02', title:'Station การทำข้อมูลก่อนการแพ็ค', body:'เมื่อผ่านกระบวนการแรกมาแล้วจะถูกส่งต่อมาด้านหลังเพื่อดำเนินการต่อไป\nขั้นแรกจะผ่าน Station การทำข้อมูลก่อนการแพ็ค เพื่อตรวจหาข้อมูลที่ NG ก่อนดำเนินการแพ็คส่งให้ลูกค้า จะนำเลข DO ในใบ Shipping ไปดึงข้อมูลมาตรวจสอบ', note:'', labels:[], images:[{src:'images/data_station.jpg', caption:''}] },
