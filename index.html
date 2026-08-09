@@ -871,7 +871,7 @@ footer.note{text-align:center;font-size:11px;color:var(--muted);margin-top:32px;
 .th-company{font-size:0.9rem;opacity:0.7;margin:0;}
 
 .th-quick{
-  display:grid;grid-template-columns:repeat(4,1fr);gap:12px;margin-bottom:28px;
+  display:grid;grid-template-columns:repeat(5,1fr);gap:12px;margin-bottom:28px;
 }
 .th-q{
   background:var(--surface);border:1px solid var(--border);border-radius:14px;
@@ -886,7 +886,7 @@ footer.note{text-align:center;font-size:11px;color:var(--muted);margin-top:32px;
 .th-section{margin-bottom:36px;}
 .th-section-head{text-align:center;margin-bottom:22px;}
 .th-section-head h2{
-  font-family:var(--display);font-size:clamp(1.3rem,3vw,1.7rem);margin:0 0 8px;
+  font-family:var(--font);font-size:clamp(1.3rem,3vw,1.7rem);margin:0 0 8px;
   color:var(--text);text-transform:none;letter-spacing:0.02em;
   display:inline-block;position:relative;
 }
@@ -975,7 +975,7 @@ footer.note{text-align:center;font-size:11px;color:var(--muted);margin-top:32px;
 .th-card .th-card-media{align-self:stretch;}
 
 @media (max-width:900px){
-  .th-quick{grid-template-columns:1fr 1fr;}
+  .th-quick{grid-template-columns:1fr 1fr 1fr;}
   .th-card,.th-card.reverse{grid-template-columns:1fr;}
   .th-card.reverse .th-card-body,.th-card.reverse .th-card-media{order:unset;}
   .th-card-media{min-height:200px;}
@@ -1288,6 +1288,7 @@ footer.note{text-align:center;font-size:11px;color:var(--muted);margin-top:32px;
 #home-admin-bar,
 #knowledge-admin-bar,
 #criteria-admin-bar,
+#operations-admin-bar,
 #about-admin-bar{
   display:flex;
   justify-content:flex-end;
@@ -1302,6 +1303,7 @@ footer.note{text-align:center;font-size:11px;color:var(--muted);margin-top:32px;
 #home-admin-bar .btn,
 #knowledge-admin-bar .btn,
 #criteria-admin-bar .btn,
+#operations-admin-bar .btn,
 #about-admin-bar .btn{
   margin:0;
   box-shadow:0 4px 14px rgba(29,78,216,0.3);
@@ -1376,6 +1378,7 @@ footer.note{text-align:center;font-size:11px;color:var(--muted);margin-top:32px;
     <div class="side-brand">BACKPACKING<small>Packaging & shipping System</small></div>
     <nav class="side-nav">
       <button class="nav-item" id="nav-home" onclick="navigateTo('home')"><span class="ic">⌂</span> หน้าหลัก</button>
+      <button class="nav-item" id="nav-operations" onclick="navigateTo('operations')"><span class="ic">⚙️</span> การทำงาน</button>
       <button class="nav-item" id="nav-knowledge" onclick="navigateTo('knowledge')"><span class="ic">📚</span> คลังความรู้</button>
       <button class="nav-item" id="nav-exambank" onclick="navigateTo('exambank')"><span class="ic">📝</span> คลังข้อสอบ</button>
       <button class="nav-item" id="nav-criteria" onclick="navigateTo('criteria')"><span class="ic">✅</span> เกณฑ์ประเมิน</button>
@@ -1537,6 +1540,16 @@ footer.note{text-align:center;font-size:11px;color:var(--muted);margin-top:32px;
     </div>
   </div>
 
+  <!-- OPERATIONS (การทำงาน) VIEW (public) -->
+  <div id="view-operations" style="display:none;">
+    <div id="operations-admin-bar" style="display:none;" class="btn-row">
+      <button class="btn btn-purple btn-small" onclick="openAdminSection('operations')">✏️ แก้ไขหน้านี้</button>
+    </div>
+    <div id="operations-page-root">
+      <p class="empty-note">กำลังโหลด...</p>
+    </div>
+  </div>
+
 
   <!-- LOGIN VIEW -->
   <div id="view-login" style="display:none;">
@@ -1673,8 +1686,9 @@ footer.note{text-align:center;font-size:11px;color:var(--muted);margin-top:32px;
       <button class="tab-btn" id="tab-stats" onclick="switchAdminTab('stats')">3. สถิติ &amp; ประวัติ</button>
       <button class="tab-btn" id="tab-questions" onclick="switchAdminTab('questions')">4. จัดการข้อสอบ</button>
       <button class="tab-btn" id="tab-categories" onclick="switchAdminTab('categories')">5. หมวดข้อสอบ</button>
-      <button class="tab-btn" id="tab-criteria-edit" onclick="switchAdminTab('criteria')">6. เกณฑ์ประเมิน</button>
-      <button class="tab-btn" id="tab-about-edit" onclick="switchAdminTab('about')">7. เกี่ยวกับเรา</button>
+      <button class="tab-btn" id="tab-operations-edit" onclick="switchAdminTab('operations')">6. การทำงาน</button>
+      <button class="tab-btn" id="tab-criteria-edit" onclick="switchAdminTab('criteria')">7. เกณฑ์ประเมิน</button>
+      <button class="tab-btn" id="tab-about-edit" onclick="switchAdminTab('about')">8. เกี่ยวกับเรา</button>
       <button class="tab-btn" id="tab-takequiz" onclick="goToCategories()">ทำแบบทดสอบ</button>
     </div>
     <div class="tabs" id="admin-exam-tabs" style="display:none;">
@@ -1750,6 +1764,18 @@ footer.note{text-align:center;font-size:11px;color:var(--muted);margin-top:32px;
           <button class="btn btn-outline" onclick="resetHomepageToDefault()">คืนค่าเริ่มต้น</button>
         </div>
         <p id="homepage-save-msg" class="empty-note" style="margin-top:10px;"></p>
+      </div>
+    </div>
+
+    <div id="admin-tab-operations" style="display:none;">
+      <div class="panel">
+        <h2 class="purple">จัดการเนื้อหาหน้าการทำงาน</h2>
+        <p style="line-height:1.6;font-size:13.5px;color:var(--muted);margin-top:0;">แก้ไขตาราง MOI ขั้นตอนกระบวนการ และรูปภาพที่แสดงบนหน้าการทำงาน — บันทึกแล้วผู้ใช้ทั่วไปจะเห็นทันที</p>
+        <div id="operations-admin-root"></div>
+        <div class="btn-row" style="margin-top:16px;">
+          <button class="btn btn-outline" onclick="resetOperationsToDefault()">คืนค่าเริ่มต้น</button>
+        </div>
+        <p id="operations-save-msg" class="empty-note" style="margin-top:10px;"></p>
       </div>
     </div>
 
@@ -2265,7 +2291,7 @@ function updateSessionBar(){
 
 // VIEW SWITCHING
 function showView(id){
-  ['view-public-home','view-knowledge','view-criteria','view-about','view-login','view-categories','view-home','view-quiz','view-result','view-certificate','view-admin'].forEach(v=>{
+  ['view-public-home','view-knowledge','view-criteria','view-about','view-operations','view-login','view-categories','view-home','view-quiz','view-result','view-certificate','view-admin'].forEach(v=>{
     document.getElementById(v).style.display = (v===id) ? 'block' : 'none';
   });
 }
@@ -2304,7 +2330,7 @@ async function goToAdminPanel(){
 }
 
 function updateNavActive(section){
-  ['home','knowledge','exambank','criteria','about'].forEach(s=>{
+  ['home','knowledge','exambank','operations','criteria','about'].forEach(s=>{
     const el = document.getElementById('nav-'+s);
     if(el) el.classList.toggle('active', s===section);
   });
@@ -2676,6 +2702,11 @@ async function navigateTo(section){
     showView('view-about');
     const bar = document.getElementById('about-admin-bar');
     if(bar) bar.style.display = isAdmin ? 'flex' : 'none';
+  }else if(section === 'operations'){
+    await renderOperationsPage();
+    showView('view-operations');
+    const opBar = document.getElementById('operations-admin-bar');
+    if(opBar) opBar.style.display = isAdmin ? 'flex' : 'none';
   }else if(section === 'exambank'){
     if(isAdmin){
       await enterAdmin('stats', 'exam');
@@ -3219,6 +3250,7 @@ const ADMIN_TAB_TITLES = {
   stats: 'สถิติ & ประวัติ',
   questions: 'จัดการข้อสอบ',
   categories: 'หมวดข้อสอบ',
+  operations: 'แก้ไขหน้าการทำงาน',
   criteria: 'แก้ไขเกณฑ์ประเมิน',
   about: 'แก้ไขเกี่ยวกับเรา'
 };
@@ -3250,6 +3282,7 @@ async function enterAdmin(startTab, mode){
   if(adminUiMode === 'full') updateNavActive(null);
   else if(tab==='knowledge') updateNavActive('knowledge');
   else if(tab==='homepage') updateNavActive('home');
+  else if(tab==='operations') updateNavActive('operations');
   else if(tab==='criteria') updateNavActive('criteria');
   else if(tab==='about') updateNavActive('about');
   else updateNavActive('exambank');
@@ -3282,10 +3315,14 @@ function switchAdminTab(tab){
       if(tab === 'homepage'){
         actionsEl.innerHTML = `<button type="button" class="btn btn-outline btn-small" onclick="navigateTo('home')">← กลับหน้าหลัก</button>
           <button type="button" class="btn btn-primary btn-small" onclick="saveHomepageFromAdmin()">บันทึกหน้าหลัก</button>`;
+      } else if(tab === 'operations'){
+        actionsEl.innerHTML = `<button type="button" class="btn btn-outline btn-small" onclick="navigateTo('operations')">← กลับการทำงาน</button>
+          <button type="button" class="btn btn-primary btn-small" onclick="saveOperationsFromAdmin()">บันทึกหน้าการทำงาน</button>`;
       } else {
         // ปุ่มย้อนกลับไปยังหน้าเมนูที่ตรงกับส่วนที่กำลังแก้ไข
         const backMap = {
           knowledge: { view: 'knowledge', label: '← กลับคลังความรู้' },
+          operations:{ view: 'operations',label: '← กลับการทำงาน' },
           criteria:  { view: 'criteria',  label: '← กลับเกณฑ์ประเมิน' },
           about:     { view: 'about',     label: '← กลับเกี่ยวกับเรา' },
           stats:     { view: 'exambank',  label: '← กลับคลังข้อสอบ' },
@@ -3298,9 +3335,10 @@ function switchAdminTab(tab){
     }
   }
 
-  const all = ['stats','questions','categories','knowledge','homepage','criteria','about'];
+  const all = ['stats','questions','categories','knowledge','homepage','operations','criteria','about'];
   all.forEach(t=>{
     const ids = ['tab-'+t, 'tab-'+t+'-exam'];
+    if(t==='operations') ids.push('tab-operations-edit');
     if(t==='criteria') ids.push('tab-criteria-edit');
     if(t==='about') ids.push('tab-about-edit');
     ids.forEach(id=>{
@@ -3316,6 +3354,7 @@ function switchAdminTab(tab){
   else if(tab==='categories') renderAdminCategories();
   else if(tab==='knowledge') renderAdminKnowledge();
   else if(tab==='homepage') renderHomepageAdmin();
+  else if(tab==='operations') renderOperationsAdmin();
   else if(tab==='criteria') renderCriteriaAdmin();
   else if(tab==='about') renderAboutAdmin();
 }
@@ -4207,7 +4246,7 @@ async function renderPublicHomepage(){
   }).join('');
   const flowNav = steps.map((s,i) => `<a href="#${escapeHtml(s.id||('p'+i))}">${escapeHtml(s.num||String(i+1))}. ${escapeHtml((s.title||'').slice(0,16))}</a>`).join('');
   root.innerHTML = `<section class="th-hero"><div class="th-hero-inner"><div class="th-badge">${escapeHtml(h.badge||'')}</div><h1>${escapeHtml(h.title||'')}</h1><p class="th-sub">${escapeHtml(h.subtitle||'')}</p><div class="th-hero-actions"><a class="th-btn th-btn-primary" href="#th-moi">${escapeHtml(h.btnPrimary||'เริ่มสำรวจ')}</a><button type="button" class="th-btn th-btn-outline" onclick="navigateTo('exambank')">${escapeHtml(h.btnSecondary||'ทำแบบทดสอบ')}</button></div><p class="th-company">${escapeHtml(h.company||'')}</p></div></section>
-  <div class="th-quick"><button type="button" class="th-q" onclick="navigateTo('knowledge')"><span>📚</span><b>คลังความรู้</b><small>คู่มือและมาตรฐาน</small></button><button type="button" class="th-q" onclick="navigateTo('exambank')"><span>📝</span><b>คลังข้อสอบ</b><small>ทดสอบความรู้</small></button><button type="button" class="th-q" onclick="navigateTo('criteria')"><span>✅</span><b>เกณฑ์ประเมิน</b><small>ผ่าน / ไม่ผ่าน</small></button><button type="button" class="th-q" onclick="navigateTo('about')"><span>ℹ️</span><b>เกี่ยวกับเรา</b><small>ข้อมูลระบบ</small></button></div>
+  <div class="th-quick"><button type="button" class="th-q" onclick="navigateTo('knowledge')"><span>📚</span><b>คลังความรู้</b><small>คู่มือและมาตรฐาน</small></button><button type="button" class="th-q" onclick="navigateTo('exambank')"><span>📝</span><b>คลังข้อสอบ</b><small>ทดสอบความรู้</small></button><button type="button" class="th-q" onclick="navigateTo('operations')"><span>⚙️</span><b>การทำงาน</b><small>ขั้นตอน/สถานีปฏิบัติงาน</small></button><button type="button" class="th-q" onclick="navigateTo('criteria')"><span>✅</span><b>เกณฑ์ประเมิน</b><small>ผ่าน / ไม่ผ่าน</small></button><button type="button" class="th-q" onclick="navigateTo('about')"><span>ℹ️</span><b>เกี่ยวกับเรา</b><small>ข้อมูลระบบ</small></button></div>
   <section class="th-section" id="th-moi"><div class="th-section-head"><h2>${escapeHtml(data.moiTitle||'รหัส MOI')}</h2><p>${escapeHtml(data.moiDesc||'')}</p></div><div class="th-table-wrap"><table class="th-moi-table"><thead><tr><th>รหัสลูกค้า</th><th>ชื่อลูกค้า</th><th>มาตรฐานการแพ็ค MOI</th><th style="width:52px;text-align:center;">ลิงก์</th></tr></thead><tbody>${moiHtml}</tbody></table></div></section>
   <section class="th-section" id="th-process"><div class="th-section-head"><h2>${escapeHtml(data.processTitle||'กระบวนการ')}</h2><p>${escapeHtml(data.processDesc||'')}</p></div><div class="th-flow"><div class="th-flow-nav">${flowNav}</div>${stepsHtml}</div></section>`;
 }
@@ -4517,6 +4556,378 @@ async function saveCriteriaPageData(data){
   await waitForStorage();
   await window.storage.set('quiz_criteria_page', JSON.stringify(data));
 }
+// ===== Operations (การทำงาน) page CMS — same display/edit pattern as Homepage (MOI table + process steps) =====
+window.__opsImageMap = window.__opsImageMap || {};
+
+function getDefaultOperationsPage(){
+  return {
+    moiTitle: 'รหัส MOI',
+    moiDesc: 'มาตรฐานการแพ็คตามลูกค้าแต่ละราย อ้างอิงจากเอกสาร MOI',
+    moiRows: [
+      { code:'699', name:'Nvidia', moi:'D20-8363' },
+      { code:'678', name:'Facebook', moi:'D20-8290' },
+      { code:'666', name:'Google LLC', moi:'D20-8180' },
+      { code:'677', name:'Cisgo', moi:'D20-8148' },
+      { code:'688', name:'Amazon', moi:'D20-8291' },
+      { code:'618', name:'Microsoft', moi:'D20-8830' },
+      { code:'603', name:'Oracle', moi:'D20-8944' },
+      { code:'633', name:'Juniper', moi:'D20-8304' },
+      { code:'822', name:'TikTok', moi:'D20-8911' },
+      { code:'—', name:'Quanta', moi:'D20-8887' }
+    ],
+    processTitle: 'กระบวนการแพ็คหลัง',
+    processDesc: 'ขั้นตอนตั้งแต่สถานีขนส่งจนถึงศุลกากร',
+    steps: [
+      { id:'op1', num:'01', title:'Shipping Station (สถานีขนส่ง)', body:'Shipping Station หรือสถานีขนส่ง คือ การสแกนงานเข้าระบบขายและตรวจเช็คข้อมูลของชิ้นงานว่าครบถ้วนหรือไม่ จากนั้นนำใส่ Tray ก่อนส่งต่อไปด้านหลังเพื่อแพ็คงานตามขั้นตอนต่อไป', note:'การเช็คเลขวัสดุ Tray ที่ใช้ในการบรรจุ เช็คได้จาก BOM', labels:[], images:[{src:'images/shipping1.jpg', caption:'Station สแกนทีละตัว'},{src:'images/shipping2.jpg', caption:'Station สแกนได้หลายตัว'}] },
+      { id:'op2', num:'02', title:'Station การทำข้อมูลก่อนการแพ็ค', body:'เมื่อผ่านกระบวนการแรกมาแล้วจะถูกส่งต่อมาด้านหลังเพื่อดำเนินการต่อไป\nขั้นแรกจะผ่าน Station การทำข้อมูลก่อนการแพ็ค เพื่อตรวจหาข้อมูลที่ NG ก่อนดำเนินการแพ็คส่งให้ลูกค้า จะนำเลข DO ในใบ Shipping ไปดึงข้อมูลมาตรวจสอบ', note:'', labels:[], images:[{src:'images/data_station.jpg', caption:''}] },
+      { id:'op3', num:'03', title:'Station Packing', body:'เมื่อข้อมูลทุกอย่างโอเค จะเริ่มการแพ็คตามมาตรฐานของแต่ละลูกค้า สามารถอ้างอิงได้จาก MOI', note:'', labels:[{text:'เครื่องปริ้นลาเบล',link:''},{text:'พัดลมไอออน',link:''},{text:'จอคอม',link:''},{text:'ปืนสแกน',link:''}], images:[{src:'images/packing_station.jpg', caption:''}] },
+      { id:'op4', num:'04', title:'ตัวอย่างการเริ่มแพ็ค', body:'ตรวจเช็คตัวเองทุกครั้งก่อนเริ่มงาน ทำความสะอาดสเตชั่นทุกครั้งไล่จากบนลงล่าง เมื่อเริ่มงานจะนำกล่องแรกไปให้ฝ่ายตรวจสอบ', note:'', labels:[], images:[{src:'images/start_packing.jpg', caption:''}] },
+      { id:'op5', num:'05', title:'ฝ่ายตรวจสอบ', body:'ฝ่ายตรวจสอบจะนำกล่องแรกและกล่องสุดท้ายมาตรวจสอบทุกกระบวนการ เมื่อตรวจสอบเสร็จจะส่งต่อให้ฝ่ายตรวจสอบที่เป็นคนจีนตรวจสอบซ้ำอีกครั้ง ก่อนยืนยันให้ QC มานำไปตรวจสอบ', note:'', labels:[], images:[{src:'images/inspection.jpg', caption:''}] },
+      { id:'op6', num:'06', title:'การนำไปวางเรียงเพื่อรอตรวจสอบ', body:'จะตั้งไว้หนึ่งกล่องเพื่อรอฝ่ายตรวจสอบกล่องแรกและกล่องสุดท้ายเสร็จ เมื่อเสร็จแล้วจะนำกล่องลงไปในทางเดียวกันทั้งหมดเพื่อให้ QC ทราบ จากนั้น QC จะนำสามกล่องไปตรวจโดยจะมีกล่องแรก กล่องสุดท้าย และจะสุ่มหนึ่งในนั้นไปอีกกล่อง\nเมื่อ QC ตรวจเช็คเรียบร้อยแล้วจะทำการปั้มเครื่องหมายผ่านการตรวจสอบทุกกล่อง จากนั้นจึงจะดำเนินการต่อไปได้', note:'', labels:[], images:[{src:'images/arrange_boxes.jpg', caption:''}] },
+      { id:'op7', num:'07', title:'การตรวจสอบซ้ำ', body:'การตรวจสอบซ้ำเพื่อกันข้อผิดพลาดก่อนส่งให้ฝ่าย QC ตรวจสอบ', note:'', labels:[], images:[{src:'images/recheck.jpg', caption:''}] },
+      { id:'op8', num:'08', title:'ตัวอย่างการขึ้นพาเลท', body:'เมื่อ QC ตรวจสอบแล้วจะนำงานขึ้นพาเลท แต่ละลูกค้าก็จะแตกต่างกันออกไป ในภาพคือลูกค้า Cisgo', note:'', labels:[], images:[{src:'images/pallet.jpg', caption:''}] },
+      { id:'op9', num:'09', title:'ศุลกากร', body:'การทำข้อมูลน้ำหนักโมดูลและน้ำหนักกล่องต่างๆ เพื่อนำข้อมูลส่งให้แวร์เฮ้าส์ดำเนินการต่อไป', note:'', labels:[], images:[{src:'images/customs.jpg', caption:''}] }
+    ]
+  };
+}
+
+async function loadOperationsPage(){
+  await waitForStorage();
+  try{
+    const res = await window.storage.get('quiz_operations_page');
+    if(res && res.value){
+      const parsed = JSON.parse(res.value);
+      if(parsed && Array.isArray(parsed.steps)) return parsed;
+    }
+  }catch(e){}
+  return getDefaultOperationsPage();
+}
+
+async function saveOperationsPageData(data){
+  await waitForStorage();
+  await window.storage.set('quiz_operations_page', JSON.stringify(data));
+}
+
+async function renderOperationsPage(){
+  const data = await loadOperationsPage();
+  const root = document.getElementById('operations-page-root');
+  if(!root) return;
+  const moiRows = data.moiRows || [];
+  const moiHtml = moiRows.map(r => {
+    const link = (r.link||'').trim();
+    const eye = link
+      ? `<a class="th-eye-btn" href="${escapeHtml(link)}" target="_blank" rel="noopener noreferrer" title="เปิดลิงก์">👁</a>`
+      : `<span class="th-eye-btn disabled" title="ยังไม่มีลิงก์">👁</span>`;
+    return `<tr><td class="code">${escapeHtml(r.code||'')}</td><td>${escapeHtml(r.name||'')}</td><td class="moi">${escapeHtml(r.moi||'')}</td><td class="moi-link">${eye}</td></tr>`;
+  }).join('');
+  const steps = data.steps || [];
+  const stepsHtml = steps.map((s, idx) => {
+    const paras = String(s.body||'').split(/\n/).filter(Boolean).map(p => `<p>${escapeHtml(p)}</p>`).join('');
+    const note = s.note ? `<p class="th-note">${escapeHtml(s.note)}</p>` : '';
+    const rawLabels = s.labels || [];
+    const labelItems = rawLabels.map(l => {
+      if(typeof l === 'string') return { text: l, link: '' };
+      return { text: l.text || '', link: l.link || '' };
+    }).filter(l => l.text);
+    const labels = labelItems.length ? `<div class="th-labels">${labelItems.map(l => {
+      if(l.link) return `<a class="th-label-link" href="${escapeHtml(l.link)}" target="_blank" rel="noopener noreferrer">${escapeHtml(l.text)}</a>`;
+      return `<span>${escapeHtml(l.text)}</span>`;
+    }).join('')}</div>` : '';
+
+    let slots = [null, null];
+    const imgs = s.images || [];
+    let hasSlotMeta = imgs.some(im => im && (im.slot === 0 || im.slot === 1));
+    if(hasSlotMeta){
+      imgs.forEach(im => { if(im && im.src && (im.slot===0||im.slot===1)) slots[im.slot] = im; });
+    } else {
+      imgs.forEach((im,j) => { if(im && im.src && j<2) slots[j] = im; });
+    }
+    const hasL = !!(slots[0] && slots[0].src);
+    const hasR = !!(slots[1] && slots[1].src);
+
+    const fig = (im) => {
+      const cap = (im.caption||'').trim();
+      if(cap){
+        return `<figure><img src="${escapeHtml(im.src)}" alt="" loading="lazy"><figcaption>${escapeHtml(cap)}</figcaption></figure>`;
+      }
+      return `<figure class="no-caption"><img src="${escapeHtml(im.src)}" alt="" loading="lazy"></figure>`;
+    };
+    const singleMedia = (im) => {
+      const cap = (im.caption||'').trim();
+      if(cap){
+        return `<div class="th-card-media"><img src="${escapeHtml(im.src)}" alt="" loading="lazy"><div class="th-cap">${escapeHtml(cap)}</div></div>`;
+      }
+      return `<div class="th-card-media no-caption"><img src="${escapeHtml(im.src)}" alt="" loading="lazy"></div>`;
+    };
+
+    let reverse = '';
+    let media = '';
+    if(hasL && hasR){
+      reverse = idx % 2 === 1 ? ' reverse' : '';
+      media = `<div class="th-card-media dual">${fig(slots[0])}${fig(slots[1])}</div>`;
+    } else if(hasL){
+      reverse = ' reverse';
+      media = singleMedia(slots[0]);
+    } else if(hasR){
+      reverse = '';
+      media = singleMedia(slots[1]);
+    }
+
+    const body = `<div class="th-card-body"><span class="th-num">${escapeHtml(s.num||String(idx+1).padStart(2,'0'))}</span><h3>${escapeHtml(s.title||'')}</h3>${paras}${note}${labels}</div>`;
+    const anchorId = 'ops-'+escapeHtml(s.id||('op'+idx));
+    if(!media){
+      return `<article class="th-card th-card-textonly" id="${anchorId}">${body}</article>`;
+    }
+    return `<article class="th-card${reverse}" id="${anchorId}">${body}${media}</article>`;
+  }).join('');
+  const flowNav = steps.map((s,i) => `<a href="#ops-${escapeHtml(s.id||('op'+i))}">${escapeHtml(s.num||String(i+1))}. ${escapeHtml((s.title||'').slice(0,16))}</a>`).join('');
+  root.innerHTML = `<section class="th-section" id="ops-moi"><div class="th-section-head"><h2>${escapeHtml(data.moiTitle||'รหัส MOI')}</h2><p>${escapeHtml(data.moiDesc||'')}</p></div><div class="th-table-wrap"><table class="th-moi-table"><thead><tr><th>รหัสลูกค้า</th><th>ชื่อลูกค้า</th><th>มาตรฐานการแพ็ค MOI</th><th style="width:52px;text-align:center;">ลิงก์</th></tr></thead><tbody>${moiHtml}</tbody></table></div></section>
+  <section class="th-section" id="ops-process"><div class="th-section-head"><h2>${escapeHtml(data.processTitle||'กระบวนการ')}</h2><p>${escapeHtml(data.processDesc||'')}</p></div><div class="th-flow"><div class="th-flow-nav">${flowNav}</div>${stepsHtml}</div></section>`;
+}
+
+function opsSyncImageMapFromData(data){
+  window.__opsImageMap = window.__opsImageMap || {};
+  (data.steps||[]).forEach((s,i)=>{
+    const imgs = s.images || [];
+    delete window.__opsImageMap[i+':0'];
+    delete window.__opsImageMap[i+':1'];
+    let usedLegacy = false;
+    imgs.forEach((im)=>{
+      if(!im || !im.src) return;
+      if(im.slot===0 || im.slot===1){
+        window.__opsImageMap[i+':'+im.slot] = im.src;
+      } else {
+        usedLegacy = true;
+      }
+    });
+    if(usedLegacy || (!window.__opsImageMap[i+':0'] && !window.__opsImageMap[i+':1'])){
+      imgs.forEach((im,j)=>{ if(im && im.src && j<2) window.__opsImageMap[i+':'+j] = im.src; });
+    }
+  });
+}
+
+function opsCollectFromAdmin(){
+  const data = {
+    moiTitle: (document.getElementById('ops-moi-title')||{}).value || '',
+    moiDesc: (document.getElementById('ops-moi-desc')||{}).value || '',
+    moiRows: [],
+    processTitle: (document.getElementById('ops-proc-title')||{}).value || '',
+    processDesc: (document.getElementById('ops-proc-desc')||{}).value || '',
+    steps: []
+  };
+  document.querySelectorAll('[data-omoi="code"]').forEach(el=>{
+    const i = el.getAttribute('data-oi');
+    const name = document.querySelector('[data-omoi="name"][data-oi="'+i+'"]');
+    const moi = document.querySelector('[data-omoi="moi"][data-oi="'+i+'"]');
+    const linkEl = document.querySelector('[data-omoi="link"][data-oi="'+i+'"]');
+    data.moiRows.push({ code: el.value.trim(), name: name?name.value.trim():'', moi: moi?moi.value.trim():'', link: linkEl?linkEl.value.trim():'' });
+  });
+  const idxs = [...new Set([...document.querySelectorAll('[data-ostep]')].map(el=>el.getAttribute('data-ostep')))].sort((a,b)=>Number(a)-Number(b));
+  idxs.forEach(i=>{
+    const get = f => { const el = document.querySelector('[data-ostep="'+i+'"][data-f="'+f+'"]'); return el ? el.value : ''; };
+    const labels = [];
+    document.querySelectorAll('[data-olabel-step="'+i+'"][data-olabel-f="text"]').forEach(tel=>{
+      const li = tel.getAttribute('data-olabel-i');
+      const text = tel.value.trim();
+      const linkEl = document.querySelector('[data-olabel-step="'+i+'"][data-olabel-i="'+li+'"][data-olabel-f="link"]');
+      const link = linkEl ? linkEl.value.trim() : '';
+      if(text) labels.push({ text, link });
+    });
+    const images = [];
+    for(let j=0;j<2;j++){
+      const src = (window.__opsImageMap && window.__opsImageMap[i+':'+j]) || '';
+      const capEl = document.querySelector('[data-ostep-img="'+i+'"][data-oimg="'+j+'"][data-f="caption"]');
+      if(src) images.push({ src, caption: capEl ? capEl.value.trim() : '', slot: j });
+    }
+    data.steps.push({
+      id: 'op'+(Number(i)+1),
+      num: get('num') || String(Number(i)+1).padStart(2,'0'),
+      title: get('title'),
+      body: get('body'),
+      note: get('note'),
+      labels,
+      images
+    });
+  });
+  return data;
+}
+
+function renderOperationsAdminForce(data){
+  const root = document.getElementById('operations-admin-root');
+  if(!root) return;
+  opsSyncImageMapFromData(data);
+  const moiRows = (data.moiRows||[]).map((r,i)=>{
+    const link = r.link || '';
+    const eyeBtn = link
+      ? `<a class="th-eye-btn" href="${escapeHtml(link)}" target="_blank" rel="noopener noreferrer" title="เปิดลิงก์">👁</a>`
+      : `<span class="th-eye-btn disabled" title="ยังไม่มีลิงก์">👁</span>`;
+    return `<div class="hp-moi-row">
+    <input type="text" data-omoi="code" data-oi="${i}" value="${escapeHtml(r.code||'')}" placeholder="รหัส">
+    <input type="text" data-omoi="name" data-oi="${i}" value="${escapeHtml(r.name||'')}" placeholder="ชื่อลูกค้า">
+    <input type="text" data-omoi="moi" data-oi="${i}" value="${escapeHtml(r.moi||'')}" placeholder="MOI">
+    <input type="url" class="hp-link-full" data-omoi="link" data-oi="${i}" value="${escapeHtml(link)}" placeholder="https://... ลิงก์เอกสาร" onchange="opsRefreshMoiEye(${i})">
+    ${eyeBtn}
+    <button type="button" class="btn btn-danger btn-small" onclick="opsRemoveMoiRow(${i})">×</button>
+  </div>`;
+  }).join('');
+  const stepsHtml = (data.steps||[]).map((s,i)=>{
+    let slotSrc = ['',''];
+    let slotCap = ['',''];
+    const imgs = s.images || [];
+    if(imgs.length && imgs[0] && (imgs[0].slot===0 || imgs[0].slot===1 || imgs[0].slot===undefined)){
+      imgs.forEach(im=>{
+        if(!im || !im.src) return;
+        const sl = (im.slot===0||im.slot===1) ? im.slot : null;
+        if(sl!==null){ slotSrc[sl]=im.src; slotCap[sl]=im.caption||''; }
+      });
+      if(!slotSrc[0] && !slotSrc[1]){
+        imgs.forEach((im,j)=>{ if(im&&im.src&&j<2){ slotSrc[j]=im.src; slotCap[j]=im.caption||''; }});
+      }
+    }
+    if(window.__opsImageMap[i+':0']) slotSrc[0] = window.__opsImageMap[i+':0'];
+    if(window.__opsImageMap[i+':1']) slotSrc[1] = window.__opsImageMap[i+':1'];
+
+    const labels = (s.labels||[]).map(l => typeof l === 'string' ? {text:l, link:''} : {text:l.text||'', link:l.link||''});
+    const labelsHtml = labels.map((l,li)=>`<div class="hp-label-row">
+      <input type="text" data-olabel-step="${i}" data-olabel-i="${li}" data-olabel-f="text" value="${escapeHtml(l.text)}" placeholder="ชื่อป้าย">
+      <input type="url" data-olabel-step="${i}" data-olabel-i="${li}" data-olabel-f="link" value="${escapeHtml(l.link)}" placeholder="https://... ลิงก์ (ถ้ามี)">
+      <button type="button" class="btn btn-danger btn-small" onclick="opsRemoveLabel(${i},${li})">×</button>
+    </div>`).join('');
+
+    const imgBlock = (j, label) => {
+      const src = slotSrc[j];
+      const cap = slotCap[j];
+      return `<div class="hp-img-col"><label>${label}</label>
+        <input type="file" accept="image/*" onchange="opsUploadStepImage(${i},${j},this)">
+        <input type="text" data-ostep-img="${i}" data-oimg="${j}" data-f="caption" value="${escapeHtml(cap)}" placeholder="คำบรรยาย">
+        ${src ? `<div class="hp-img-wrap"><img class="hp-img-preview" src="${escapeHtml(src)}" alt=""><button type="button" class="hp-img-remove" onclick="opsRemoveStepImage(${i},${j})" title="ลบรูป">×</button></div>` : ''}
+      </div>`;
+    };
+
+    return `<div class="hp-editor-block hp-step-admin"><h3>ขั้นตอน ${i+1}</h3><div class="form-grid">
+      <div><label>เลขที่</label><input type="text" data-ostep="${i}" data-f="num" value="${escapeHtml(s.num||'')}"></div>
+      <div><label>หัวข้อ</label><input type="text" data-ostep="${i}" data-f="title" value="${escapeHtml(s.title||'')}"></div>
+      <div><label>เนื้อหา</label><textarea data-ostep="${i}" data-f="body">${escapeHtml(s.body||'')}</textarea></div>
+      <div><label>หมายเหตุ</label><input type="text" data-ostep="${i}" data-f="note" value="${escapeHtml(s.note||'')}"></div>
+      <div>
+        <label>ป้ายกำกับ (คลิกได้ถ้ามีลิงก์)</label>
+        ${labelsHtml || '<p class="empty-note">ยังไม่มีป้าย</p>'}
+        <div class="btn-row"><button type="button" class="btn btn-outline btn-small" onclick="opsAddLabel(${i})">+ เพิ่มป้าย</button></div>
+      </div>
+      <div class="hp-img-row">
+        ${imgBlock(0, 'รูปซ้าย (รูป 1)')}
+        ${imgBlock(1, 'รูปขวา (รูป 2)')}
+      </div>
+      <div class="btn-row"><button type="button" class="btn btn-danger btn-small" onclick="opsRemoveStep(${i})">ลบขั้นตอนนี้</button></div>
+    </div></div>`;
+  }).join('');
+  root.innerHTML = `<div class="hp-editor-block"><h3>ตาราง MOI</h3><div class="form-grid">
+    <div><label>หัวข้อ</label><input type="text" id="ops-moi-title" value="${escapeHtml(data.moiTitle||'')}"></div>
+    <div><label>คำอธิบาย</label><input type="text" id="ops-moi-desc" value="${escapeHtml(data.moiDesc||'')}"></div>
+  </div><div style="margin-top:10px;">${moiRows||'<p class="empty-note">ยังไม่มีแถว</p>'}</div>
+  <div class="btn-row"><button type="button" class="btn btn-outline btn-small" onclick="opsAddMoiRow()">+ เพิ่มแถว</button></div></div>
+  <div class="hp-editor-block"><h3>กระบวนการ</h3><div class="form-grid">
+    <div><label>หัวข้อ</label><input type="text" id="ops-proc-title" value="${escapeHtml(data.processTitle||'')}"></div>
+    <div><label>คำอธิบาย</label><input type="text" id="ops-proc-desc" value="${escapeHtml(data.processDesc||'')}"></div>
+  </div></div>
+  <div>${stepsHtml}</div>
+  <div class="btn-row"><button type="button" class="btn btn-outline btn-small" onclick="opsAddStep()">+ เพิ่มขั้นตอน</button></div>`;
+}
+
+async function renderOperationsAdmin(){
+  const data = await loadOperationsPage();
+  renderOperationsAdminForce(data);
+}
+
+async function saveOperationsFromAdmin(){
+  const msg = document.getElementById('operations-save-msg');
+  try{
+    const data = opsCollectFromAdmin();
+    await saveOperationsPageData(data);
+    if(msg) msg.textContent = 'บันทึกแล้ว — กำลังกลับหน้าการทำงาน...';
+    try{ alert('บันทึกหน้าการทำงานเรียบร้อยแล้ว'); }catch(e){}
+    await navigateTo('operations');
+  }catch(e){
+    if(msg) msg.textContent = 'บันทึกไม่สำเร็จ: '+(e.message||e);
+    try{ alert('บันทึกไม่สำเร็จ: '+(e.message||e)); }catch(err){}
+  }
+}
+
+async function resetOperationsToDefault(){
+  if(!confirm('คืนค่าหน้าการทำงานเป็นค่าเริ่มต้น?')) return;
+  window.__opsImageMap = {};
+  const d = getDefaultOperationsPage();
+  await saveOperationsPageData(d);
+  renderOperationsAdminForce(d);
+  const msg = document.getElementById('operations-save-msg');
+  if(msg) msg.textContent = 'คืนค่าเริ่มต้นแล้ว';
+}
+
+function opsRefreshMoiEye(i){
+  const data = opsCollectFromAdmin();
+  renderOperationsAdminForce(data);
+}
+function opsAddMoiRow(){
+  const data = opsCollectFromAdmin();
+  data.moiRows.push({code:'',name:'',moi:'',link:''});
+  renderOperationsAdminForce(data);
+}
+function opsRemoveMoiRow(i){
+  const data = opsCollectFromAdmin();
+  data.moiRows.splice(i,1);
+  renderOperationsAdminForce(data);
+}
+function opsAddStep(){
+  const data = opsCollectFromAdmin();
+  const n = data.steps.length+1;
+  data.steps.push({id:'op'+n,num:String(n).padStart(2,'0'),title:'ขั้นตอนใหม่',body:'',note:'',labels:[],images:[]});
+  renderOperationsAdminForce(data);
+}
+function opsRemoveStep(i){
+  const data = opsCollectFromAdmin();
+  data.steps.splice(i,1);
+  const newMap = {};
+  data.steps.forEach((s,ni)=>{(s.images||[]).forEach((im,j)=>{ if(im.src) newMap[ni+':'+j]=im.src; });});
+  window.__opsImageMap = newMap;
+  renderOperationsAdminForce(data);
+}
+function opsRemoveStepImage(stepIndex, imgIndex){
+  if(window.__opsImageMap) delete window.__opsImageMap[stepIndex+':'+imgIndex];
+  const data = opsCollectFromAdmin();
+  if(data.steps[stepIndex] && data.steps[stepIndex].images){
+    data.steps[stepIndex].images = data.steps[stepIndex].images.filter(im => im.slot !== imgIndex);
+  }
+  if(window.__opsImageMap) delete window.__opsImageMap[stepIndex+':'+imgIndex];
+  renderOperationsAdminForce(data);
+}
+function opsAddLabel(stepIndex){
+  const data = opsCollectFromAdmin();
+  if(!data.steps[stepIndex].labels) data.steps[stepIndex].labels = [];
+  data.steps[stepIndex].labels.push({ text: '', link: '' });
+  renderOperationsAdminForce(data);
+}
+function opsRemoveLabel(stepIndex, labelIndex){
+  const data = opsCollectFromAdmin();
+  if(data.steps[stepIndex] && data.steps[stepIndex].labels){
+    data.steps[stepIndex].labels.splice(labelIndex, 1);
+  }
+  renderOperationsAdminForce(data);
+}
+function opsUploadStepImage(stepIndex, imgIndex, input){
+  const file = input.files && input.files[0];
+  if(!file) return;
+  if(file.size > 2.5*1024*1024){ alert('ไฟล์ใหญ่เกิน 2.5MB'); input.value=''; return; }
+  const reader = new FileReader();
+  reader.onload = ()=>{
+    window.__opsImageMap = window.__opsImageMap || {};
+    window.__opsImageMap[stepIndex+':'+imgIndex] = reader.result;
+    const data = opsCollectFromAdmin();
+    renderOperationsAdminForce(data);
+  };
+  reader.readAsDataURL(file);
+}
+
+
 async function loadAboutPage(){
   await waitForStorage();
   try{
