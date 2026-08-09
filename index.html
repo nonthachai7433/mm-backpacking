@@ -1770,7 +1770,7 @@ footer.note{text-align:center;font-size:11px;color:var(--muted);margin-top:32px;
     <div id="admin-tab-operations" style="display:none;">
       <div class="panel">
         <h2 class="purple">จัดการเนื้อหาหน้าการทำงาน</h2>
-        <p style="line-height:1.6;font-size:13.5px;color:var(--muted);margin-top:0;">แก้ไขตาราง MOI ขั้นตอนกระบวนการ และรูปภาพที่แสดงบนหน้าการทำงาน — บันทึกแล้วผู้ใช้ทั่วไปจะเห็นทันที</p>
+        <p style="line-height:1.6;font-size:13.5px;color:var(--muted);margin-top:0;">แก้ไขตาราง หน้าที่และความรับผิดชอบของวิศวกรบรรจุภัณฑ์และการจัดส่ง และรูปภาพที่แสดงบนหน้าการทำงาน — บันทึกแล้วผู้ใช้ทั่วไปจะเห็นทันที</p>
         <div id="operations-admin-root"></div>
         <div class="btn-row" style="margin-top:16px;">
           <button class="btn btn-outline" onclick="resetOperationsToDefault()">คืนค่าเริ่มต้น</button>
@@ -4415,7 +4415,7 @@ function renderHomepageAdminForce(data){
     <div><label>ปุ่มรอง</label><input type="text" id="hp-btn2" value="${escapeHtml(h.btnSecondary||'')}"></div>
     <div><label>บริษัท</label><input type="text" id="hp-company" value="${escapeHtml(h.company||'')}"></div>
   </div></div>
-  <div class="hp-editor-block"><h3>ตาราง MOI</h3><div class="form-grid">
+  <div class="hp-editor-block"><h3>ตาราง</h3><div class="form-grid">
     <div><label>หัวข้อ</label><input type="text" id="hp-moi-title" value="${escapeHtml(data.moiTitle||'')}"></div>
     <div><label>คำอธิบาย</label><input type="text" id="hp-moi-desc" value="${escapeHtml(data.moiDesc||'')}"></div>
   </div><div style="margin-top:10px;">${moiRows||'<p class="empty-note">ยังไม่มีแถว</p>'}</div>
