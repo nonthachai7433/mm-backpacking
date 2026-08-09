@@ -442,7 +442,15 @@ table.admin-table tr:nth-child(even){background:var(--surface-2);}
 .about-block h3{font-family:var(--font);font-weight:700;font-size:14px;letter-spacing:0.2px;margin:0 0 6px;color:var(--accent);}
 .about-block p{font-size:14px;line-height:1.7;color:var(--muted);margin:0;}
 
-.about-page{padding:0;}
+.about-page{
+  padding:8px 8px 4px;
+}
+@media (min-width:720px){
+  .about-page{padding:12px 18px 8px;}
+}
+@media (min-width:1100px){
+  .about-page{padding:16px 28px 10px;}
+}
 
 /* Top split: text left + image right */
 .about-split{
@@ -453,7 +461,13 @@ table.admin-table tr:nth-child(even){background:var(--surface-2);}
   margin-bottom:36px;
 }
 @media (min-width:860px){
-  .about-split{grid-template-columns:minmax(240px,0.95fr) 1.15fr; gap:36px;}
+  .about-split{grid-template-columns:minmax(240px,0.95fr) 1.15fr; gap:40px;}
+}
+.about-split-text{
+  padding:4px 8px 4px 12px;
+}
+@media (min-width:860px){
+  .about-split-text{padding:8px 12px 8px 20px;}
 }
 .about-split-text h2{
   font-family:var(--font);
@@ -1506,6 +1520,15 @@ footer.note{text-align:center;font-size:11px;color:var(--muted);margin-top:32px;
 #view-criteria .panel,
 #view-knowledge .panel{
   margin-top:4px;
+}
+#view-about .panel{
+  padding:26px 28px 24px;
+}
+@media (min-width:900px){
+  #view-about .panel{padding:30px 36px 28px;}
+}
+@media (min-width:1200px){
+  #view-about .panel{padding:32px 44px 30px;}
 }
 #view-public-home #home-admin-bar{
   margin-bottom:14px;
