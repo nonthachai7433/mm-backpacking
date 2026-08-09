@@ -4565,22 +4565,19 @@ window.__opsImageMap = window.__opsImageMap || {};
 
 function getDefaultOperationsPage(){
   return {
-    moiTitle: 'รหัส MOI',
-    moiDesc: 'มาตรฐานการแพ็คตามลูกค้าแต่ละราย อ้างอิงจากเอกสาร MOI',
+    moiTitle: 'หน้าที่และความรับผิดชอบของวิศวกร',
+    moiDesc: 'หน้าที่และความรับผิดชอบของวิศกรบรรจุภัณฑ์ด้านหลัง แบ่งตามน้ำหนักดังนี้',
     moiRows: [
-      { code:'699', name:'Nvidia', moi:'D20-8363' },
-      { code:'678', name:'Facebook', moi:'D20-8290' },
-      { code:'666', name:'Google LLC', moi:'D20-8180' },
-      { code:'677', name:'Cisgo', moi:'D20-8148' },
-      { code:'688', name:'Amazon', moi:'D20-8291' },
-      { code:'618', name:'Microsoft', moi:'D20-8830' },
-      { code:'603', name:'Oracle', moi:'D20-8944' },
-      { code:'633', name:'Juniper', moi:'D20-8304' },
-      { code:'822', name:'TikTok', moi:'D20-8911' },
-      { code:'—', name:'Quanta', moi:'D20-8887' }
+      { code:'1', name:'การบำรุงรักษาและติดตั้งเครื่องพิมพ์', moi:'40' },
+      { code:'2', name:'การฝึกอบรมพนักงาน', moi:'30' },
+      { code:'3', name:'การดำเนินการอัปโหลด SN ของ NVIDIA', moi:'10' },
+      { code:'4', name:'การสนับสนุน MOD', moi:'10' },
+      { code:'5', name:'การตรวจสอบอุปกรณ์อัตโนมัติ', moi:'5' },
+      { code:'6', name:'การตรวจสอบวัสดุบรรจุภัณฑ์', moi:'5' },
+     
     ],
-    processTitle: 'กระบวนการแพ็คหลัง',
-    processDesc: 'ขั้นตอนตั้งแต่สถานีขนส่งจนถึงศุลกากร',
+    processTitle: 'หน้าที่และความรับผิดชอบของวิศกรบรรจุภัณฑ์ด้านหลัง',
+    processDesc: 'หน้าที่และความรับผิดชอบของวิศกรชาวไทยบรรจุภัณฑ์ด้านหลัง ณ ปัจจุบัน',
     steps: [
       { id:'op1', num:'01', title:'Shipping Station (สถานีขนส่ง)', body:'Shipping Station หรือสถานีขนส่ง คือ การสแกนงานเข้าระบบขายและตรวจเช็คข้อมูลของชิ้นงานว่าครบถ้วนหรือไม่ จากนั้นนำใส่ Tray ก่อนส่งต่อไปด้านหลังเพื่อแพ็คงานตามขั้นตอนต่อไป', note:'การเช็คเลขวัสดุ Tray ที่ใช้ในการบรรจุ เช็คได้จาก BOM', labels:[], images:[{src:'images/shipping1.jpg', caption:'Station สแกนทีละตัว'},{src:'images/shipping2.jpg', caption:'Station สแกนได้หลายตัว'}] },
       { id:'op2', num:'02', title:'Station การทำข้อมูลก่อนการแพ็ค', body:'เมื่อผ่านกระบวนการแรกมาแล้วจะถูกส่งต่อมาด้านหลังเพื่อดำเนินการต่อไป\nขั้นแรกจะผ่าน Station การทำข้อมูลก่อนการแพ็ค เพื่อตรวจหาข้อมูลที่ NG ก่อนดำเนินการแพ็คส่งให้ลูกค้า จะนำเลข DO ในใบ Shipping ไปดึงข้อมูลมาตรวจสอบ', note:'', labels:[], images:[{src:'images/data_station.jpg', caption:''}] },
