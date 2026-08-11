@@ -443,46 +443,84 @@ table.admin-table tr:nth-child(even){background:var(--surface-2);}
 .about-block p{font-size:14px;line-height:1.7;color:var(--muted);margin:0;}
 
 .about-page{
-  padding:8px 8px 4px;
+  padding:4px 4px 4px;
 }
 @media (min-width:720px){
-  .about-page{padding:12px 18px 8px;}
+  .about-page{padding:8px 12px 6px;}
 }
 @media (min-width:1100px){
-  .about-page{padding:16px 28px 10px;}
+  .about-page{padding:10px 16px 8px;}
 }
 
-/* Top split: text left + image right */
+/* Top split: text left + image right — card style so it doesn't feel empty */
 .about-split{
   display:grid;
   grid-template-columns:1fr;
-  gap:28px;
-  align-items:center;
-  margin-bottom:36px;
+  gap:0;
+  align-items:stretch;
+  margin-bottom:28px;
+  background:var(--surface-2);
+  border:1px solid var(--border);
+  border-radius:20px;
+  overflow:hidden;
+  box-shadow:var(--shadow-soft);
 }
 @media (min-width:860px){
-  .about-split{grid-template-columns:minmax(240px,0.95fr) 1.15fr; gap:40px;}
+  .about-split{grid-template-columns:minmax(280px,1fr) 1.2fr;}
 }
 .about-split-text{
-  padding:4px 8px 4px 12px;
+  padding:22px 22px 20px;
+  display:flex;
+  flex-direction:column;
+  justify-content:center;
+  gap:0;
+  position:relative;
 }
 @media (min-width:860px){
-  .about-split-text{padding:8px 12px 8px 20px;}
+  .about-split-text{padding:28px 28px 26px 32px;}
+}
+.about-split-text::before{
+  content:'';
+  position:absolute;
+  left:0; top:18px; bottom:18px;
+  width:4px;
+  border-radius:0 4px 4px 0;
+  background:var(--accent);
+  opacity:0.85;
+}
+@media (max-width:859px){
+  .about-split-text::before{display:none;}
+}
+.about-kicker{
+  display:inline-flex;
+  align-items:center;
+  gap:6px;
+  font-family:var(--mono);
+  font-size:11px;
+  font-weight:700;
+  letter-spacing:0.5px;
+  color:var(--accent);
+  background:var(--accent-soft);
+  border:1px solid var(--accent-soft-border);
+  padding:5px 10px;
+  border-radius:8px;
+  margin:0 0 12px;
+  width:fit-content;
 }
 .about-split-text h2{
   font-family:var(--font);
   font-weight:700;
-  font-size:clamp(24px,3vw,32px);
+  font-size:clamp(22px,2.8vw,28px);
   letter-spacing:0;
   color:var(--accent);
-  margin:0 0 14px;
-  line-height:1.35;
+  margin:0 0 12px;
+  line-height:1.3;
 }
 .about-split-text .about-lead{
   font-family:var(--font);
-  font-size:14.5px;
+  font-size:14px;
   font-weight:400;
-  line-height:1.9;
+  line-height:1.75;
   color:var(--muted);
   margin:0;
 }
@@ -490,29 +528,54 @@ table.admin-table tr:nth-child(even){background:var(--surface-2);}
   color:var(--text);
   font-weight:600;
 }
+.about-split-points{
+  display:flex;
+  flex-wrap:wrap;
+  gap:8px;
+  margin-top:16px;
+}
+.about-split-point{
+  display:inline-flex;
+  align-items:center;
+  gap:6px;
+  font-size:12.5px;
+  font-weight:600;
+  color:var(--text);
+  background:var(--surface);
+  border:1px solid var(--border);
+  padding:7px 12px;
+  border-radius:999px;
+  box-shadow:0 1px 2px rgba(0,0,0,0.04);
+}
+.about-split-point span.ic{font-size:14px;line-height:1;}
 .about-split-media{
   position:relative;
-  border-radius:18px;
   overflow:hidden;
-  border:1px solid var(--border);
-  box-shadow:var(--shadow-soft);
   background:var(--surface-2);
+  min-height:220px;
   aspect-ratio:16/10;
-  max-height:360px;
+}
+@media (min-width:860px){
+  .about-split-media{
+    aspect-ratio:auto;
+    min-height:100%;
+    max-height:none;
+  }
 }
 .about-split-media img{
   width:100%;
   height:100%;
   object-fit:cover;
-  object-position:center 35%;
+  object-position:center 30%;
   display:block;
+  min-height:220px;
 }
 .about-split-media .about-media-badge{
   position:absolute;
   top:14px;
   left:14px;
-  background:color-mix(in srgb, var(--surface) 88%, transparent);
-  backdrop-filter:blur(8px);
+  background:color-mix(in srgb, var(--surface) 90%, transparent);
+  backdrop-filter:blur(10px);
   border:1px solid var(--border);
   color:var(--accent);
   font-family:var(--mono);
@@ -526,41 +589,47 @@ table.admin-table tr:nth-child(even){background:var(--surface-2);}
 /* Center mission section */
 .about-mission{
   text-align:center;
-  max-width:680px;
-  margin:0 auto 32px;
-  padding:8px 8px 0;
+  max-width:720px;
+  margin:0 auto 28px;
+  padding:20px 18px 18px;
+  background:var(--surface);
+  border:1px solid var(--border);
+  border-radius:16px;
+  box-shadow:var(--shadow-soft);
 }
 .about-mission h3{
   font-family:var(--font);
   font-weight:700;
-  font-size:clamp(20px,2.6vw,26px);
+  font-size:clamp(18px,2.4vw,24px);
   color:var(--text);
-  margin:0 0 12px;
+  margin:0 0 10px;
   letter-spacing:0;
-  line-height:1.4;
+  line-height:1.35;
 }
 .about-mission p{
-  font-size:14.5px;
-  line-height:1.8;
+  font-size:14px;
+  line-height:1.75;
   color:var(--muted);
-  margin:0 0 8px;
+  margin:0 0 6px;
 }
 .about-mission .about-quote{
   font-family:var(--font);
-  font-size:14px;
+  font-size:13.5px;
   font-style:normal;
   color:var(--accent);
   margin-top:12px;
   font-weight:600;
+  padding-top:12px;
+  border-top:1px dashed var(--border);
 }
 
 /* Icon feature row */
 .about-features{
   display:grid;
   grid-template-columns:repeat(2,1fr);
-  gap:14px;
-  margin:0 0 32px;
-  max-width:720px;
+  gap:12px;
+  margin:0 0 28px;
+  max-width:760px;
   margin-left:auto;
   margin-right:auto;
 }
@@ -572,40 +641,49 @@ table.admin-table tr:nth-child(even){background:var(--surface-2);}
   flex-direction:column;
   align-items:center;
   text-align:center;
-  gap:10px;
-  padding:8px 4px;
+  gap:8px;
+  padding:14px 10px;
+  background:var(--surface);
+  border:1px solid var(--border);
+  border-radius:14px;
+  box-shadow:var(--shadow-soft);
+  transition:border-color .2s, transform .2s;
+}
+.about-feat:hover{
+  border-color:var(--accent-soft-border);
+  transform:translateY(-2px);
 }
 .about-feat-icon{
-  width:64px;
-  height:64px;
-  border-radius:16px;
+  width:56px;
+  height:56px;
+  border-radius:14px;
   background:var(--accent);
   color:var(--btn-accent-text);
   display:flex;
   align-items:center;
   justify-content:center;
-  font-size:26px;
-  box-shadow:var(--shadow-soft);
+  font-size:24px;
+  box-shadow:0 6px 16px color-mix(in srgb, var(--accent) 30%, transparent);
   transition:transform .2s, box-shadow .2s;
 }
 .about-feat:hover .about-feat-icon{
-  transform:translateY(-3px);
-  box-shadow:0 10px 24px color-mix(in srgb, var(--accent) 35%, transparent);
+  transform:translateY(-2px);
+  box-shadow:0 10px 22px color-mix(in srgb, var(--accent) 40%, transparent);
 }
 .about-feat span{
   font-family:var(--font);
-  font-size:13.5px;
+  font-size:13px;
   font-weight:600;
   color:var(--text);
-  line-height:1.4;
+  line-height:1.35;
 }
 
 /* Detail cards below */
 .about-detail-grid{
   display:grid;
   grid-template-columns:1fr;
-  gap:14px;
-  margin-top:8px;
+  gap:12px;
+  margin-top:4px;
 }
 @media (min-width:720px){
   .about-detail-grid{grid-template-columns:1fr 1fr;}
@@ -614,32 +692,35 @@ table.admin-table tr:nth-child(even){background:var(--surface-2);}
   background:var(--surface);
   border:1px solid var(--border);
   border-radius:var(--radius);
-  padding:18px 20px;
+  padding:16px 18px;
   box-shadow:var(--shadow-soft);
-  transition:border-color .2s;
+  transition:border-color .2s, transform .2s;
 }
-.about-detail-card:hover{border-color:var(--accent-soft-border);}
+.about-detail-card:hover{
+  border-color:var(--accent-soft-border);
+  transform:translateY(-1px);
+}
 .about-detail-card h4{
   font-family:var(--font);
   font-weight:700;
-  font-size:15px;
-  margin:0 0 8px;
+  font-size:14.5px;
+  margin:0 0 6px;
   color:var(--accent);
   letter-spacing:0;
-  line-height:1.4;
+  line-height:1.35;
 }
 .about-detail-card p{
-  font-size:13.5px;
-  line-height:1.7;
+  font-size:13px;
+  line-height:1.65;
   color:var(--muted);
   margin:0;
 }
 
 .about-footer-note{
-  margin-top:28px;
-  padding-top:16px;
+  margin-top:24px;
+  padding-top:14px;
   border-top:1px dashed var(--border);
-  font-size:12.5px;
+  font-size:12px;
   color:var(--muted);
   font-family:var(--mono);
   text-align:center;
@@ -1294,7 +1375,11 @@ footer.note{text-align:center;font-size:11px;color:var(--muted);margin-top:32px;
   box-shadow:0 2px 8px rgba(0,0,0,0.25);
 }
 .hp-img-remove:hover{background:#dc2626;}
-.hp-label-row{display:grid;grid-template-columns:1fr 1.4fr 34px;gap:6px;margin-bottom:6px;align-items:center;}
+.hp-label-row{display:grid;grid-template-columns:1fr 1.2fr auto 34px;gap:6px;margin-bottom:8px;align-items:start;}
+.hp-label-img-cell{display:flex;flex-direction:column;gap:4px;min-width:90px;}
+.hp-label-img-cell input[type=file]{font-size:11px;max-width:110px;}
+.hp-label-img-preview{width:48px;height:48px;object-fit:cover;border-radius:6px;border:1px solid var(--border);}
+.hp-label-img-remove{font-size:11px;padding:2px 6px;}
 .th-labels a.th-label-link{
   background:color-mix(in srgb, var(--accent) 12%, var(--surface));
   color:var(--accent);border:1px solid color-mix(in srgb, var(--accent) 28%, var(--border));
@@ -1302,11 +1387,29 @@ footer.note{text-align:center;font-size:11px;color:var(--muted);margin-top:32px;
   text-decoration:none;cursor:pointer;transition:all .15s;
 }
 .th-labels a.th-label-link:hover{background:var(--accent);color:#fff;}
+.th-labels button.th-label-img-btn{
+  background:color-mix(in srgb, var(--accent) 12%, var(--surface));
+  color:var(--accent);border:1px solid color-mix(in srgb, var(--accent) 28%, var(--border));
+  padding:4px 11px;border-radius:999px;font-size:12px;font-weight:600;
+  cursor:pointer;transition:all .15s;font-family:inherit;display:inline-flex;align-items:center;gap:6px;
+}
+.th-labels button.th-label-img-btn:hover{background:var(--accent);color:#fff;}
+.th-labels button.th-label-img-btn .th-label-thumb{
+  width:18px;height:18px;border-radius:4px;object-fit:cover;flex-shrink:0;
+}
 .th-card-media.dual .empty-slot{
   min-height:160px;display:flex;align-items:center;justify-content:center;
   color:var(--muted);font-size:12px;border:1px dashed var(--border);border-radius:10px;
   background:var(--surface);
 }
+
+/* Label image lightbox */
+.label-img-modal{position:fixed;inset:0;z-index:210;background:rgba(0,0,0,0.8);display:flex;align-items:center;justify-content:center;padding:20px;cursor:pointer;}
+.label-img-modal .label-img-box{max-width:min(90vw,800px);max-height:90vh;background:var(--surface);border-radius:12px;overflow:hidden;box-shadow:0 20px 60px rgba(0,0,0,0.4);cursor:default;display:flex;flex-direction:column;}
+.label-img-modal .label-img-box img{max-width:100%;max-height:75vh;object-fit:contain;display:block;background:#111;}
+.label-img-modal .label-img-cap{padding:12px 16px;text-align:center;font-size:14px;font-weight:600;color:var(--text);border-top:1px solid var(--border);}
+.label-img-modal .label-img-close{position:absolute;top:12px;right:16px;background:rgba(0,0,0,0.5);color:#fff;border:none;width:36px;height:36px;border-radius:50%;font-size:20px;cursor:pointer;display:flex;align-items:center;justify-content:center;}
+.label-img-modal .label-img-close:hover{background:rgba(0,0,0,0.75);}
 
 
 .tabs{display:flex;flex-wrap:wrap;gap:6px;}
@@ -1522,13 +1625,13 @@ footer.note{text-align:center;font-size:11px;color:var(--muted);margin-top:32px;
   margin-top:4px;
 }
 #view-about .panel{
-  padding:26px 28px 24px;
+  padding:18px 20px 16px;
 }
 @media (min-width:900px){
-  #view-about .panel{padding:30px 36px 28px;}
+  #view-about .panel{padding:22px 28px 20px;}
 }
 @media (min-width:1200px){
-  #view-about .panel{padding:32px 44px 30px;}
+  #view-about .panel{padding:24px 32px 22px;}
 }
 #view-public-home #home-admin-bar{
   margin-bottom:14px;
@@ -2044,6 +2147,14 @@ footer.note{text-align:center;font-size:11px;color:var(--muted);margin-top:32px;
       </div>
     </div>
     <iframe class="pdf-viewer-frame" id="pdf-viewer-frame" src="about:blank"></iframe>
+  </div>
+</div>
+
+<div class="label-img-modal" id="label-img-modal" style="display:none;" onclick="if(event.target===this)closeLabelImage()">
+  <button type="button" class="label-img-close" onclick="closeLabelImage()" title="ปิด">×</button>
+  <div class="label-img-box" onclick="event.stopPropagation()">
+    <img id="label-img-src" src="" alt="">
+    <div class="label-img-cap" id="label-img-cap"></div>
   </div>
 </div>
 
@@ -2632,6 +2743,24 @@ function openPdfViewer(itemId, title){
 function closePdfViewer(){
   document.getElementById('pdf-viewer-modal').style.display = 'none';
   document.getElementById('pdf-viewer-frame').src = 'about:blank';
+  document.body.style.overflow = '';
+}
+
+function showLabelImage(src, caption){
+  if(!src) return;
+  document.getElementById('label-img-src').src = src;
+  document.getElementById('label-img-cap').textContent = caption || '';
+  document.getElementById('label-img-modal').style.display = 'flex';
+  document.body.style.overflow = 'hidden';
+}
+function showLabelImageById(id){
+  const item = (window.__labelImgStore || {})[id];
+  if(!item || !item.src) return;
+  showLabelImage(item.src, item.text || '');
+}
+function closeLabelImage(){
+  document.getElementById('label-img-modal').style.display = 'none';
+  document.getElementById('label-img-src').src = '';
   document.body.style.overflow = '';
 }
 
@@ -4412,10 +4541,16 @@ async function renderPublicHomepage(){
     const note = s.note ? `<p class="th-note">${escapeHtml(s.note)}</p>` : '';
     const rawLabels = s.labels || [];
     const labelItems = rawLabels.map(l => {
-      if(typeof l === 'string') return { text: l, link: '' };
-      return { text: l.text || '', link: l.link || '' };
+      if(typeof l === 'string') return { text: l, link: '', image: '' };
+      return { text: l.text || '', link: l.link || '', image: l.image || '' };
     }).filter(l => l.text);
-    const labels = labelItems.length ? `<div class="th-labels">${labelItems.map(l => {
+    const labels = labelItems.length ? `<div class="th-labels">${labelItems.map((l, li) => {
+      if(l.image){
+        const id = 'lblimg_'+idx+'_'+li;
+        window.__labelImgStore = window.__labelImgStore || {};
+        window.__labelImgStore[id] = { src: l.image, text: l.text };
+        return `<button type="button" class="th-label-img-btn" data-label-img-id="${id}" onclick="showLabelImageById(this.getAttribute('data-label-img-id'))"><img class="th-label-thumb" src="${escapeHtml(l.image)}" alt="">${escapeHtml(l.text)}</button>`;
+      }
       if(l.link) return `<a class="th-label-link" href="${escapeHtml(l.link)}" target="_blank" rel="noopener noreferrer">${escapeHtml(l.text)}</a>`;
       return `<span>${escapeHtml(l.text)}</span>`;
     }).join('')}</div>` : '';
@@ -4521,14 +4656,16 @@ function hpCollectFromAdmin(){
   const idxs = [...new Set([...document.querySelectorAll('[data-step]')].map(el=>el.getAttribute('data-step')))].sort((a,b)=>Number(a)-Number(b));
   idxs.forEach(i=>{
     const get = f => { const el = document.querySelector('[data-step="'+i+'"][data-f="'+f+'"]'); return el ? el.value : ''; };
-    // labels with optional links
+    // labels with optional links + images
     const labels = [];
     document.querySelectorAll('[data-label-step="'+i+'"][data-label-f="text"]').forEach(tel=>{
       const li = tel.getAttribute('data-label-i');
       const text = tel.value.trim();
       const linkEl = document.querySelector('[data-label-step="'+i+'"][data-label-i="'+li+'"][data-label-f="link"]');
       const link = linkEl ? linkEl.value.trim() : '';
-      if(text) labels.push({ text, link });
+      const imgKey = i+':'+li;
+      const image = (window.__hpLabelImageMap && window.__hpLabelImageMap[imgKey]) || '';
+      if(text) labels.push({ text, link, image });
     });
     // fixed image slots 0=left, 1=right
     const images = [];
@@ -4589,13 +4726,23 @@ function renderHomepageAdminForce(data){
     if(window.__hpImageMap[i+':0']) slotSrc[0] = window.__hpImageMap[i+':0'];
     if(window.__hpImageMap[i+':1']) slotSrc[1] = window.__hpImageMap[i+':1'];
 
-    // normalize labels to objects
-    const labels = (s.labels||[]).map(l => typeof l === 'string' ? {text:l, link:''} : {text:l.text||'', link:l.link||''});
-    const labelsHtml = labels.map((l,li)=>`<div class="hp-label-row">
+    // normalize labels to objects (text, link, image)
+    window.__hpLabelImageMap = window.__hpLabelImageMap || {};
+    const labels = (s.labels||[]).map(l => typeof l === 'string' ? {text:l, link:'', image:''} : {text:l.text||'', link:l.link||'', image:l.image||''});
+    const labelsHtml = labels.map((l,li)=>{
+      const imgKey = i+':'+li;
+      if(l.image && !window.__hpLabelImageMap[imgKey]) window.__hpLabelImageMap[imgKey] = l.image;
+      const imgSrc = window.__hpLabelImageMap[imgKey] || l.image || '';
+      return `<div class="hp-label-row">
       <input type="text" data-label-step="${i}" data-label-i="${li}" data-label-f="text" value="${escapeHtml(l.text)}" placeholder="ชื่อป้าย">
       <input type="url" data-label-step="${i}" data-label-i="${li}" data-label-f="link" value="${escapeHtml(l.link)}" placeholder="https://... ลิงก์ (ถ้ามี)">
+      <div class="hp-label-img-cell">
+        <input type="file" accept="image/*" onchange="hpUploadLabelImage(${i},${li},this)" title="อัปโหลดรูปป้าย">
+        ${imgSrc ? `<img class="hp-label-img-preview" src="${escapeHtml(imgSrc)}" alt=""><button type="button" class="btn btn-outline btn-small hp-label-img-remove" onclick="hpRemoveLabelImage(${i},${li})">ลบรูป</button>` : ''}
+      </div>
       <button type="button" class="btn btn-danger btn-small" onclick="hpRemoveLabel(${i},${li})">×</button>
-    </div>`).join('');
+    </div>`;
+    }).join('');
 
     const imgBlock = (j, label) => {
       const src = slotSrc[j];
@@ -4613,7 +4760,7 @@ function renderHomepageAdminForce(data){
       <div><label>เนื้อหา</label><textarea data-step="${i}" data-f="body">${escapeHtml(s.body||'')}</textarea></div>
       <div><label>หมายเหตุ</label><input type="text" data-step="${i}" data-f="note" value="${escapeHtml(s.note||'')}"></div>
       <div>
-        <label>ป้ายกำกับ (คลิกได้ถ้ามีลิงก์)</label>
+        <label>ป้ายกำกับ (คลิกได้ถ้ามีลิงก์ หรือมีรูปภาพจะโชว์เมื่อกด)</label>
         ${labelsHtml || '<p class="empty-note">ยังไม่มีป้าย</p>'}
         <div class="btn-row"><button type="button" class="btn btn-outline btn-small" onclick="hpAddLabel(${i})">+ เพิ่มป้าย</button></div>
       </div>
@@ -4720,7 +4867,29 @@ function hpRemoveStepImage(stepIndex, imgIndex){
 function hpAddLabel(stepIndex){
   const data = hpCollectFromAdmin();
   if(!data.steps[stepIndex].labels) data.steps[stepIndex].labels = [];
-  data.steps[stepIndex].labels.push({ text: '', link: '' });
+  data.steps[stepIndex].labels.push({ text: '', link: '', image: '' });
+  renderHomepageAdminForce(data);
+}
+function hpUploadLabelImage(stepIndex, labelIndex, input){
+  const file = input.files && input.files[0];
+  if(!file) return;
+  if(file.size > 2.5*1024*1024){ alert('ไฟล์ใหญ่เกิน 2.5MB'); input.value=''; return; }
+  const reader = new FileReader();
+  reader.onload = ()=>{
+    window.__hpLabelImageMap = window.__hpLabelImageMap || {};
+    window.__hpLabelImageMap[stepIndex+':'+labelIndex] = reader.result;
+    const data = hpCollectFromAdmin();
+    renderHomepageAdminForce(data);
+  };
+  reader.readAsDataURL(file);
+}
+function hpRemoveLabelImage(stepIndex, labelIndex){
+  window.__hpLabelImageMap = window.__hpLabelImageMap || {};
+  delete window.__hpLabelImageMap[stepIndex+':'+labelIndex];
+  const data = hpCollectFromAdmin();
+  if(data.steps[stepIndex] && data.steps[stepIndex].labels && data.steps[stepIndex].labels[labelIndex]){
+    data.steps[stepIndex].labels[labelIndex].image = '';
+  }
   renderHomepageAdminForce(data);
 }
 function hpRemoveLabel(stepIndex, labelIndex){
@@ -4856,10 +5025,16 @@ async function renderOperationsPage(){
     const note = s.note ? `<p class="th-note">${escapeHtml(s.note)}</p>` : '';
     const rawLabels = s.labels || [];
     const labelItems = rawLabels.map(l => {
-      if(typeof l === 'string') return { text: l, link: '' };
-      return { text: l.text || '', link: l.link || '' };
+      if(typeof l === 'string') return { text: l, link: '', image: '' };
+      return { text: l.text || '', link: l.link || '', image: l.image || '' };
     }).filter(l => l.text);
-    const labels = labelItems.length ? `<div class="th-labels">${labelItems.map(l => {
+    const labels = labelItems.length ? `<div class="th-labels">${labelItems.map((l, li) => {
+      if(l.image){
+        const id = 'lblimg_'+idx+'_'+li;
+        window.__labelImgStore = window.__labelImgStore || {};
+        window.__labelImgStore[id] = { src: l.image, text: l.text };
+        return `<button type="button" class="th-label-img-btn" data-label-img-id="${id}" onclick="showLabelImageById(this.getAttribute('data-label-img-id'))"><img class="th-label-thumb" src="${escapeHtml(l.image)}" alt="">${escapeHtml(l.text)}</button>`;
+      }
       if(l.link) return `<a class="th-label-link" href="${escapeHtml(l.link)}" target="_blank" rel="noopener noreferrer">${escapeHtml(l.text)}</a>`;
       return `<span>${escapeHtml(l.text)}</span>`;
     }).join('')}</div>` : '';
@@ -4961,7 +5136,9 @@ function opsCollectFromAdmin(){
       const text = tel.value.trim();
       const linkEl = document.querySelector('[data-olabel-step="'+i+'"][data-olabel-i="'+li+'"][data-olabel-f="link"]');
       const link = linkEl ? linkEl.value.trim() : '';
-      if(text) labels.push({ text, link });
+      const imgKey = i+':'+li;
+      const image = (window.__opsLabelImageMap && window.__opsLabelImageMap[imgKey]) || '';
+      if(text) labels.push({ text, link, image });
     });
     const images = [];
     for(let j=0;j<2;j++){
@@ -5017,12 +5194,22 @@ function renderOperationsAdminForce(data){
     if(window.__opsImageMap[i+':0']) slotSrc[0] = window.__opsImageMap[i+':0'];
     if(window.__opsImageMap[i+':1']) slotSrc[1] = window.__opsImageMap[i+':1'];
 
-    const labels = (s.labels||[]).map(l => typeof l === 'string' ? {text:l, link:''} : {text:l.text||'', link:l.link||''});
-    const labelsHtml = labels.map((l,li)=>`<div class="hp-label-row">
+    window.__opsLabelImageMap = window.__opsLabelImageMap || {};
+    const labels = (s.labels||[]).map(l => typeof l === 'string' ? {text:l, link:'', image:''} : {text:l.text||'', link:l.link||'', image:l.image||''});
+    const labelsHtml = labels.map((l,li)=>{
+      const imgKey = i+':'+li;
+      if(l.image && !window.__opsLabelImageMap[imgKey]) window.__opsLabelImageMap[imgKey] = l.image;
+      const imgSrc = window.__opsLabelImageMap[imgKey] || l.image || '';
+      return `<div class="hp-label-row">
       <input type="text" data-olabel-step="${i}" data-olabel-i="${li}" data-olabel-f="text" value="${escapeHtml(l.text)}" placeholder="ชื่อป้าย">
       <input type="url" data-olabel-step="${i}" data-olabel-i="${li}" data-olabel-f="link" value="${escapeHtml(l.link)}" placeholder="https://... ลิงก์ (ถ้ามี)">
+      <div class="hp-label-img-cell">
+        <input type="file" accept="image/*" onchange="opsUploadLabelImage(${i},${li},this)" title="อัปโหลดรูปป้าย">
+        ${imgSrc ? `<img class="hp-label-img-preview" src="${escapeHtml(imgSrc)}" alt=""><button type="button" class="btn btn-outline btn-small hp-label-img-remove" onclick="opsRemoveLabelImage(${i},${li})">ลบรูป</button>` : ''}
+      </div>
       <button type="button" class="btn btn-danger btn-small" onclick="opsRemoveLabel(${i},${li})">×</button>
-    </div>`).join('');
+    </div>`;
+    }).join('');
 
     const imgBlock = (j, label) => {
       const src = slotSrc[j];
@@ -5040,7 +5227,7 @@ function renderOperationsAdminForce(data){
       <div><label>เนื้อหา</label><textarea data-ostep="${i}" data-f="body">${escapeHtml(s.body||'')}</textarea></div>
       <div><label>หมายเหตุ</label><input type="text" data-ostep="${i}" data-f="note" value="${escapeHtml(s.note||'')}"></div>
       <div>
-        <label>ป้ายกำกับ (คลิกได้ถ้ามีลิงก์)</label>
+        <label>ป้ายกำกับ (คลิกได้ถ้ามีลิงก์ หรือมีรูปภาพจะโชว์เมื่อกด)</label>
         ${labelsHtml || '<p class="empty-note">ยังไม่มีป้าย</p>'}
         <div class="btn-row"><button type="button" class="btn btn-outline btn-small" onclick="opsAddLabel(${i})">+ เพิ่มป้าย</button></div>
       </div>
@@ -5133,7 +5320,29 @@ function opsRemoveStepImage(stepIndex, imgIndex){
 function opsAddLabel(stepIndex){
   const data = opsCollectFromAdmin();
   if(!data.steps[stepIndex].labels) data.steps[stepIndex].labels = [];
-  data.steps[stepIndex].labels.push({ text: '', link: '' });
+  data.steps[stepIndex].labels.push({ text: '', link: '', image: '' });
+  renderOperationsAdminForce(data);
+}
+function opsUploadLabelImage(stepIndex, labelIndex, input){
+  const file = input.files && input.files[0];
+  if(!file) return;
+  if(file.size > 2.5*1024*1024){ alert('ไฟล์ใหญ่เกิน 2.5MB'); input.value=''; return; }
+  const reader = new FileReader();
+  reader.onload = ()=>{
+    window.__opsLabelImageMap = window.__opsLabelImageMap || {};
+    window.__opsLabelImageMap[stepIndex+':'+labelIndex] = reader.result;
+    const data = opsCollectFromAdmin();
+    renderOperationsAdminForce(data);
+  };
+  reader.readAsDataURL(file);
+}
+function opsRemoveLabelImage(stepIndex, labelIndex){
+  window.__opsLabelImageMap = window.__opsLabelImageMap || {};
+  delete window.__opsLabelImageMap[stepIndex+':'+labelIndex];
+  const data = opsCollectFromAdmin();
+  if(data.steps[stepIndex] && data.steps[stepIndex].labels && data.steps[stepIndex].labels[labelIndex]){
+    data.steps[stepIndex].labels[labelIndex].image = '';
+  }
   renderOperationsAdminForce(data);
 }
 function opsRemoveLabel(stepIndex, labelIndex){
@@ -5215,9 +5424,18 @@ async function renderAboutPage(){
 
   let html = '<div class="about-page">';
 
-  // Split: text + image
+  // Split: text + image (card style, denser)
   html += '<div class="about-split">';
-  html += `<div class="about-split-text"><h2>${escapeHtml(headline)}</h2><p class="about-lead">${leadHtml}</p></div>`;
+  html += `<div class="about-split-text">
+    <div class="about-kicker">ℹ️ เกี่ยวกับทีม</div>
+    <h2>${escapeHtml(headline)}</h2>
+    <p class="about-lead">${leadHtml}</p>
+    <div class="about-split-points">
+      <div class="about-split-point"><span class="ic">👥</span> คน + เครื่องจักร</div>
+      <div class="about-split-point"><span class="ic">📦</span> มาตรฐานลูกค้า</div>
+      <div class="about-split-point"><span class="ic">📈</span> วัดผลได้จริง</div>
+    </div>
+  </div>`;
   if(img){
     html += `<div class="about-split-media">
       <img src="${escapeHtml(img)}" alt="${escapeHtml(cap)}" loading="lazy">
