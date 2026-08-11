@@ -584,6 +584,95 @@ table.admin-table tr:nth-child(even){background:var(--surface-2);}
   letter-spacing:0.6px;
   padding:6px 10px;
   border-radius:8px;
+  z-index:3;
+}
+
+/* About image slideshow */
+.about-slideshow{
+  position:relative;
+  width:100%;
+  height:100%;
+  min-height:220px;
+}
+.about-slideshow-track{
+  position:relative;
+  width:100%;
+  height:100%;
+  min-height:220px;
+}
+.about-slideshow-slide{
+  position:absolute;
+  inset:0;
+  opacity:0;
+  transition:opacity 0.7s ease;
+  z-index:1;
+}
+.about-slideshow-slide.active{
+  opacity:1;
+  z-index:2;
+}
+.about-slideshow-slide img{
+  width:100%;
+  height:100%;
+  object-fit:cover;
+  object-position:center 30%;
+  display:block;
+  min-height:220px;
+}
+.about-slideshow-dots{
+  position:absolute;
+  bottom:12px;
+  left:50%;
+  transform:translateX(-50%);
+  display:flex;
+  gap:7px;
+  z-index:4;
+  padding:6px 10px;
+  background:color-mix(in srgb, var(--surface) 75%, transparent);
+  backdrop-filter:blur(8px);
+  border-radius:20px;
+  border:1px solid var(--border);
+}
+.about-slideshow-dot{
+  width:8px;
+  height:8px;
+  border-radius:50%;
+  background:color-mix(in srgb, var(--muted) 50%, transparent);
+  border:none;
+  padding:0;
+  cursor:pointer;
+  transition:background 0.25s, transform 0.25s;
+}
+.about-slideshow-dot.active{
+  background:var(--accent);
+  transform:scale(1.25);
+}
+.about-slideshow-nav{
+  position:absolute;
+  top:50%;
+  transform:translateY(-50%);
+  z-index:4;
+  width:34px;
+  height:34px;
+  border-radius:50%;
+  border:1px solid var(--border);
+  background:color-mix(in srgb, var(--surface) 85%, transparent);
+  backdrop-filter:blur(8px);
+  color:var(--text);
+  font-size:16px;
+  line-height:1;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  cursor:pointer;
+  opacity:0.7;
+  transition:opacity 0.2s, background 0.2s;
+}
+.about-slideshow-nav:hover{opacity:1;}
+.about-slideshow-nav.prev{left:10px;}
+.about-slideshow-nav.next{right:10px;}
+@media (max-width:600px){
+  .about-slideshow-nav{display:none;}
 }
 
 /* Center mission section */
@@ -1888,9 +1977,7 @@ footer.note{text-align:center;font-size:11px;color:var(--muted);margin-top:32px;
         <button class="btn btn-primary" onclick="handleLogin()">登录|เข้าสู่ระบบ</button>
       </div>
       <p class="login-note">
-        กรอกชื่อผู้ใช้และรหัสผ่านเพื่อเริ่มทำแบบทดสอบ — ชื่อใหม่จะถูกสร้างอัตโนมัติครั้งแรก<br>
-        ผู้ดูแลระบบ: ใช้รหัส <strong style="color:var(--accent);font-family:var(--mono);">C25HBD</strong> ทั้งชื่อผู้ใช้และรหัสผ่าน<br>
-        <span style="opacity:0.85;">(新用户首次登录将自动创建账号 · 管理员账号 C25HBD)</span>
+        กรอกชื่อผู้ใช้และรหัสผ่านเพื่อเริ่มทำแบบทดสอบ — ชื่อใหม่จะถูกสร้างอัตโนมัติครั้งแรก
       </p>
     </div>
   </div>
@@ -4932,7 +5019,7 @@ function getDefaultAboutPage(){
     missionTitle: 'มาตรฐานเดียวกันสำหรับทุกคน',
     missionBody: 'ระบบนี้ถูกสร้างขึ้นเพื่อเป็นศูนย์กลางการเรียนรู้และทดสอบความรู้ด้านกระบวนการแพ็คหลัง (Backpacking) และการปฏิบัติตามมาตรฐานบรรจุภัณฑ์–ฉลากจัดส่งสินค้าภายในองค์กร เราต้องการมอบความรู้ที่ถูกต้องจากแหล่งเดียวกัน เพื่อลดความคลาดเคลื่อนและยกระดับคุณภาพงานก่อนส่งมอบให้ลูกค้า',
     missionQuote: '"การช่วยให้ทีมงานเข้าใจมาตรฐานเดียวกัน คือเป้าหมายความสำเร็จของเรา"',
-    image: 'images/meeting.jpg',
+    image: 'images/about-1.jpg',
     imageCaption: 'การฝึกอบรมพนักงานในพื้นที่ผลิต',
     features: [
       { icon: '📘', label: 'เรียนรู้ง่าย' },
@@ -5436,12 +5523,29 @@ async function renderAboutPage(){
       <div class="about-split-point"><span class="ic">📈</span> วัดผลได้จริง</div>
     </div>
   </div>`;
-  if(img){
-    html += `<div class="about-split-media">
-      <img src="${escapeHtml(img)}" alt="${escapeHtml(cap)}" loading="lazy">
+  // Slideshow with about-1..4 images (fallback to single img if needed)
+  const slideImgs = [
+    'images/about-1.jpg',
+    'images/about-2.jpg',
+    'images/about-3.jpg',
+    'images/about-4.jpg'
+  ];
+  html += `<div class="about-split-media">
+    <div class="about-slideshow" id="about-slideshow" data-interval="4000">
+      <div class="about-slideshow-track">
+        ${slideImgs.map((src,i)=>`
+          <div class="about-slideshow-slide${i===0?' active':''}" data-index="${i}">
+            <img src="${escapeHtml(src)}" alt="${escapeHtml(cap)} ${i+1}" loading="${i===0?'eager':'lazy'}">
+          </div>`).join('')}
+      </div>
+      <button type="button" class="about-slideshow-nav prev" aria-label="Previous">‹</button>
+      <button type="button" class="about-slideshow-nav next" aria-label="Next">›</button>
+      <div class="about-slideshow-dots">
+        ${slideImgs.map((_,i)=>`<button type="button" class="about-slideshow-dot${i===0?' active':''}" data-index="${i}" aria-label="Slide ${i+1}"></button>`).join('')}
+      </div>
       <div class="about-media-badge">BACKPACKING</div>
-    </div>`;
-  }
+    </div>
+  </div>`;
   html += '</div>';
 
   // Mission center
@@ -5476,6 +5580,54 @@ async function renderAboutPage(){
   html += '<p class="about-footer-note">MM BACKPAKING · กระบวนการแพ็คหลัง &amp; แบบทดสอบความรู้บรรจุภัณฑ์</p>';
   html += '</div>';
   root.innerHTML = html;
+  initAboutSlideshow();
+}
+
+function initAboutSlideshow(){
+  const root = document.getElementById('about-slideshow');
+  if(!root) return;
+  // Clear previous timer if any
+  if(window.__aboutSlideTimer){
+    clearInterval(window.__aboutSlideTimer);
+    window.__aboutSlideTimer = null;
+  }
+  const slides = Array.from(root.querySelectorAll('.about-slideshow-slide'));
+  const dots = Array.from(root.querySelectorAll('.about-slideshow-dot'));
+  const prevBtn = root.querySelector('.about-slideshow-nav.prev');
+  const nextBtn = root.querySelector('.about-slideshow-nav.next');
+  if(slides.length < 2) return;
+  let idx = 0;
+  const interval = parseInt(root.getAttribute('data-interval')||'4000', 10) || 4000;
+
+  function goTo(n){
+    idx = (n + slides.length) % slides.length;
+    slides.forEach((s,i)=>s.classList.toggle('active', i===idx));
+    dots.forEach((d,i)=>d.classList.toggle('active', i===idx));
+  }
+  function next(){ goTo(idx+1); }
+  function prev(){ goTo(idx-1); }
+
+  dots.forEach(d=>{
+    d.addEventListener('click', ()=>{
+      const i = parseInt(d.getAttribute('data-index'),10);
+      if(!isNaN(i)) goTo(i);
+      resetTimer();
+    });
+  });
+  if(nextBtn) nextBtn.addEventListener('click', ()=>{ next(); resetTimer(); });
+  if(prevBtn) prevBtn.addEventListener('click', ()=>{ prev(); resetTimer(); });
+
+  function resetTimer(){
+    if(window.__aboutSlideTimer) clearInterval(window.__aboutSlideTimer);
+    window.__aboutSlideTimer = setInterval(next, interval);
+  }
+  resetTimer();
+
+  // Pause on hover
+  root.addEventListener('mouseenter', ()=>{
+    if(window.__aboutSlideTimer){ clearInterval(window.__aboutSlideTimer); window.__aboutSlideTimer=null; }
+  });
+  root.addEventListener('mouseleave', ()=>{ resetTimer(); });
 }
 
 async function renderCriteriaAdmin(){
